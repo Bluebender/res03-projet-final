@@ -5,12 +5,12 @@
 
 __Définition__ : Site de regroupement des chef disoponible par région pour venir cuisiner chez les particuliers ou pour des évènements
 
-Les diférentes fonctionnalités du site :
+### Les diférentes fonctionnalités du site :
 * Visibilité des chefs par tous les visiteurs
 * Les chefs peuvent se créent un compte pour être visible sur le site
 * Partie admin pour la gestion du site
 
-Interface visiteur :
+### Interface visiteur :
 * Liste des chefs disponibles par region
 * Liste des chefs disponibles par date
 * Liste des chefs disponibles par styles de cuisine
@@ -21,12 +21,12 @@ Interface visiteur :
 
 * Demande de préstation
 
-Interface chef :
+### Interface chef :
 * Création du profil
 * Création d'une carte des plats proposés
 * Gestion des disponibilités
 
-Interface Admin :
+### Interface Admin :
 * affichage des chefs
 * liste des recettes
 * possibilité de supprimer un chef
@@ -36,7 +36,7 @@ Interface Admin :
 * possibilité de supprimer un plat
 * possibilité d'éditer un plat
 
-Chef :
+### Chef :
 * Prénom
 * Nom
 * Pseudo du chef (optionel)
@@ -52,12 +52,12 @@ Chef :
 * Disponibilités
 * zone d'intervention (par codes postaux)
 
-Carte :
+### Carte :
 * Liste d'entrée
 * Liste de plats
 * Liste de desserts
 
-Plat :
+### Plat :
 * Nom
 * Photo
 * prix
