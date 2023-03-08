@@ -12,107 +12,202 @@ class Router {
 
     public function __construct()
     {
-        $this->defaultControl = new DefaultController();
+        // $this->defaultControl = new DefaultController();
         $this->chiefControl = new ChiefController();
-        $this->dishControl = new DishController();
-        $this->eventControl = new EventController();
-        $this->zoneControl = new ZoneController();
-        $this->categoryControl = new CategoryController();
-        $this->foodStyleControl = new FoodStyleController();
+        // $this->dishControl = new DishController();
+        // $this->eventControl = new EventController();
+        // $this->zoneControl = new ZoneController();
+        // $this->categoryControl = new CategoryController();
+        // $this->foodStyleControl = new FoodStyleController();
     }
     
-    function checkRoute(string $request) : void 
+    function checkRoute(string $request) : void
     {
+        var_dump($request);
+        
         $route=explode("/", $request);
 
-        // Public pages     
-        if ($route[0]===null){
-            $this->chiefControl->visitorHome();
+        var_dump($route);
+
+        // Public pages
+        if ($route[1]===""){
+            echo "acceuil";
+            // $this->chiefControl->visitorHome();
         }
-        if ($route[0]==="chefs"){
+        else if ($route[1]==="chefs"){
+            echo "chefs";
             $this->chiefControl->displayAllChiefs();
         }
-        if ($route[0]==="cartes"){
+        else if ($route[1]==="cartes"){
             $this->chiefControl->displayAllMenus();
         }
-        if ($route[0]==="plats"){
+        else if ($route[1]==="plats"){
             $this->dishControl->displayAllDishes();
         }
-        if ($route[0]==="plat"){
-            $this->dishControl->displayDish($route[1]);
+        else if ($route[1]==="plat"){
+            $this->dishControl->displayDish($route[2]);
         }
-        if ($route[0]==="chef"){
-            if ($route[2]==="présentation"){
-                $this->chiefControl->displayChief($route[1]);
+        else if ($route[1]==="chef"){
+            if ($route[3]==="présentation"){
+                $this->chiefControl->displayChief($route[2]);
             }
-            if ($route[2]==="carte"){
-                $this->chiefControl->displayChiefMenu($route[1]);
+            else if ($route[3]==="carte"){
+                $this->chiefControl->displayChiefMenu($route[2]);
             }
-            if ($route[2]==="demande-de-prestation"){
-                $this->chiefControl->displayChiefRequest($route[1]);
+            else if ($route[3]==="demande-de-prestation"){
+                $this->chiefControl->displayChiefRequest($route[2]);
+            }
+            else{
+                echo "erreur 404";
             }
         }
-        if ($route[0]==="inscription"){
+        else if ($route[1]==="inscription"){
                 $this->defaultControl->register();
         }
-        if ($route[0]==="connexion"){
+        else if ($route[1]==="connexion"){
             $this->defaultControl->login();
         }
 
-        // Chief pages     
-        if ($route[0]==="mon-compte"){
-            if ($route[2]==="accueil"){
-                $this->chiefControl->chiefHome($route[1]);
+        // Chief pages
+        else if ($route[1]==="mon-compte"){
+            if ($route[3]==="accueil"){
+                $this->chiefControl->chiefHome($route[2]);
             }
-            if ($route[2]==="carte"){
-                $this->chiefControl->displayChiefMenu($route[1]);
+            else if ($route[3]==="carte"){
+                $this->chiefControl->displayChiefMenu($route[2]);
             }
-            if ($route[2]==="plats"){
-                $this->dishControl->displayChiefDishes($route[1]);
+            else if ($route[3]==="plats"){
+                $this->dishControl->displayChiefDishes($route[2]);
             }
-            if ($route[2]==="plat"){
-                if ($route[3]==="creer"){
-                    $this->dishControl->createChiefDish($route[1]);
+            else if ($route[3]==="plat"){
+                if ($route[4]==="creer"){
+                    $this->dishControl->createChiefDish($route[2]);
                 }
+                else if (!isset($route[5])){
+                    $this->dishControl->displayChiefDish($route[4]);
+                }
+                else if (($route[5]==="modifier")){
+                    $this->dishControl->editChiefDish($route[4]);
+                }
+                else{
+                    echo "erreur 404";
+                }
+            }
+            else if ($route[3]==="secteur"){
                 if (!isset($route[4])){
-                    $this->dishControl->displayChiefDish($route[3]);
+                    $this->zoneControl->displayChiefZone($route[2]);
                 }
-                if (($route[4]==="modifier")){
-                    $this->dishControl->updateChiefDish($route[3]);
+                else if (($route[4]==="creer")){
+                    $this->zoneControl->createChiefZone($route[2]);
+                }
+                else if (($route[4]==="modifier")){
+                    $this->zoneControl->updateChiefZone($route[2]);
+                }
+                else{
+                    echo "erreur 404";
                 }
             }
-            if ($route[2]==="secteur"){
-                if (!isset($route[3])){
-                    $this->zoneControl->displayChiefZone($route[1]);
-                }
-                if (($route[3]==="creer")){
-                    $this->zoneControl->createChiefZone($route[1]);
-                }
-                if (($route[3]==="modifier")){
-                    $this->zoneControl->updateChiefZone($route[1]);
-                }
+            else{
+                echo "erreur 404";
             }
         }
         
         // Admin pages
-        if ($route[0]==="admin"){
-            if ($route[1]==="accueil"){
+        else if ($route[1]==="admin"){
+            if ($route[2]==="accueil"){
                 $this->chiefControl->adminHome();
             }
-            if ($route[1]==="chefs"){
+            else if ($route[2]==="chefs"){
                 $this->chiefControl->displayAllChiefs();
             }
-            if ($route[1]==="chef"){
-                if ($route[3]==="presentaton"){
-                    $this->chiefControl->displayChief($route[2]);
+            else if ($route[2]==="chef"){
+                if ($route[4]==="presentaton"){
+                    $this->chiefControl->displayChief($route[3]);
                 }
-                if ($route[3]==="modifier"){
-                    $this->chiefControl->updateChief($route[2]);
+                else if ($route[4]==="modifier"){
+                    $this->chiefControl->editChief($route[3]);
+                }
+                else if ($route[4]==="carte"){
+                    $this->chiefControl->displayMenuChief($route[3]);
+                }
+                else if ($route[4]==="plats"){
+                    $this->dishControl->displayAllChiefDishes($route[3]);
+                }
+                else if ($route[4]==="plat"){
+                    if ($route[6]==="presentation"){
+                        $this->dishControl->displayDish($route[5]);
+                    }
+                    else if ($route[6]==="modifier"){
+                        $this->dishControl->editDish($route[5]);
+                    }
+                    else if ($route[6]==="modifier"){
+                        $this->dishControl->editDish($route[5]);
+                    }
+                    else{
+                        echo "erreur 404";
+                    }
+                }
+                else if ($route[4]==="zone"){
+                    if ($route[5]==="presentation"){
+                        $this->zoneControl->displayChiefZone($route[3]);
+                    }
+                    else if ($route[5]==="modifier"){
+                        $this->zoneControl->editChiefZone($route[3]);
+                    }
+                    else{
+                        echo "erreur 404";
+                    }
+                }
+                else if ($route[4]==="disponibilite"){
+                    if ($route[5]==="presentation"){
+                        $this->eventControl->displayChiefAvability($route[3]);
+                    }
+                    else if ($route[5]==="modifier"){
+                        $this->zoneControl->editChiefAvaibility($route[3]);
+                    }
+                    else{
+                        echo "erreur 404";
+                    }
+                }
+                else{
+                    echo "erreur 404";   
                 }
             }
+            else if ($route[2]==="categorie"){
+                if ($route[3]==="afficher"){
+                    $this->categoryControl->displayAllCategories($route[3]);
+                }
+                else if ($route[3]==="creer"){
+                    $this->categoryControl->createCategory($route[3]);
+                }
+                else if ($route[3]==="modifier"){
+                    $this->categoryControl->editCategory($route[3]);
+                }
+                else{
+                    echo "erreur 404";
+                }
+            }
+            else if ($route[2]==="style"){
+                if ($route[3]==="afficher"){
+                    $this->foodStyleControl->displayAllStyles($route[3]);
+                }
+                else if ($route[3]==="creer"){
+                    $this->foodStyleControl->createstyle($route[3]);
+                }
+                else if ($route[3]==="modifier"){
+                    $this->foodStyleControl->editStyle($route[3]);
+                }
+                else{
+                    echo "erreur 404";
+                }
+            }
+            else{
+                echo "erreur 404";
+            }
         }
-
-
+        else{
+            echo "erreur 404";
+        }
     }
 }
 

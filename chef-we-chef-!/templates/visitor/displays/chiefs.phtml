@@ -1,1 +1,31 @@
 <h2>Les chefs</h2>
+<!--<?php-->
+<!--var_dump($data)-->
+<!--?>-->
+
+<ul>
+    <?php foreach ($data as $chief){ ?>
+
+    <li>
+        <article>
+            <header>
+                <img src="<?= $chief->getProfilPictureUrl() ?>" alt="Photo de profil du chef">
+            </header>
+            <section>
+                <h3><?= $chief->getFirstName() ?> <?= $chief->getLastName() ?></h3>
+                <h4>Chef <?= $chief->getChiefName() ?></h4>
+                <h5><?= $chief->getCompanyName() ?></h5>
+                <p><?= $chief->getDescription() ?></p>
+                <p><?= $chief->getSpecialDishId() ?></p>
+            </section>
+            <footer>
+                <p><?= $chief->getFirstFoodStyleId() ?></p>
+                <p><?= $chief->getSecondFoodStyleId() ?></p>
+            </footer>
+        </article>
+    </li>
+
+    <?php } ?>
+    
+</ul>
+
