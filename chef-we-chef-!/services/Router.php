@@ -14,7 +14,7 @@ class Router {
     {
         // $this->defaultControl = new DefaultController();
         $this->chiefControl = new ChiefController();
-        // $this->dishControl = new DishController();
+        $this->dishControl = new DishController();
         // $this->eventControl = new EventController();
         // $this->zoneControl = new ZoneController();
         // $this->categoryControl = new CategoryController();
@@ -24,9 +24,7 @@ class Router {
     function checkRoute(string $request) : void
     {
         var_dump($request);
-        
         $route=explode("/", $request);
-
         var_dump($route);
 
         // Public pages
@@ -48,7 +46,7 @@ class Router {
             $this->dishControl->displayDish($route[2]);
         }
         else if ($route[1]==="chef"){
-            if ($route[3]==="présentation"){
+            if (!isset($route[3])){
                 $this->chiefControl->displayChief($route[2]);
             }
             else if ($route[3]==="carte"){
@@ -70,7 +68,7 @@ class Router {
 
         // Chief pages
         else if ($route[1]==="mon-compte"){
-            if ($route[3]==="accueil"){
+            if (!isset($route[3])){
                 $this->chiefControl->chiefHome($route[2]);
             }
             else if ($route[3]==="carte"){
@@ -114,14 +112,14 @@ class Router {
         
         // Admin pages
         else if ($route[1]==="admin"){
-            if ($route[2]==="accueil"){
+            if (!isset($route[2])){
                 $this->chiefControl->adminHome();
             }
             else if ($route[2]==="chefs"){
                 $this->chiefControl->displayAllChiefs();
             }
             else if ($route[2]==="chef"){
-                if ($route[4]==="presentaton"){
+                if (!isset($route[4])){
                     $this->chiefControl->displayChief($route[3]);
                 }
                 else if ($route[4]==="modifier"){
@@ -134,7 +132,7 @@ class Router {
                     $this->dishControl->displayAllChiefDishes($route[3]);
                 }
                 else if ($route[4]==="plat"){
-                    if ($route[6]==="presentation"){
+                    if (!isset($route[6])){
                         $this->dishControl->displayDish($route[5]);
                     }
                     else if ($route[6]==="modifier"){
@@ -148,7 +146,7 @@ class Router {
                     }
                 }
                 else if ($route[4]==="zone"){
-                    if ($route[5]==="presentation"){
+                    if (!isset($route[5])){
                         $this->zoneControl->displayChiefZone($route[3]);
                     }
                     else if ($route[5]==="modifier"){
@@ -159,7 +157,7 @@ class Router {
                     }
                 }
                 else if ($route[4]==="disponibilite"){
-                    if ($route[5]==="presentation"){
+                    if (!isset($route[5])){
                         $this->eventControl->displayChiefAvability($route[3]);
                     }
                     else if ($route[5]==="modifier"){
@@ -174,7 +172,7 @@ class Router {
                 }
             }
             else if ($route[2]==="categorie"){
-                if ($route[3]==="afficher"){
+                if (!isset($route[3])){
                     $this->categoryControl->displayAllCategories($route[3]);
                 }
                 else if ($route[3]==="creer"){
@@ -188,7 +186,7 @@ class Router {
                 }
             }
             else if ($route[2]==="style"){
-                if ($route[3]==="afficher"){
+                if (!isset($route[3])){
                     $this->foodStyleControl->displayAllStyles($route[3]);
                 }
                 else if ($route[3]==="creer"){
