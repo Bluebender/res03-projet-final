@@ -9,18 +9,18 @@
     <li>
         <article>
             <header>
-                <img src="<?= $chief->getProfilPictureUrl() ?>" alt="Photo de profil du chef">
+                <img src="<?= $chief[0]->getProfilPictureUrl() ?>" alt="Photo de profil du chef">
             </header>
             <section>
-                <h3><?= $chief->getFirstName() ?> <?= $chief->getLastName() ?></h3>
-                <h4>Chef <?= $chief->getChiefName() ?></h4>
-                <h5><?= $chief->getCompanyName() ?></h5>
-                <p><?= $chief->getDescription() ?></p>
-                <p><?= $chief->getSpecialDishId() ?></p>
+                <h3><?= $chief[0]->getFirstName() ?> <?= $chief[0]->getLastName() ?></h3>
+                <h4>Chef <?= $chief[0]->getChiefName() ?></h4>
+                <h5><?= $chief[0]->getCompanyName() ?></h5>
+                <p><?= $chief[0]->getDescription() ?></p>
+                <p><?= $chief[0]->getSpecialDishId() ?></p>
             </section>
             <footer>
-                <p><?= $chief->getFirstFoodStyleId() ?></p>
-                <p><?= $chief->getSecondFoodStyleId() ?></p>
+                <p><?= $chief[2]->getName() ?></p>
+                <p><?php if ($chief[3]!=="Pas de second style de cuisine") echo $chief[3]->getName() ?></p>
             </footer>
         </article>
     </li>
