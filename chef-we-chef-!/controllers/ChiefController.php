@@ -2,19 +2,81 @@
 
 class ChiefController extends AbstractController {
     private ChiefManager $chiefManag;
+    private FoodStyleManager $foodStyleManag;
+    private DishManager $dishManag;
 
     public function __construct()
     {
         $this->chiefManag = new ChiefManager();
+        $this->foodStyleManag = new FoodStyleManager();
+        $this->dishManag = new DishManager();
     }
 
     public function displayAllChiefs()
     {
         // get all the chiefs from the manager
         $allChiefs = $this->chiefManag->getAllChefs();
+        
+        $allChiefsWithFoodStyleAndSpecialDish=[];
+        foreach ($allChiefs as $chief){
+            // Je cré le tableau de donnée et j'y ajoute le chef
+            $chiefWithFoodStyleAndSpecialDish=[];
+            $chiefWithFoodStyleAndSpecialDish[] = $chief;
+
+            // Je vais chercher la catégorie qui va avec le plat et je l'ajoute au tableau           
+            $specialDishId = $chief->getSpecialDishId();
+            if (!isset($specialDishId)){
+                $specialDish="Pas de spécialité";
+            }
+            else{
+                $specialDish = $this->dishManag->getDishById($specialDishId);
+                
+            }
+            $chiefWithFoodStyleAndSpecialDish[] = $specialDish;
+            
+            // Je vais chercher le food-style qui va avec le plat et je l'ajoute au tableau           
+            $foodStyleId1 = $chief->getFirstFoodStyleId();
+            $foodstyle1 = $this->foodStyleManag->getFoodStyleById($foodStyleId1);
+            $chiefWithFoodStyleAndSpecialDish[] = $foodstyle1;
+            
+            $foodStyleId2 = $chief->getSecondFoodStyleId();
+            if (!isset($foodStyleId2)){
+                $foodstyle2="Pas de second style de cuisine";
+            }
+            else{
+                $foodstyle2 = $this->foodStyleManag->getFoodStyleById($foodStyleId2);
+            }
+            $chiefWithFoodStyleAndSpecialDish[] = $foodstyle2;
+            
+            $allChiefsWithFoodStyleAndSpecialDish[] = $chiefWithFoodStyleAndSpecialDish;
+
+        }
+        var_dump($allChiefsWithFoodStyleAndSpecialDish);
+
         // render
-        $this->render("chiefs", $allChiefs);
+        $this->render("chiefs", $allChiefsWithFoodStyleAndSpecialDish);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function getUser(string $get)
     {
