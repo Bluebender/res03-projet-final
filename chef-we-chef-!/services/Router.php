@@ -23,17 +23,14 @@ class Router {
     
     function checkRoute(string $request) : void
     {
-        var_dump($request);
         $route=explode("/", $request);
-        var_dump($route);
+        // var_dump($route);
 
         // Public pages
         if ($route[1]===""){
-            echo "acceuil";
             $this->chiefControl->visitorHome();
         }
         else if ($route[1]==="chefs"){
-            echo "chefs";
             $this->chiefControl->displayAllChiefs();
         }
         else if ($route[1]==="cartes"){

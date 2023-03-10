@@ -10,13 +10,11 @@ class DefaultController extends AbstractController {
 
     public function displayRegisterForm()
     {
-        echo "RegisterForm";
         $this->render("register-form", [""]);
     }
 
     public function displayLoginForm()
     {
-        echo "LoginForm";
         $this->render("login-form", [""]);
     }
 
