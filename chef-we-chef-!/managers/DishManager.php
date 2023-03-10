@@ -18,7 +18,7 @@ class DishManager extends AbstractManager {
         return $loadedDishesObject;
     }
 
-    public function getDishById(int $id) : Chief
+    public function getDishById(int $id) : Dish
     {
         $query= $this->db->prepare("SELECT * FROM dishes WHERE id=:value");
         $parameters=['value' => $id];

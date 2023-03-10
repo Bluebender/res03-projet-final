@@ -20,6 +20,6 @@ catch(Exception $e)
 {
     if($e->getCode() === 404)
     {
-
+        
     }
 }

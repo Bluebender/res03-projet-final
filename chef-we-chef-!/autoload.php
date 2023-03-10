@@ -5,6 +5,7 @@ require "services/Router.php";
 require "controllers/AbstractController.php";
 require "controllers/ChiefController.php";
 require "controllers/DishController.php";
+require "controllers/DefaultController.php";
 
 require "managers/AbstractManager.php";
 require "managers/ChiefManager.php";

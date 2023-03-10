@@ -10,22 +10,11 @@
 
 <body>
 
-    <header>
-        <?php require 'partials/header.phtml'; ?>
-    </header>    
-    
-    <main>
-        <h1>Chef We Chef !</h1>
-        <section>
-            <?php
-                require "displays/".$template.".phtml"; 
-            ?>
-        </section>
-    </main>
-    
-    <footer>
-        <?php require 'partials/footer.phtml'; ?>
-    </footer>
+    <?php require 'partials/header.phtml'; ?>
+
+    <?php require "displays/".$template.".phtml"; ?>
+
+    <?php require 'partials/footer.phtml'; ?>
 
 </body>
 </html>

@@ -12,7 +12,7 @@ class Router {
 
     public function __construct()
     {
-        // $this->defaultControl = new DefaultController();
+        $this->defaultControl = new DefaultController();
         $this->chiefControl = new ChiefController();
         $this->dishControl = new DishController();
         // $this->eventControl = new EventController();
@@ -30,7 +30,7 @@ class Router {
         // Public pages
         if ($route[1]===""){
             echo "acceuil";
-            // $this->chiefControl->visitorHome();
+            $this->chiefControl->visitorHome();
         }
         else if ($route[1]==="chefs"){
             echo "chefs";
@@ -60,10 +60,10 @@ class Router {
             }
         }
         else if ($route[1]==="inscription"){
-                $this->defaultControl->register();
+            $this->defaultControl->displayRegisterForm();
         }
         else if ($route[1]==="connexion"){
-            $this->defaultControl->login();
+            $this->defaultControl->displayLoginForm();
         }
 
         // Chief pages
