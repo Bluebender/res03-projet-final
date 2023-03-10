@@ -1,0 +1,44 @@
+<main>
+    <section>
+        <h1>CHEF WE CHEF !</h1>
+        <img src="https://picsum.photos/seed/picsum/200" alt="Logo"></img>
+    </section>
+    
+    <section>
+        <h2>A propos</h2>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    
+        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+    </section>
+    <section>
+        <h2>Les derniers chefs</h2>
+        <ul>
+            <?php foreach ($data as $chief){ ?>
+            <li>
+                <article>
+                    <header>
+                        <img src="<?= $chief[0]->getProfilPictureUrl() ?>" alt="Photo de profil du chef">
+                    </header>
+                    <section>
+                        <h3><?= $chief[0]->getFirstName() ?> <?= $chief[0]->getLastName() ?></h3>
+                        <h4>Chef <?= $chief[0]->getChiefName() ?></h4>
+                        <h5><?= $chief[0]->getCompanyName() ?></h5>
+                        <p><?= $chief[0]->getDescription() ?></p>
+                        <p><?php if ($chief[1]!=="Pas de spécialité") echo "Spécialité du Chef : ".$chief[1]->getDescription() ?></p>
+                    </section>
+                    <footer>
+                        <p><?= $chief[2]->getName() ?></p>
+                        <p><?php if ($chief[3]!=="Pas de second style de cuisine") echo $chief[3]->getName() ?></p>
+                    </footer>
+                </article>
+            </li>
+            <?php } ?>
+        </ul>
+    </section>
+    <section>
+        <h2>Comment devenir Chef avec Chef We Chef ! ?</h2>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    
+        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+    </section>
+</main>
