@@ -57,7 +57,7 @@ class Router {
             }
         }
         else if ($route[1]==="inscription"){
-            $this->defaultControl->displayRegisterForm();
+            $this->chiefControl->Register($_POST);
         }
         else if ($route[1]==="connexion"){
             $this->defaultControl->displayLoginForm();

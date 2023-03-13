@@ -22,13 +22,11 @@
                     <section>
                         <h3><?= $chief[0]->getFirstName() ?> <?= $chief[0]->getLastName() ?></h3>
                         <h4>Chef <?= $chief[0]->getChiefName() ?></h4>
-                        <h5><?= $chief[0]->getCompanyName() ?></h5>
                         <p><?= $chief[0]->getDescription() ?></p>
-                        <p><?php if ($chief[1]!=="Pas de spécialité") echo "Spécialité du Chef : ".$chief[1]->getDescription() ?></p>
                     </section>
                     <footer>
-                        <p><?= $chief[2]->getName() ?></p>
-                        <p><?php if ($chief[3]!=="Pas de second style de cuisine") echo $chief[3]->getName() ?></p>
+                        <p><?= $chief[1]->getName() ?></p>
+                        <p><?php if ($chief[2]!=="Pas de second style de cuisine") echo $chief[2]->getName() ?></p>
                     </footer>
                 </article>
             </li>

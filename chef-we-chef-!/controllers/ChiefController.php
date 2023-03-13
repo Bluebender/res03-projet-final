@@ -23,17 +23,6 @@ class ChiefController extends AbstractController {
             $chiefWithFoodStyleAndSpecialDish=[];
             $chiefWithFoodStyleAndSpecialDish[] = $chief;
 
-            // Je vais chercher la catégorie qui va avec le plat et je l'ajoute au tableau           
-            $specialDishId = $chief->getSpecialDishId();
-            if (!isset($specialDishId)){
-                $specialDish="Pas de spécialité";
-            }
-            else{
-                $specialDish = $this->dishManag->getDishById($specialDishId);
-                
-            }
-            $chiefWithFoodStyleAndSpecialDish[] = $specialDish;
-            
             // Je vais chercher le food-style qui va avec le plat et je l'ajoute au tableau           
             $foodStyleId1 = $chief->getFirstFoodStyleId();
             $foodstyle1 = $this->foodStyleManag->getFoodStyleById($foodStyleId1);
@@ -73,6 +62,76 @@ class ChiefController extends AbstractController {
         $this->render("home", $threeLastChiefs);
     }
 
+    public function Register($post)
+    {
+        if (empty($post)){
+            $foodstyles = $this->foodStyleManag->getAllFoodStyles();
+            $this->render("register-form", $foodstyles);
+        }
+        else {
+            if ((isset($post["firstName"]) && !empty($post["firstName"]))
+            && (isset($post["lastName"]) && !empty($post["lastName"]))
+            && (isset($post["chiefName"]) && !empty($post["chiefName"]))
+            && (isset($post["email"]) && !empty($post["email"]))
+            && (isset($post["firstPassword"]) && !empty($post["firstPassword"]))
+            && (isset($post["secondPassword"]) && !empty($post["secondPassword"]))
+            && (isset($post["phone"]) && !empty($post["phone"]))
+            && (isset($post["picture"]) && !empty($post["picture"]))
+            && (isset($post["description"]) && !empty($post["description"]))
+            && (isset($post["firstFoodStyle"]) && !empty($post["firstFoodStyle"]))
+            && (isset($post["secondFoodStyle"]) && !empty($post["secondFoodStyle"])))
+            
+                if($post["firstPassword"] === $post["secondPassword"]){
+                    $hashPwd = password_hash($post["firstPassword"], PASSWORD_DEFAULT);
+                    $newChief = new Chief (null, $post["firstName"], $post["lastName"], $post["chiefName"], $post["email"], $hashPwd, $post["phone"], $post["picture"], $post["description"], $post["firstFoodStyle"], $post["secondFoodStyle"]);
+                    $this->chiefManag->createChief($newChief);
+
+                    $chiefToConnect=$this->chiefManag->getChiefByEmail($post['email']);
+
+                    $_SESSION["connected"] = true;
+                    $_SESSION["chiedId"] = $chiefToConnect->getId();
+                    $_SESSION["chiefEmail"] = $chiefToConnect->getEmail();
+
+                    $this->render("chief", [""]);
+                }
+                else{
+                    echo "Les mots de passe sont différents !";
+                }   
+            else if(isset($post['firstName']) && empty($post['firstName'])){
+                echo "Veuillez saisir votre prénom";
+            }
+            else if(isset($post['lastName']) && empty($post['lastName'])){
+                echo "Veuillez saisir votre nom";
+            }
+            else if(isset($post['chiefName']) && empty($post['chiefName'])){
+                echo "Veuillez saisir votre nom de chef";
+            }
+            else if(isset($post['email']) && empty($post['email'])){
+                echo "Veuillez saisir votre email";
+            }
+            else if(isset($post['firstPassword']) && empty($post['firstPassword'])){
+                echo "Veuillez saisir votre mot de passe";
+            }
+            else if(isset($post['secondPassword']) && empty($post['secondPassword'])){
+                echo "Veuillez confirmer votre mot de passe";
+            }
+            else if(isset($post['phone']) && empty($post['phone'])){
+                echo "Veuillez saisir votre numéro de téléphone";
+            }
+            else if(isset($post['picture']) && empty($post['picture'])){
+                echo "Veuillez saisir votre photo de profil";
+            }
+            else if(isset($post['description']) && empty($post['description'])){
+                echo "Veuillez saisir votre déscription";
+            }
+            else if(isset($post['firstFoodStyle']) && empty($post['firstFoodStyle'])){
+                echo "Veuillez choisir un premier style de cuisine";
+            }
+            else if(isset($post['secondFoodStyle']) && empty($post['secondFoodStyle'])){
+                echo "Veuillez choisir un second style de cuisine";
+            }
+        }
+    }
 
 
 

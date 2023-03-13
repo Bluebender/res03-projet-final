@@ -8,10 +8,6 @@ class DefaultController extends AbstractController {
         $this->chiefManag = new ChiefManager();
     }
 
-    public function displayRegisterForm()
-    {
-        $this->render("register-form", [""]);
-    }
 
     public function displayLoginForm()
     {
