@@ -9,10 +9,47 @@ class DefaultController extends AbstractController {
     }
 
 
-    public function displayLoginForm()
-    {
-        $this->render("login-form", [""]);
+    public function login($post)
+    {   
+        if (empty($post)){
+            $this->render("login-form", [""]);
+        }
+        else {
+            if ((isset($post["loginEmail"]) && !empty($post["loginEmail"]))
+            && (isset($post["loginPassword"]) && !empty($post["loginPassword"]))){
+
+                $allChiefs = $this->chiefManag->getAllChefs();
+                $ChiefFind = false;
+                foreach($allChiefs as $chief){
+                    if ($post["loginEmail"] === $chief->getEmail())
+                    $ChiefFind=true;
+                } 
+                
+
+                if ($ChiefFind===false){
+                    echo "adresse email inconnue";
+                }
+                else{
+                    $chiefToConnect = $this->chiefManag->getChiefByEmail($post["loginEmail"]);
+                    if(password_verify($post["loginPassword"], $chiefToConnect->getPassword())){
+                        $_SESSION["connected"] = true;
+                        $_SESSION["chiefId"] = $chiefToConnect->getId();
+                        $_SESSION["chiefEmail"] = $chiefToConnect->getEmail();
+                        $_SESSION["role"] = "chief";
+                        
+                        header('Location: mon-compte/'.$_SESSION["chiefId"]);
+                    }
+                    else{
+                        echo "Mauvais mot de passe";
+                    }
+                }
+            }
+            else if(isset($post['loginEmail']) && empty($post['loginEmail'])){
+                echo "Veuillez saisir votre email";
+            }
+            else if(isset($post['loginPassword']) && empty($post['loginPassword'])){
+                echo "Veuillez saisir votre mot de passe";
+            }
+        }        
     }
-
-
 }

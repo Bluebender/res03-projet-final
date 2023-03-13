@@ -57,10 +57,10 @@ class Router {
             }
         }
         else if ($route[1]==="inscription"){
-            $this->chiefControl->Register($_POST);
+            $this->chiefControl->register($_POST);
         }
         else if ($route[1]==="connexion"){
-            $this->defaultControl->displayLoginForm();
+            $this->defaultControl->login($_POST);
         }
 
         // Chief pages

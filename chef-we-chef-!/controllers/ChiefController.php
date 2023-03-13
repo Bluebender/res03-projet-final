@@ -62,7 +62,7 @@ class ChiefController extends AbstractController {
         $this->render("home", $threeLastChiefs);
     }
 
-    public function Register($post)
+    public function register($post)
     {
         if (empty($post)){
             $foodstyles = $this->foodStyleManag->getAllFoodStyles();
@@ -89,10 +89,11 @@ class ChiefController extends AbstractController {
                     $chiefToConnect=$this->chiefManag->getChiefByEmail($post['email']);
 
                     $_SESSION["connected"] = true;
-                    $_SESSION["chiedId"] = $chiefToConnect->getId();
+                    $_SESSION["chiefId"] = $chiefToConnect->getId();
                     $_SESSION["chiefEmail"] = $chiefToConnect->getEmail();
-
-                    $this->render("chief", [""]);
+                    $_SESSION["role"] = "chief";
+                    
+                    header('Location: mon-compte/'.$_SESSION["chiefId"]);
                 }
                 else{
                     echo "Les mots de passe sont différents !";
