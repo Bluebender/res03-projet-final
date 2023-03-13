@@ -12,8 +12,8 @@ class ChiefController extends AbstractController {
         $this->dishManag = new DishManager();
     }
 
-    private function createData(){
-
+    private function createData()
+    {
         // get all the chiefs from the manager
         $allChiefs = $this->chiefManag->getAllChefs();
         
@@ -42,7 +42,6 @@ class ChiefController extends AbstractController {
         }
         // var_dump($allChiefsWithFoodStyleAndSpecialDish);
         return $allChiefsWithFoodStyleAndSpecialDish;
-
     }
     
     public function displayAllChiefs()
@@ -53,12 +52,12 @@ class ChiefController extends AbstractController {
         $this->render("chiefs", $data);
     }
 
-    public function visitorHome(){
+    public function visitorHome()
+    {
         $data = $this->createData();
         $longeurData = count($data);
         $threeLastChiefs = [$data[$longeurData-1], $data[$longeurData-2], $data[$longeurData-3]];
-        // var_dump($data);
-        // render        // render
+
         $this->render("home", $threeLastChiefs);
     }
 
@@ -134,6 +133,24 @@ class ChiefController extends AbstractController {
         }
     }
 
+    public function displayChief($id)
+    {
+        $data = [];
+        $chief = $this->chiefManag->getChiefById($id);
+        $data[]=$chief;
+        
+        $dishes = $this->dishManag->getAllDishes();
+        $chiefsDishes = [];
+        foreach($dishes as $dish){
+            if ($dish->getChiefId()===$chief->getId()){
+                $chiefsDishes[]=$dish;
+            }
+        }
+        $data[]=$chiefsDishes;
+        
+        // render
+        $this->render("chief", $data);
+    }
 
 
 

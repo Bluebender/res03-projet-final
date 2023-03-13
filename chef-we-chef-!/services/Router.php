@@ -66,7 +66,7 @@ class Router {
         // Chief pages
         else if ($route[1]==="mon-compte"){
             if (!isset($route[3])){
-                $this->chiefControl->chiefHome($route[2]);
+                $this->chiefControl->displayChief($route[2]);
             }
             else if ($route[3]==="carte"){
                 $this->chiefControl->displayChiefMenu($route[2]);

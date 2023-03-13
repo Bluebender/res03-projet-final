@@ -1,1 +1,20 @@
-<h2>Le chef</h2>
+<main>
+    <section>
+        <img src="<?= $data[0]->getProfilPictureUrl(); ?>" alt="Photo de profil"></img>
+        <h2>Chef <?= $data[0]->getChiefName(); ?></h2>
+    </section>
+    <section>
+        <h2>Le menu du chef <?= $data[0]->getChiefName(); ?></h2>
+        
+    </section>
+    <section>
+        <h2>Les réalisations du chef <?= $data[0]->getChiefName(); ?></h2>
+        <ul>
+        <?php foreach ($data[1] as $dish){ ?>
+        <li>
+            <img src="<?= $dish->getPictureUrl() ?>" alt="Photo du plat">
+        </li>
+        <?php } ?>
+        </ul>
+    </section>
+</main>

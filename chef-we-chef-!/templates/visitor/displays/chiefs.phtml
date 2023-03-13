@@ -1,29 +1,24 @@
-<h2>Les chefs</h2>
-<!--<?php-->
-<!--var_dump($data)-->
-<!--?>-->
-
-<ul>
-    <?php foreach ($data as $chief){ ?>
-
-    <li>
-        <article>
-            <header>
-                <img src="<?= $chief[0]->getProfilPictureUrl() ?>" alt="Photo de profil du chef">
-            </header>
-            <section>
-                <h3><?= $chief[0]->getFirstName() ?> <?= $chief[0]->getLastName() ?></h3>
-                <h4>Chef <?= $chief[0]->getChiefName() ?></h4>
-                <p><?= $chief[0]->getDescription() ?></p>
-            </section>
-            <footer>
-                <p><?= $chief[1]->getName() ?></p>
-                <p><?php if ($chief[2]!=="Pas de second style de cuisine") echo $chief[2]->getName() ?></p>
-            </footer>
-        </article>
-    </li>
-
-    <?php } ?>
-    
-</ul>
-
+<main>
+    <h2>Les chefs</h2>
+    <ul>
+        <?php foreach ($data as $chief){ ?>
+        <li>
+            <article>
+                <header>
+                    <img src="<?= $chief[0]->getProfilPictureUrl() ?>" alt="Photo de profil du chef">
+                </header>
+                <section>
+                    <h3><?= $chief[0]->getFirstName() ?> <?= $chief[0]->getLastName() ?></h3>
+                    <h4>Chef <?= $chief[0]->getChiefName() ?></h4>
+                    <p><?= $chief[0]->getDescription() ?></p>
+                    <p><?= $chief[1]->getName() ?></p>
+                    <p><?php if ($chief[2]!=="Pas de second style de cuisine") echo $chief[2]->getName() ?></p>
+                </section>
+                <footer>
+                    <a href="chef/<?= $chief[0]->getId() ?>">Voir ce chef</a>
+                </footer>
+            </article>
+        </li>
+        <?php } ?>
+    </ul>
+</main>
