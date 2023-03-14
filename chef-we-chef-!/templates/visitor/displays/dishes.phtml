@@ -1,29 +1,23 @@
-<h2>Les plats</h2>
-
-<!--<?php-->
-<!--var_dump($data)-->
-<!--?>-->
-
-<ul>
-    <?php foreach ($data as $dish){ ?>
-
-    <li>
-        <article>
-            <header>
-                <img src="<?= $dish[0]->getPictureUrl() ?>" alt="Photo du plat">
-            </header>
-            <section>
-                <h3>Nom du plat : <?= $dish[0]->getName() ?></h3>
-                <p>Description : <?= $dish[0]->getDescription() ?></p>
-                <p>Prix : <?= $dish[0]->getPrice() ?> Euros/personne</p>
-            </section>
-            <footer>
-                <p>Ceci est un(e) : <?= $dish[1]->getName() ?></p>
-                <p>Style de cuisine : <?= $dish[2]->getName() ?></p>
-            </footer>
-        </article>
-    </li>
-
-    <?php } ?>
-    
-</ul>
+<main>
+    <h2>Les plats</h2>
+    <ul>
+        <?php foreach ($data as $dish){ ?>
+        <li>
+            <article>
+                <header>
+                    <img src="<?= $dish[0]->getPictureUrl() ?>" alt="Photo du plat">
+                </header>
+                <section>
+                    <h3>Nom du plat : <?= $dish[0]->getName() ?></h3>
+                    <p>Description : <?= $dish[0]->getDescription() ?></p>
+                    <p>Prix : <?= $dish[0]->getPrice() ?> Euros/personne</p>
+                </section>
+                <footer>
+                    <p>Ceci est un(e) : <?= $dish[1]->getName() ?></p>
+                    <p>Style de cuisine : <?= $dish[2]->getName() ?></p>
+                </footer>
+            </article>
+        </li>
+        <?php } ?>
+    </ul>
+</main>

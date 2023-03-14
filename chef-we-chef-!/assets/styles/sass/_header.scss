@@ -1,0 +1,54 @@
+#visitor_header{
+    background-color: $yellow;
+    display: grid;
+    grid-template-columns: 0.1fr 0.1fr 0.1fr 0.8fr 0.6fr 0.4fr 0.1fr;
+    grid-template-rows: 20vh;
+    box-shadow: 2px 2px 5px rgba(220, 220, 220, 0.5);
+    > figure{
+        grid-column: 2 / 3;
+        height: 100%;
+        > img{
+            height: 100%;
+        }
+    }
+    > nav{
+        grid-column: 4 / 5;
+        display: flex;
+        > ul{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            > li{
+                padding: 5px 0;
+                > a{
+                    font-size: 1.4rem;
+                    text-decoration: none;
+                    color: $black;
+                    // color: $white;
+                }
+                &:hover{
+                    transform: translateY(-4px);
+                        border-bottom: 4px solid $black;
+                }
+            }
+        }
+    }
+    > ul{
+        grid-column: 6 / 7;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        > li{
+            > a{
+                font-size: 1.4rem;
+                text-decoration: none;
+                color: $black;
+            }
+            &:hover{
+                transform: translateY(-4px);
+                    border-bottom: 4px solid $black;
+            }
+        }
+    }
+}
