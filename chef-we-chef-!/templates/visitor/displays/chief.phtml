@@ -1,7 +1,18 @@
-<main>
+<!--<?php var_dump($data); ?>-->
+<main id="visitorChef">
     <section>
-        <img src="<?= $data[0]->getProfilPictureUrl(); ?>" alt="Photo de profil"></img>
-        <h2>Chef <?= $data[0]->getChiefName(); ?></h2>
+        <figure>
+            <img src="<?= $data[0]->getProfilPictureUrl(); ?>" alt="Photo de profil"></img>
+        </figure>
+        <section>
+            <h2>Chef <?= $data[0]->getChiefName(); ?></h2>
+            <p><?= $data[0]->getDescription(); ?></p>
+            <section>
+                <p><?= $data[0]->getFirstFoodStyleId(); ?></p>
+                <p><?= $data[0]->getSecondFoodStyleId(); ?></p>
+            </section>
+        </section>
+
     </section>
     <section>
         <h2>Le menu du chef <?= $data[0]->getChiefName(); ?></h2>
@@ -12,7 +23,9 @@
         <ul>
         <?php foreach ($data[1] as $dish){ ?>
         <li>
-            <img src="<?= $dish->getPictureUrl() ?>" alt="Photo du plat">
+            <figure>
+                <img src="<?= $dish->getPictureUrl() ?>" alt="Photo du plat">
+            </figure>
         </li>
         <?php } ?>
         </ul>

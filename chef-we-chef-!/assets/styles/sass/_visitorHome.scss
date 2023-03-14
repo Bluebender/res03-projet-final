@@ -33,11 +33,10 @@
             margin-bottom: 5vh;
         }
         > ul{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            column-gap: 4vw;
             > li{
-                width: 25vw;
                 > article{
                     background-color: $white;
                     border-radius: 10px;
@@ -50,6 +49,7 @@
                             > img{
                                 border-radius: 100%;
                                 width: 80%;
+                                aspect-ratio: 1 / 1;
                             }
                         }
                     }
@@ -64,6 +64,9 @@
                             font-size: 1.2rem;
                             margin-bottom: 5vh;
                             text-align: justify;
+                            overflow: scroll;
+                            height: 25vh;
+
                         }
                         > section{
                             display: flex;
@@ -91,12 +94,7 @@
                             font-size: 1.2rem;
                             padding: 10px 20px;
                             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-                            @media (prefers-color-scheme: light){
-                              background-color: $lightThemeBlue;
-                            }
-                            @media (prefers-color-scheme: dark){
-                              background-color: $darkThemeBlue;
-                            }
+                            background-color: $blue;
                             &:hover{
                                 transform: translateY(-2px);
                                 box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
