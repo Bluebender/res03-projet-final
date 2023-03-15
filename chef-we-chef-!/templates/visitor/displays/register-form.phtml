@@ -1,36 +1,36 @@
-<main>
+<main id="registerForm">
     <h2>Formulaire de création de compte</h2>
     <form action="/res03-projet-final/chef-we-chef-!/inscription" method="post" enctype="multipart/form-data">
         <fieldset>
             <label for="">Prénom</label>
-            <input type="text" name="firstName"/>
+            <input type="text" name="firstName" maxlength="25"/>
         </fieldset>
         <fieldset>
             <label for="">Nom</label>
-            <input type="text" name="lastName"/>
+            <input type="text" name="lastName" maxlength="25"/>
         </fieldset>
         <fieldset>
             <label for="">Pseudo de chef</label>
-            <input type="text" name="chiefName"/>
+            <input type="text" name="chiefName" maxlength="25"/>
         </fieldset>
         <fieldset>
             <label for="">Email</label>
-            <input type="email" name="email"/>
+            <input type="email" name="email" maxlength="40"/>
         </fieldset>
         <fieldset>
             <label for="">Mot de passe</label>
-            <input type="password" name="firstPassword"/>
+            <input type="password" name="firstPassword" maxlength="40"/>
         </fieldset>
         <fieldset>
             <label for="">Vérification du mot de passe</label>
-            <input type="password" name="secondPassword"/>
+            <input type="password" name="secondPassword" maxlength="40"/>
         </fieldset>
         <fieldset>
             <label for="">Phone</label>
-            <input type="text" name="phone"/>
+            <input type="text" name="phone" maxlength="20"/>
         </fieldset>
         <fieldset>
-            <label for="">Photo de profil</label>
+            <label for="image">Photo de profil</label>
             <input type="file" name="image"/>
         </fieldset>
         <fieldset>
