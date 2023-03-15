@@ -75,14 +75,26 @@ class ChiefController extends AbstractController {
             && (isset($post["firstPassword"]) && !empty($post["firstPassword"]))
             && (isset($post["secondPassword"]) && !empty($post["secondPassword"]))
             && (isset($post["phone"]) && !empty($post["phone"]))
-            && (isset($post["picture"]) && !empty($post["picture"]))
+            
+            
+            
+            && (isset($_FILES) && !empty($_FILES["image"]["name"]))
+
+
+
             && (isset($post["description"]) && !empty($post["description"]))
             && (isset($post["firstFoodStyle"]) && !empty($post["firstFoodStyle"]))
-            && (isset($post["secondFoodStyle"]) && !empty($post["secondFoodStyle"])))
+            && (isset($post["secondFoodStyle"]) && !empty($post["secondFoodStyle"]))){
             
                 if($post["firstPassword"] === $post["secondPassword"]){
                     $hashPwd = password_hash($post["firstPassword"], PASSWORD_DEFAULT);
-                    $newChief = new Chief (null, $post["firstName"], $post["lastName"], $post["chiefName"], $post["email"], $hashPwd, $post["phone"], $post["picture"], $post["description"], $post["firstFoodStyle"], $post["secondFoodStyle"]);
+                    
+                    // Chargement de la photo de profile
+                    $uploader = new Uploader();
+                    $media = $uploader->upload($_FILES, "image");
+                    $profilePictureUrl = $media->getUrl();
+
+                    $newChief = new Chief (null, $post["firstName"], $post["lastName"], $post["chiefName"], $post["email"], $hashPwd, $post["phone"], $profilePictureUrl, $post["description"], $post["firstFoodStyle"], $post["secondFoodStyle"]);
                     $this->chiefManag->createChief($newChief);
 
                     $chiefToConnect=$this->chiefManag->getChiefByEmail($post['email']);
@@ -96,7 +108,8 @@ class ChiefController extends AbstractController {
                 }
                 else{
                     echo "Les mots de passe sont différents !";
-                }   
+                }
+            }
             else if(isset($post['firstName']) && empty($post['firstName'])){
                 echo "Veuillez saisir votre prénom";
             }
@@ -118,8 +131,8 @@ class ChiefController extends AbstractController {
             else if(isset($post['phone']) && empty($post['phone'])){
                 echo "Veuillez saisir votre numéro de téléphone";
             }
-            else if(isset($post['picture']) && empty($post['picture'])){
-                echo "Veuillez saisir votre photo de profil";
+            else if(isset($_FILES) && empty($_FILES["picture"]["name"])){
+                echo "Veuillez charger votre photo de profil";
             }
             else if(isset($post['description']) && empty($post['description'])){
                 echo "Veuillez saisir votre déscription";

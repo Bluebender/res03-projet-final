@@ -17,3 +17,8 @@ require "models/Chief.php";
 require "models/Dish.php";
 require "models/FoodStyle.php";
 require "models/Category.php";
+
+// Media
+require "models/media/Media.php";
+require "models/media/RandomStringGenerator.php";
+require "models/media/Uploader.php";
