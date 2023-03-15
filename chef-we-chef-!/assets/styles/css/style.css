@@ -545,5 +545,8 @@ table {
 #visitorChef > section:nth-of-type(3) > ul > li > figure > img {
   width: 100%;
 }
+#visitorChef > section:nth-of-type(3) > ul > li > figure > figcaption {
+  font-size: 1.2rem;
+}
 
 /*# sourceMappingURL=style.css.map */
