@@ -26,6 +26,20 @@
             > p{
                 font-size: 1.4rem;
             }
+            > section{
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                justify-content: space-around;
+                margin-top: 10vh;
+                > p{
+                    font-size: 1.6rem;
+                    font-weight: bold;
+                    background-color: $yellow;
+                    padding: 5px 15px;
+                    border-radius: 10px;
+                }
+            }
         }
     }
     > section:nth-of-type(2){
@@ -37,7 +51,37 @@
             text-align: center;
             margin-bottom: 5vh;
         }
- 
+        > section{
+            background-color: $white;
+            width: 50vw;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 5vh 5vw;
+            border-radius: 15px;
+            > ul{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                > h3{
+                    font-size: 1.6rem;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    margin: 3vh 0;
+                }
+                > li{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    > p{
+                        font-size: 1.2rem;
+                        margin: 1vh 1vw;
+                    }
+                }
+            }
+        }
     }
     > section:nth-of-type(3){
         background-color: $grey;

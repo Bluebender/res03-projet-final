@@ -136,9 +136,12 @@ class ChiefController extends AbstractController {
     public function displayChief($id)
     {
         $data = [];
-        $chief = $this->chiefManag->getChiefById($id);
-        $data[]=$chief;
         
+        // On ajoute l'objet chief aux datas
+        $chief = $this->chiefManag->getChiefById($id);
+        $data["chief"]=$chief;
+        
+        // On ajoute les objets dish aux datas
         $dishes = $this->dishManag->getAllDishes();
         $chiefsDishes = [];
         foreach($dishes as $dish){
@@ -146,7 +149,52 @@ class ChiefController extends AbstractController {
                 $chiefsDishes[]=$dish;
             }
         }
-        $data[]=$chiefsDishes;
+        $data["dishes"]=$chiefsDishes;
+
+        // On ajoute les objets FoodStyle aux datas
+        $foodStyles = $this->foodStyleManag->getAllFoodStyles();
+        $chiefFoodStyles = [];
+        foreach($foodStyles as $foodStyle){
+            if ($chief->getFirstFoodStyleId()===$foodStyle->getId()){
+                $chiefFoodStyles []= $foodStyle;
+            }
+        }
+        foreach($foodStyles as $foodStyle){
+            if ($chief->getSecondFoodStyleId()===$foodStyle->getId()){
+                $chiefFoodStyles []= $foodStyle;
+            }
+        }
+        $data["foodstyles"]=$chiefFoodStyles;
+        
+        // On ajoute les plats sous forme de menu aux datas
+        $menu = [];
+
+        $starter=[];
+        foreach($dishes as $dish){
+            if ($dish->getCategoryId()===1){
+                $starter [] = $dish;
+            }
+        }
+        $menu["entrée"]=$starter;
+        
+        $dishh=[];
+        foreach($dishes as $dish){
+            if ($dish->getCategoryId()===2){
+                $dishh [] = $dish;
+            }
+        }
+        $menu["plat"]=$dishh;
+        
+        $dessert=[];
+        foreach($dishes as $dish){
+            if ($dish->getCategoryId()===3){
+                $dessert [] = $dish;
+            }
+        }
+        $menu["dessert"]=$dessert;
+
+        $data["menu"]=$menu;
+        
         
         // render
         $this->render("chief", $data);

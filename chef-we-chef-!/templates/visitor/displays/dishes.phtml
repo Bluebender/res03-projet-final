@@ -1,3 +1,4 @@
+<!--<?php var_dump($data) ?>-->
 <main id="visitorDishes">
     <h2>Les plats</h2>
     <ul>
@@ -6,17 +7,23 @@
             <article>
                 <header>
                     <figure>
-                        <img src="<?= $dish[0]->getPictureUrl() ?>" alt="Photo du plat">
+                        <img src="<?= $dish["dish"]->getPictureUrl(); ?>" alt="Photo du plat">
                     </figure>
-                    
                 </header>
                 <section>
-                    <h3><?= $dish[0]->getName() ?></h3>
-                    <p><?= $dish[0]->getDescription() ?></p>
-                    <p>Prix/personne : <?= $dish[0]->getPrice() ?> Euros</p>
-                    <p>Ceci est un(e) : <?= $dish[1]->getName() ?></p>
-                    <p>Style de cuisine : <?= $dish[2]->getName() ?></p>
+                    <h3><?= $dish["dish"]->getName() ?></h3>
+                    <p><?= $dish["dish"]->getDescription() ?></p>
+                    <p>Prix/personne : <?= $dish["dish"]->getPrice(); ?> Euros</p>
+                    <p>Ceci est un(e) : <?= $dish["category"]->getName(); ?></p>
+                    <p>Style de cuisine : <?= $dish["foodStyle"]->getName(); ?></p>
                 </section>
+                <footer>
+                    <figure>
+                        <img src="<?= $dish["chief"]->getProfilPictureUrl(); ?>" alt="Photo du chef"></img>
+                        <figcaption><a href="chef/<?= $dish["chief"]->getId() ?>">Chef <?= $dish["chief"]->getChiefName(); ?></a></figcaption>
+                    </figure>
+
+                </footer>
             </article>
         </li>
         <?php } ?>

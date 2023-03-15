@@ -4,12 +4,14 @@ class DishController extends AbstractController {
     private DishManager $dishManag;
     private FoodStyleManager $foodStyleManag;
     private CategoryManager $categoryManag;
+    private ChiefManager $chiefManag;
 
     public function __construct()
     {
         $this->dishManag = new DishManager();
         $this->foodStyleManag = new FoodStyleManager();
         $this->categoryManag = new CategoryManager();
+        $this->chiefManag = new ChiefManager();
     }
 
     public function displayAllDishes()
@@ -19,19 +21,25 @@ class DishController extends AbstractController {
 
         $allDishesWithFoodStyleAndCategory=[];
         foreach ($allDishes as $dish){
-            // Je cré le tableau de donnée et j'y ajoute le plat
+            // Je crée le tableau de donnée et j'y ajoute le plat
             $dishWithFoodStyleAndCategory=[];
-            $dishWithFoodStyleAndCategory[] = $dish;
+            $dishWithFoodStyleAndCategory["dish"] = $dish;
 
             // Je vais chercher la catégorie qui va avec le plat et je l'ajoute au tableau           
             $categoryId = $dish->getCategoryId();
             $category = $this->categoryManag->getCategoryById($categoryId);
-            $dishWithFoodStyleAndCategory[] = $category;
+            $dishWithFoodStyleAndCategory["category"] = $category;
             
             // Je vais chercher le food-style qui va avec le plat et je l'ajoute au tableau           
             $foodStyleId = $dish->getFoodStyleId();
-            $foodstyle = $this->foodStyleManag->getFoodStyleById($foodStyleId);
-            $dishWithFoodStyleAndCategory[] = $foodstyle;
+            $foodStyle = $this->foodStyleManag->getFoodStyleById($foodStyleId);
+            $dishWithFoodStyleAndCategory["foodStyle"] = $foodStyle;
+            
+            // Je vais chercher le chef qui va avec le plat et je l'ajoute au tableau           
+            $chiefId = $dish->getChiefId();
+            $chief = $this->chiefManag->getChiefById($chiefId);
+            $dishWithFoodStyleAndCategory["chief"] = $chief;
+            
             
             $allDishesWithFoodStyleAndCategory[] = $dishWithFoodStyleAndCategory;
         }

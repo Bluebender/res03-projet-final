@@ -2,26 +2,41 @@
 <main id="visitorChef">
     <section>
         <figure>
-            <img src="<?= $data[0]->getProfilPictureUrl(); ?>" alt="Photo de profil"></img>
+            <img src="<?= $data["chief"]->getProfilPictureUrl(); ?>" alt="Photo de profil"></img>
         </figure>
         <section>
-            <h2>Chef <?= $data[0]->getChiefName(); ?></h2>
-            <p><?= $data[0]->getDescription(); ?></p>
+            <h2>Chef <?= $data["chief"]->getChiefName(); ?></h2>
+            <p><?= $data["chief"]->getDescription(); ?></p>
             <section>
-                <p><?= $data[0]->getFirstFoodStyleId(); ?></p>
-                <p><?= $data[0]->getSecondFoodStyleId(); ?></p>
+                <?php foreach($data["foodstyles"] as $foodstyle){ ?>
+                <p><?= $foodstyle->getName(); ?></p>
+                <?php } ?>
             </section>
         </section>
 
     </section>
     <section>
-        <h2>Le menu du chef <?= $data[0]->getChiefName(); ?></h2>
+        <h2>Le menu du chef <?= $data["chief"]->getChiefName(); ?></h2>
         
+        <section>
+            <?php foreach($data["menu"] as $key=>$category){ ?>
+            <ul>
+                <h3><?= $key; ?></h3>
+                
+                <?php foreach($category as $element){ ?>
+                <li>
+                    <p><?= $element->getName(); ?></p>
+                    <p><?= $element->getPrice(); ?> Euros/personne</p>
+                </li>
+                <?php } ?>
+            </ul>
+            <?php } ?>
+        </section>
     </section>
     <section>
-        <h2>Les réalisations du chef <?= $data[0]->getChiefName(); ?></h2>
+        <h2>Les réalisations du chef <?= $data["chief"]->getChiefName(); ?></h2>
         <ul>
-        <?php foreach ($data[1] as $dish){ ?>
+        <?php foreach ($data["dishes"] as $dish){ ?>
         <li>
             <figure>
                 <img src="<?= $dish->getPictureUrl() ?>" alt="Photo du plat">
