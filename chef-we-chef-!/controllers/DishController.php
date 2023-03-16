@@ -48,58 +48,55 @@ class DishController extends AbstractController {
         $this->render("visitor/dishes", $allDishesWithFoodStyleAndCategory);
     }
 
-
-
-
-
-
-
-
-
-
-    public function getUser(string $get)
+    public function createDish($post)
     {
-        // get the user from the manager
-        $id=intval($get);
-        $user = $this->um->getUserById($id);
-        $userArray=$user->toArray();
-        // either by email or by id
+        if (empty($post)){
+            $foodstyles = $this->foodStyleManag->getAllFoodStyles();
+            $categories = $this->categoryManag->getAllCategories();
+            $data ["foodStyles"]=$foodstyles;
+            $data ["categories"]=$categories;
+            
+            $this->render("chef/create-dish-form", $data);
+        }
+        else {
+                var_dump($_FILES);
+                var_dump($_POST);
+            if ((isset($post["dishName"]) && !empty($post["dishName"]))
+            && (isset($_FILES) && !empty($_FILES["image"]["name"]))
+            && (isset($post["description"]) && !empty($post["description"]))
+            && (isset($post["dishPrice"]) && !empty($post["dishPrice"]))
+            && (isset($post["dishFoodStyle"]) && !empty($post["dishFoodStyle"]))
+            && (isset($post["dishCategory"]) && !empty($post["dishCategory"]))){
 
-        // render
-        $this->render($userArray);
-    }
+                // Chargement de la photo du plat
+                $uploader = new Uploader();
+                $media = $uploader->upload($_FILES, "image");
+                $dishPictureUrl = $media->getUrl();
 
-    public function createUser(array $post)
-    {
-        // create the user in the manager
-        $UserToCreate=new User (null, $post["username"], $post["firstName"], $post["lastName"], $post["email"]);
-        $userCreated = $this->um->createUser($UserToCreate);
-        $userCreatedArray=$userCreated->toArray();
+                $newDish = new Dish (null, $post["dishName"], $dishPictureUrl, $post["description"], $post["dishPrice"], $_SESSION["chiefId"], $post["dishFoodStyle"], $post["dishCategory"]);
+                $this->dishManag->createDish($newDish);
 
-        // render the created user
-        $this->render($userCreatedArray);
-    }
+                header('Location: /res03-projet-final/chef-we-chef-!/mon-compte');
+            }
 
-    public function updateUser(string $post)
-    {   
-        // update the user in the manager
-        $UserToUpdate=new User ($_POST["id"], $_POST["username"], $_POST["firstName"], $_POST["lastName"], $_POST["email"]);
-        $userUpdated = $this->um->updateUser($UserToUpdate);
-        $userUpdatedArray=$userUpdated->toArray();
-
-        // render the updated user
-        $this->render($userUpdatedArray);
-    }
-
-    public function deleteUser(int $post)
-    {
-        // delete the user in the manager
-        var_dump($post);
-        // $UserToDelete=new User ($_POST["id"], $_POST["username"], $_POST["firstName"], $_POST["lastName"], $_POST["email"]);
-        $DeletedUser = $this->um->deleteUser($post);
-        // $NewUserTabArray=$NewUserTab->toArray();
-
-        // render the list of all users
-        $this->render($NewUserTabArray);
+            else if(isset($post['dishName']) && empty($post['dishName'])){
+                echo "Veuillez saisir le nom du plat";
+            }
+            else if(isset($_FILES) && empty($_FILES["image"]["name"])){
+                echo "Veuillez charger la photo de votre plat";
+            }
+            else if(isset($post['description']) && empty($post['description'])){
+                echo "Veuillez saisir une déscriptio pour votre plat";
+            }
+            else if(isset($post['dishPrice']) && empty($post['dishPrice'])){
+                echo "Veuillez saisir un prix";
+            }
+            else if(isset($post['dishFoodStyle']) && empty($post['dishFoodStyle'])){
+                echo "Veuillez saisir un style de cuisine";
+            }
+            else if(isset($post['dishCategory']) && empty($post['dishCategory'])){
+                echo "Veuillez saisir une catégorie";
+            }
+        }
     }
 }

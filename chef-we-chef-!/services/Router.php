@@ -54,7 +54,7 @@ class Router {
             }
         }
         else if ($route[0]==="inscription"){
-            $this->chiefControl->register($_POST);
+            $this->defaultControl->register($_POST);
         }
         else if ($route[0]==="connexion"){
             $this->defaultControl->login($_POST);
@@ -65,18 +65,15 @@ class Router {
 
         // Chief pages
         else if ($route[0]==="mon-compte"){
-            if (!isset($route[2])){
-                $this->chiefControl->displayMonCompte($route[1]);
+            if (!isset($route[1])){
+                $this->chiefControl->displayMonCompte($_SESSION["chiefId"]);
             }
-            else if ($route[2]==="carte"){
-                $this->chiefControl->displayChiefMenu($route[1]);
-            }
-            else if ($route[2]==="plats"){
+            else if ($route[1]==="plats"){
                 $this->dishControl->displayChiefDishes($route[1]);
             }
-            else if ($route[2]==="plat"){
-                if ($route[3]==="creer"){
-                    $this->dishControl->createChiefDish($route[1]);
+            else if ($route[1]==="plat"){
+                if ($route[2]==="creer"){
+                    $this->dishControl->createDish($_POST);
                 }
                 else if (!isset($route[4])){
                     $this->dishControl->displayChiefDish($route[3]);

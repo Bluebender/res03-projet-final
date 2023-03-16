@@ -31,26 +31,24 @@ class DishManager extends AbstractManager {
         return $loadedDishObject;
     }
 
-    // public function createUser(User $user) : User
-    // {
-    //     $query = $this->db->prepare('INSERT INTO users VALUES (null, :value1, :value2, :value3, :value4)');
-    //     $parameters = [
-    //     'value1' => $user -> getUsername(),
-    //     'value2' => $user -> getFirstName(),
-    //     'value3' => $user -> getLastName(),
-    //     'value4' => $user -> getEmail()
-    //     ];
-    //     $query->execute($parameters);
+    public function createDish(Dish $dish) : Dish
+    {
+        $query = $this->db->prepare('INSERT INTO dishes VALUES (null, :value1, :value2, :value3, :value4, :value5, :value6, :value7)');
+        $parameters = [
+        'value1' => $dish -> getName(),
+        'value2' => $dish -> getPictureUrl(),
+        'value3' => $dish -> getDescription(),
+        'value4' => $dish -> getPrice(),
+        'value5' => $dish -> getChiefId(),
+        'value6' => $dish -> getFoodStyleId(),
+        'value7' => $dish -> getCategoryId()
+        ];
+        $query->execute($parameters);
+        $id=$this->db->lastInsertId();
+        $dish->setId($id);
 
-    //     $query= $this->db->prepare("SELECT * FROM users WHERE email=:value");
-    //     $parameters=['value' => $user -> getEmail()];
-    //     $query->execute($parameters);
-    //     $loadedSavedUser = $query->fetch(PDO::FETCH_ASSOC);
-
-    //     $loadedSavedUserObject=new User ($loadedSavedUser["id"], $loadedSavedUser["username"],$loadedSavedUser["first_name"], $loadedSavedUser["last_name"], $loadedSavedUser["email"]);
-
-    //     return $loadedSavedUserObject;
-    // }
+        return $dish;
+    }
 
     // public function updateUser(User $user) : User
     // {
