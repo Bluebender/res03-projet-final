@@ -45,7 +45,7 @@ class DishController extends AbstractController {
         }
         // var_dump($allDishesWithFoodStyleAndCategory);
         // render
-        $this->render("dishes", $allDishesWithFoodStyleAndCategory);
+        $this->render("visitor/dishes", $allDishesWithFoodStyleAndCategory);
     }
 
 

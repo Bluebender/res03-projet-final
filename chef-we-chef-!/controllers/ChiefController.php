@@ -49,7 +49,7 @@ class ChiefController extends AbstractController {
         $data = $this->createData();
         // var_dump($data);
         // render
-        $this->render("chiefs", $data);
+        $this->render("visitor/chiefs", $data);
     }
 
     public function visitorHome()
@@ -58,14 +58,14 @@ class ChiefController extends AbstractController {
         $longeurData = count($data);
         $threeLastChiefs = [$data[$longeurData-1], $data[$longeurData-2], $data[$longeurData-3]];
 
-        $this->render("home", $threeLastChiefs);
+        $this->render("visitor/home", $threeLastChiefs);
     }
 
     public function register($post)
     {
         if (empty($post)){
             $foodstyles = $this->foodStyleManag->getAllFoodStyles();
-            $this->render("register-form", $foodstyles);
+            $this->render("visitor/register-form", $foodstyles);
         }
         else {
             if ((isset($post["firstName"]) && !empty($post["firstName"]))
@@ -210,12 +210,78 @@ class ChiefController extends AbstractController {
         
         
         // render
-        $this->render("chief", $data);
+        $this->render("visitor/chief", $data);
     }
 
 
 
 
+    public function displayMonCompte($id)
+    {
+        $data = [];
+        
+        // On ajoute l'objet chief aux datas
+        $chief = $this->chiefManag->getChiefById($id);
+        $data["chief"]=$chief;
+        
+        // On ajoute les objets dish aux datas
+        $dishes = $this->dishManag->getAllDishes();
+        $chiefsDishes = [];
+        foreach($dishes as $dish){
+            if ($dish->getChiefId()===$chief->getId()){
+                $chiefsDishes[]=$dish;
+            }
+        }
+        $data["dishes"]=$chiefsDishes;
+
+        // On ajoute les objets FoodStyle aux datas
+        $foodStyles = $this->foodStyleManag->getAllFoodStyles();
+        $chiefFoodStyles = [];
+        foreach($foodStyles as $foodStyle){
+            if ($chief->getFirstFoodStyleId()===$foodStyle->getId()){
+                $chiefFoodStyles []= $foodStyle;
+            }
+        }
+        foreach($foodStyles as $foodStyle){
+            if ($chief->getSecondFoodStyleId()===$foodStyle->getId()){
+                $chiefFoodStyles []= $foodStyle;
+            }
+        }
+        $data["foodstyles"]=$chiefFoodStyles;
+        
+        // On ajoute les plats sous forme de menu aux datas
+        $menu = [];
+
+        $starter=[];
+        foreach($dishes as $dish){
+            if ($dish->getCategoryId()===1){
+                $starter [] = $dish;
+            }
+        }
+        $menu["entrée"]=$starter;
+        
+        $dishh=[];
+        foreach($dishes as $dish){
+            if ($dish->getCategoryId()===2){
+                $dishh [] = $dish;
+            }
+        }
+        $menu["plat"]=$dishh;
+        
+        $dessert=[];
+        foreach($dishes as $dish){
+            if ($dish->getCategoryId()===3){
+                $dessert [] = $dish;
+            }
+        }
+        $menu["dessert"]=$dessert;
+
+        $data["menu"]=$menu;
+        
+        
+        // render
+        $this->render("chef/home", $data);
+    }
 
 
 

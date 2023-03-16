@@ -12,7 +12,7 @@ class DefaultController extends AbstractController {
     public function login($post)
     {   
         if (empty($post)){
-            $this->render("login-form", [""]);
+            $this->render("visitor/login-form", [""]);
         }
         else {
             if ((isset($post["loginEmail"]) && !empty($post["loginEmail"]))
@@ -52,4 +52,15 @@ class DefaultController extends AbstractController {
             }
         }        
     }
+    
+    public function logout()
+    {
+        $_SESSION["connected"] = false;
+        $_SESSION["chiefId"] = "";
+        $_SESSION["chiefEmail"] = "";
+        $_SESSION["role"] = "";
+        
+        header('Location: /res03-projet-final/chef-we-chef-!');
+    }
 }
+    

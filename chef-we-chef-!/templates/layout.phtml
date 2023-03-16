@@ -10,9 +10,17 @@
 </head>
 
 <body>
-    <?php require 'partials/header.phtml'; ?>
+    
+    <?php
+    if(isset($_SESSION) && !empty($_SESSION) && $_SESSION["connected"] && $_SESSION["role"]==="chief"){
+        require 'partials/accountHeader.phtml';
+    }
+    else{
+        require 'partials/header.phtml';
+    }
+    ?>
 
-    <?php require "displays/".$template.".phtml"; ?>
+    <?php require $template.".phtml"; ?>
 
     <?php require 'partials/footer.phtml'; ?>
 

@@ -46,9 +46,6 @@ class Router {
             if (!isset($route[2])){
                 $this->chiefControl->displayChief($route[1]);
             }
-            else if ($route[2]==="carte"){
-                $this->chiefControl->displayChiefMenu($route[1]);
-            }
             else if ($route[2]==="demande-de-prestation"){
                 $this->chiefControl->displayChiefRequest($route[1]);
             }
@@ -62,11 +59,14 @@ class Router {
         else if ($route[0]==="connexion"){
             $this->defaultControl->login($_POST);
         }
+        else if ($route[0]==="deconnexion"){
+            $this->defaultControl->logout();
+        }
 
         // Chief pages
         else if ($route[0]==="mon-compte"){
             if (!isset($route[2])){
-                $this->chiefControl->displayChief($route[1]);
+                $this->chiefControl->displayMonCompte($route[1]);
             }
             else if ($route[2]==="carte"){
                 $this->chiefControl->displayChiefMenu($route[1]);

@@ -6,18 +6,12 @@ abstract class AbstractController
     {  
         $template = $view;
         $data = $values;
-        require "templates/visitor/layout.phtml";  
-    }  
-    protected function chiefRender(string $view, array $values) : void
-    {  
-        $template = $view;
-        $data = $values;
-        require "templates/chef/layout.phtml";  
+        require "templates/layout.phtml";
     }  
     protected function adminRender(string $view, array $values) : void
     {  
         $template = $view;
         $data = $values;
-        require "templates/admin/layout.phtml";  
+        require "templates/admin/layout.phtml";
     }  
 }

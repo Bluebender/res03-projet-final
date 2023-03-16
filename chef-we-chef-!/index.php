@@ -1,6 +1,6 @@
 <?php
 session_start();
-// var_dump($_SESSION);
+var_dump($_SESSION);
 
 require "autoload.php";             // On charge le fichier autoload
 
@@ -8,7 +8,7 @@ $router = new Router();             // On instancie un nouveau router
 
 if(isset($_GET['path']))            // Si il y un une donnée associée à la clé 'path' de l'URL
 {
-    $request = $_GET['path'];   // On cré une valeur $request qui prend la valeur de path de l'URL
+    $request = $_GET['path'];       // On cré une valeur $request qui prend la valeur de path de l'URL
 }
 else
 {
