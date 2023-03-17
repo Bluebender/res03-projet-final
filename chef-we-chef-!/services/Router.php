@@ -107,7 +107,7 @@ class Router {
         // Admin pages
         else if ($route[0]==="admin"){
             if (!isset($route[1])){
-                $this->chiefControl->adminHome();
+                $this->chiefControl->adminAllChiefs();
             }
             else if ($route[1]==="chefs"){
                 $this->chiefControl->displayAllChiefs();

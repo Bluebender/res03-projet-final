@@ -137,6 +137,14 @@ class ChiefController extends AbstractController {
 
 
 
+    // ADMIN
+    public function adminAllChiefs()
+    {
+        $data = $this->createData();
+        // var_dump($data);
+        // render
+        $this->render("admin/chiefs", $data);
+    }
 
 
 
