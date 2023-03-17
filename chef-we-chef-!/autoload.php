@@ -12,11 +12,14 @@ require "managers/ChiefManager.php";
 require "managers/DishManager.php";
 require "managers/FoodStyleManager.php";
 require "managers/CategoryManager.php";
+require "managers/AdminManager.php";
 
 require "models/Chief.php";
 require "models/Dish.php";
 require "models/FoodStyle.php";
 require "models/Category.php";
+require "models/Admin.php";
+
 
 // Media
 require "models/media/Media.php";

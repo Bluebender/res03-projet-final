@@ -93,37 +93,7 @@ class ChiefController extends AbstractController {
             }
         }
         $data["foodstyles"]=$chiefFoodStyles;
-        
-        // On ajoute les plats sous forme de menu aux datas
-        $menu = [];
 
-        $starter=[];
-        foreach($dishes as $dish){
-            if ($dish->getCategoryId()===1){
-                $starter [] = $dish;
-            }
-        }
-        $menu["entrée"]=$starter;
-        
-        $dishh=[];
-        foreach($dishes as $dish){
-            if ($dish->getCategoryId()===2){
-                $dishh [] = $dish;
-            }
-        }
-        $menu["plat"]=$dishh;
-        
-        $dessert=[];
-        foreach($dishes as $dish){
-            if ($dish->getCategoryId()===3){
-                $dessert [] = $dish;
-            }
-        }
-        $menu["dessert"]=$dessert;
-
-        $data["menu"]=$menu;
-        
-        
         // render
         $this->render("visitor/chief", $data);
     }
@@ -160,36 +130,6 @@ class ChiefController extends AbstractController {
             }
         }
         $data["foodstyles"]=$chiefFoodStyles;
-        
-        // On ajoute les plats sous forme de menu aux datas
-        $menu = [];
-
-        $starter=[];
-        foreach($dishes as $dish){
-            if ($dish->getCategoryId()===1){
-                $starter [] = $dish;
-            }
-        }
-        $menu["entrée"]=$starter;
-        
-        $dishh=[];
-        foreach($dishes as $dish){
-            if ($dish->getCategoryId()===2){
-                $dishh [] = $dish;
-            }
-        }
-        $menu["plat"]=$dishh;
-        
-        $dessert=[];
-        foreach($dishes as $dish){
-            if ($dish->getCategoryId()===3){
-                $dessert [] = $dish;
-            }
-        }
-        $menu["dessert"]=$dessert;
-
-        $data["menu"]=$menu;
-        
         
         // render
         $this->render("chef/profil", $data);

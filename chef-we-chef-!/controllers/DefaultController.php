@@ -2,10 +2,14 @@
 
 class DefaultController extends AbstractController {
     private ChiefManager $chiefManag;
+    private FoodStyleManager $foodStyleManag;
+    private AdminManager $adminManag;
 
     public function __construct()
     {
         $this->chiefManag = new ChiefManager();
+        $this->foodStyleManag = new FoodStyleManager();
+        $this->adminManag = new AdminManager();
     }
 
     public function register($post)
@@ -22,41 +26,49 @@ class DefaultController extends AbstractController {
             && (isset($post["firstPassword"]) && !empty($post["firstPassword"]))
             && (isset($post["secondPassword"]) && !empty($post["secondPassword"]))
             && (isset($post["phone"]) && !empty($post["phone"]))
-            
-            
-            
             && (isset($_FILES) && !empty($_FILES["image"]["name"]))
-
-
-
             && (isset($post["description"]) && !empty($post["description"]))
             && (isset($post["firstFoodStyle"]) && !empty($post["firstFoodStyle"]))
             && (isset($post["secondFoodStyle"]) && !empty($post["secondFoodStyle"]))){
             
-                if($post["firstPassword"] === $post["secondPassword"]){
-                    $hashPwd = password_hash($post["firstPassword"], PASSWORD_DEFAULT);
-                    
-                    // Chargement de la photo de profile
-                    $uploader = new Uploader();
-                    $media = $uploader->upload($_FILES, "image");
-                    $profilePictureUrl = $media->getUrl();
-
-                    $newChief = new Chief (null, $post["firstName"], $post["lastName"], $post["chiefName"], $post["email"], $hashPwd, $post["phone"], $profilePictureUrl, $post["description"], $post["firstFoodStyle"], $post["secondFoodStyle"]);
-                    $this->chiefManag->createChief($newChief);
-
-                    $chiefToConnect=$this->chiefManag->getChiefByEmail($post['email']);
-
-                    $_SESSION["connected"] = true;
-                    $_SESSION["chiefId"] = $chiefToConnect->getId();
-                    $_SESSION["chiefEmail"] = $chiefToConnect->getEmail();
-                    $_SESSION["chiefName"] = $chiefToConnect->getChiefName();
-                    $_SESSION["chiefPicture"] = $chiefToConnect->getProfilPictureUrl();
-                    $_SESSION["role"] = "chief";
-                    
-                    header('Location: mon-compte');
+                // vérification que l'adresse email est disponible
+                $chiefs = $this->chiefManag->getAllChefs();
+                $emailFree = true;
+                foreach ($chiefs as $chief){
+                    if($chief->getEmail()===$post["email"]){
+                        $emailFree = false;
+                    }
+                }
+                if ($emailFree===false){
+                    echo"adresse email non disponible";
                 }
                 else{
-                    echo "Les mots de passe sont différents !";
+                    if($post["firstPassword"] === $post["secondPassword"]){
+                        $hashPwd = password_hash($post["firstPassword"], PASSWORD_DEFAULT);
+                        
+                        // Chargement de la photo de profile
+                        var_dump($_FILES);
+                        $uploader = new Uploader();
+                        $media = $uploader->upload($_FILES, "image");
+                        $profilePictureUrl = $media->getUrl();
+    
+                        $newChief = new Chief (null, $post["firstName"], $post["lastName"], $post["chiefName"], $post["email"], $hashPwd, $post["phone"], $profilePictureUrl, $post["description"], $post["firstFoodStyle"], $post["secondFoodStyle"]);
+                        $this->chiefManag->createChief($newChief);
+    
+                        $chiefToConnect=$this->chiefManag->getChiefByEmail($post['email']);
+    
+                        $_SESSION["connected"] = true;
+                        $_SESSION["chiefId"] = $chiefToConnect->getId();
+                        $_SESSION["chiefEmail"] = $chiefToConnect->getEmail();
+                        $_SESSION["chiefName"] = $chiefToConnect->getChiefName();
+                        $_SESSION["chiefPicture"] = $chiefToConnect->getProfilPictureUrl();
+                        $_SESSION["role"] = "chief";
+                        
+                        header('Location: mon-compte');
+                    }
+                    else{
+                        echo "Les mots de passe sont différents !";
+                    }
                 }
             }
             else if(isset($post['firstName']) && empty($post['firstName'])){
@@ -104,31 +116,46 @@ class DefaultController extends AbstractController {
             if ((isset($post["loginEmail"]) && !empty($post["loginEmail"]))
             && (isset($post["loginPassword"]) && !empty($post["loginPassword"]))){
 
-                $allChiefs = $this->chiefManag->getAllChefs();
-                $ChiefFind = false;
-                foreach($allChiefs as $chief){
-                    if ($post["loginEmail"] === $chief->getEmail())
-                    $ChiefFind=true;
-                } 
-                
 
-                if ($ChiefFind===false){
-                    echo "adresse email inconnue";
-                }
-                else{
-                    $chiefToConnect = $this->chiefManag->getChiefByEmail($post["loginEmail"]);
-                    if(password_verify($post["loginPassword"], $chiefToConnect->getPassword())){
+                if($post["loginEmail"]==="admin@admin.fr"){
+                    $admin = $this->adminManag->getAdmin();
+                    if(password_verify($post["loginPassword"], $admin->getPassword())){
                         $_SESSION["connected"] = true;
-                        $_SESSION["chiefId"] = $chiefToConnect->getId();
-                        $_SESSION["chiefEmail"] = $chiefToConnect->getEmail();
-                        $_SESSION["chiefName"] = $chiefToConnect->getChiefName();
-                        $_SESSION["chiefPicture"] = $chiefToConnect->getProfilPictureUrl();
-                        $_SESSION["role"] = "chief";
+                        $_SESSION["role"] = "admin";
                         
-                        header('Location: mon-compte');
+                        header('Location: admin');
                     }
                     else{
                         echo "Mauvais mot de passe";
+                    }
+                }
+                else{
+                    $allChiefs = $this->chiefManag->getAllChefs();
+                    $ChiefFind = false;
+                    foreach($allChiefs as $chief){
+                        if ($post["loginEmail"] === $chief->getEmail())
+                        $ChiefFind=true;
+                    } 
+                    
+    
+                    if ($ChiefFind===false){
+                        echo "adresse email inconnue";
+                    }
+                    else{
+                        $chiefToConnect = $this->chiefManag->getChiefByEmail($post["loginEmail"]);
+                        if(password_verify($post["loginPassword"], $chiefToConnect->getPassword())){
+                            $_SESSION["connected"] = true;
+                            $_SESSION["chiefId"] = $chiefToConnect->getId();
+                            $_SESSION["chiefEmail"] = $chiefToConnect->getEmail();
+                            $_SESSION["chiefName"] = $chiefToConnect->getChiefName();
+                            $_SESSION["chiefPicture"] = $chiefToConnect->getProfilPictureUrl();
+                            $_SESSION["role"] = "chief";
+                            
+                            header('Location: mon-compte');
+                        }
+                        else{
+                            echo "Mauvais mot de passe";
+                        }
                     }
                 }
             }

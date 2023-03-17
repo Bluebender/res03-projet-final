@@ -392,6 +392,7 @@ table {
 }
 #visitorDishes > ul > li > article > header > figure > img {
   width: 100%;
+  aspect-ratio: 3/2;
 }
 #visitorDishes > ul > li > article > section {
   padding: 3vh 3vw;
@@ -559,6 +560,7 @@ table {
 }
 #visitorChef > section:nth-of-type(3) > ul > li > figure > img {
   width: 100%;
+  aspect-ratio: 3/2;
 }
 #visitorChef > section:nth-of-type(3) > ul > li > figure > figcaption {
   font-size: 1.2rem;
@@ -788,6 +790,7 @@ table {
 }
 #profil > section:nth-of-type(3) > section > ul > li > figure > img {
   width: 100%;
+  aspect-ratio: 3/2;
 }
 #profil > section:nth-of-type(3) > section > ul > li > figure > figcaption {
   font-size: 1.2rem;

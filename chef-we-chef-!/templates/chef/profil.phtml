@@ -20,20 +20,35 @@
     </section>
     <section>
         <h2>Le menu du chef <?= $data["chief"]->getChiefName(); ?></h2>
-        
         <section>
-            <?php foreach($data["menu"] as $key=>$category){ ?>
             <ul>
-                <h3><?= $key; ?></h3>
-                
-                <?php foreach($category as $element){ ?>
+                <h3>Entrées</h3>
+                <?php foreach($data["dishes"] as $dich){
+                    if ($dich->getCategoryId()===1){?>
                 <li>
-                    <p><?= $element->getName(); ?></p>
-                    <p><?= $element->getPrice(); ?> Euros/personne</p>
+                    <p><?= $dich->getName(); ?></p>
+                    <p><?= $dich->getPrice(); ?> Euros/personne</p>
                 </li>
-                <?php } ?>
+                <?php }}?>
+
+                <h3>Plats</h3>
+                <?php foreach($data["dishes"] as $dich){
+                    if ($dich->getCategoryId()===2){?>
+                <li>
+                    <p><?= $dich->getName(); ?></p>
+                    <p><?= $dich->getPrice(); ?> Euros/personne</p>
+                </li>
+                <?php }} ?>
+
+                <h3>Desserts</h3>
+                <?php foreach($data["dishes"] as $dich){
+                    if ($dich->getCategoryId()===3){?>
+                <li>
+                    <p><?= $dich->getName(); ?></p>
+                    <p><?= $dich->getPrice(); ?> Euros/personne</p>
+                </li>
+                <?php }} ?>
             </ul>
-            <?php } ?>
         </section>
     </section>
     <section>

@@ -1,6 +1,6 @@
 <?php
 
-class Zone {
+class Admin {
     private ?int $id;
     private string $email;
     private string $password;
