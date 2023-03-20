@@ -6,6 +6,7 @@ require "controllers/AbstractController.php";
 require "controllers/ChiefController.php";
 require "controllers/DishController.php";
 require "controllers/DefaultController.php";
+require "controllers/FoodStyleController.php";
 
 require "managers/AbstractManager.php";
 require "managers/ChiefManager.php";

@@ -1,0 +1,29 @@
+<!--<?php var_dump($data) ?>-->
+<main>
+    <h2 class="text-center m-5">Les Styles de cuisine</h2>
+    <section class="d-flex flex-column align-items-center">
+        <table class="table col-10 table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Déscritpion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($data as $foodStyle){ ?>
+                <tr>
+                    <td><?= $foodStyle->getId() ?></td>
+                    <td><?= $foodStyle->getName() ?></td>
+                    <td><?= $foodStyle->getDescription() ?></td>
+                    <td>
+                        <a href="style-de-cuisine/<?= $foodStyle->getId() ?>"><span class="fa-solid fa-eye"></span></a>
+                        <a href="style-de-cuisine/<?= $foodStyle->getId() ?>"><span class="fa-solid fa-pen"></span></a>
+                        <a href="../admin/plat/<?= $foodStyle->getId() ?>/supprimer"><span class="fa-solid fa-trash"></span></a>
+                    </td>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </section>
+</main>

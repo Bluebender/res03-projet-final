@@ -18,7 +18,7 @@ class Router {
         // $this->eventControl = new EventController();
         // $this->zoneControl = new ZoneController();
         // $this->categoryControl = new CategoryController();
-        // $this->foodStyleControl = new FoodStyleController();
+        $this->foodStyleControl = new FoodStyleController();
     }
     
     function checkRoute(string $request) : void
@@ -116,28 +116,6 @@ class Router {
                 else if ($route[3]==="supprimer"){
                     $this->chiefControl->deleteChief($route[2]);
                 }
-                else if ($route[3]==="zone"){
-                    if (!isset($route[4])){
-                        $this->zoneControl->displayChiefZone($route[2]);
-                    }
-                    else if ($route[4]==="modifier"){
-                        $this->zoneControl->editChiefZone($route[2]);
-                    }
-                    else{
-                        echo "erreur 404";
-                    }
-                }
-                else if ($route[3]==="disponibilite"){
-                    if (!isset($route[4])){
-                        $this->eventControl->displayChiefAvability($route[2]);
-                    }
-                    else if ($route[4]==="modifier"){
-                        $this->zoneControl->editChiefAvaibility($route[2]);
-                    }
-                    else{
-                        echo "erreur 404";
-                    }
-                }
                 else{
                     echo "erreur 404";   
                 }
@@ -149,6 +127,9 @@ class Router {
                 if ($route[3]==="supprimer"){
                     $this->dishControl->deleteDish($route[2]);
                 }
+            }
+            else if ($route[1]==="styles-de-cuisine"){
+                $this->foodStyleControl->adminAllFoodStyles();
             }
             
             
