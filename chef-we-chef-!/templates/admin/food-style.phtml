@@ -1,6 +1,6 @@
 <!--<?php var_dump($data) ?>-->
 <main>
-    <h2 class="text-center m-5">Les Styles de cuisine</h2>
+    <h2 class="text-center m-5">Les Style de cuisine</h2>
     <section class="d-flex flex-column align-items-center">
         <table class="table col-10 table-hover">
             <thead>
@@ -18,7 +18,6 @@
                     <td><?= $foodStyle->getName() ?></td>
                     <td><?= $foodStyle->getDescription() ?></td>
                     <td>
-                        <a href="style-de-cuisine/<?= $foodStyle->getId() ?>"><span class="fa-solid fa-eye"></span></a>
                         <a href="style-de-cuisine/<?= $foodStyle->getId() ?>"><span class="fa-solid fa-pen"></span></a>
                         <a href="../admin/plat/<?= $foodStyle->getId() ?>/supprimer"><span class="fa-solid fa-trash"></span></a>
                     </td>

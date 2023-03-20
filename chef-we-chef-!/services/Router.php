@@ -5,20 +5,20 @@ class Router {
     private DefaultController $defaultControl;
     private ChiefController $chiefControl;
     private DishController $dishControl;
-    private EventController $eventControl;
-    private ZoneController $zoneControl;
     private CategoryController $categoryControl;
     private FoodStyleController $foodStyleControl;
+    // private EventController $eventControl;
+    // private ZoneController $zoneControl;
 
     public function __construct()
     {
         $this->defaultControl = new DefaultController();
         $this->chiefControl = new ChiefController();
         $this->dishControl = new DishController();
+        $this->categoryControl = new CategoryController();
+        $this->foodStyleControl = new FoodStyleController();
         // $this->eventControl = new EventController();
         // $this->zoneControl = new ZoneController();
-        // $this->categoryControl = new CategoryController();
-        $this->foodStyleControl = new FoodStyleController();
     }
     
     function checkRoute(string $request) : void
@@ -131,7 +131,32 @@ class Router {
             else if ($route[1]==="styles-de-cuisine"){
                 $this->foodStyleControl->adminAllFoodStyles();
             }
+            else if ($route[1]==="style-de-cuisine"){
+                if (!isset($route[3])){
+                    $this->foodStyleControl->adminFoodStyle($route[2]);
+                }
+                else if ($route[3]==="modifier"){
+                    $this->foodStyleControl->adminFoodStyleUpdate($route[2]);
+                }
+                else if ($route[3]==="supprimer"){
+                    $this->foodStyleControl->adminFoodStyleDelete($route[2]);
+                }
+            }
             
+            else if ($route[1]==="categories"){
+                $this->categoryControl->adminAllCategories();
+            }
+            else if ($route[1]==="categorie"){
+                if (!isset($route[3])){
+                    $this->categoryControl->adminFoodStyle($route[2]);
+                }
+                else if ($route[3]==="modifier"){
+                    $this->categoryControl->adminFoodStyleUpdate($route[2]);
+                }
+                else if ($route[3]==="supprimer"){
+                    $this->categoryControl->adminFoodStyleDelete($route[2]);
+                }
+            }
             
             else if ($route[1]==="categorie"){
                 if (!isset($route[3])){
