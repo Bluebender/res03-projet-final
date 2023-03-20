@@ -28,8 +28,8 @@
                     <td><?= $dish["foodStyle"]->getName() ?> (id=<?= $dish["dish"]->getFoodStyleId() ?>)</td>
                     <td><?= $dish["category"]->getName() ?> (id=<?= $dish["dish"]->getCategoryId() ?>)</td>
                     <td>
-                        <a href="dish/<?= $dish["dish"]->getId() ?>"><i class="fa-solid fa-eye"></i></a>
-                        <a href="admin/dish/<?= $dish["dish"]->getId() ?>/supprimer"><i class="fa-solid fa-trash"></i></a>
+                        <a href="plat/<?= $dish["dish"]->getId() ?>"><i class="fa-solid fa-eye"></i></a>
+                        <a href="../admin/plat/<?= $dish["dish"]->getId() ?>/supprimer"><i class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
                 <?php } ?>

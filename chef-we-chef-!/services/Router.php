@@ -145,7 +145,11 @@ class Router {
             else if ($route[1]==="plats"){
                 $this->dishControl->adminAllDishes();
             }
-            
+            else if ($route[1]==="plat"){
+                if ($route[3]==="supprimer"){
+                    $this->dishControl->deleteDish($route[2]);
+                }
+            }
             
             
             else if ($route[1]==="categorie"){

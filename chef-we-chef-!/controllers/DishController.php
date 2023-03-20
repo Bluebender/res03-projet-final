@@ -113,11 +113,11 @@ class DishController extends AbstractController {
     }
 
     public function deleteDish($id){
-        $this->chiefManag->deleteChief($id);
+        $this->dishManag->deleteDish($id);
 
-        $data = $this->chiefsData();
+        $data = $this->dishesData();
         
-        $this->render("admin/chiefs", $data);
+        $this->render("admin/dishes", $data);
     }
 
     
