@@ -12,6 +12,6 @@ if(isset($_GET['path']))            // Si il y un une donnée associée à la cl
 }
 else
 {
-    $request = "";                 // Sinon on cré une valeur $request qui prend comme valeur /
+    $request = "";                  // Sinon on cré une valeur $request qui prend comme valeur /
 }
 $router->checkroute($request);      // On appelle la méthode route du Router en entrant les paramètres ($routes qui viens du autoload.php et $request)

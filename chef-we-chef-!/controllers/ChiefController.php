@@ -12,21 +12,20 @@ class ChiefController extends AbstractController {
         $this->dishManag = new DishManager();
     }
 
-    private function createData()
-    {
+    private function chiefsData(){
         // get all the chiefs from the manager
         $allChiefs = $this->chiefManag->getAllChefs();
         
-        $allChiefsWithFoodStyleAndSpecialDish=[];
+        $data=[];
         foreach ($allChiefs as $chief){
             // Je cré le tableau de donnée et j'y ajoute le chef
             $chiefWithFoodStyleAndSpecialDish=[];
-            $chiefWithFoodStyleAndSpecialDish[] = $chief;
+            $chiefWithFoodStyleAndSpecialDish["chief"] = $chief;
 
             // Je vais chercher le food-style qui va avec le plat et je l'ajoute au tableau           
             $foodStyleId1 = $chief->getFirstFoodStyleId();
             $foodstyle1 = $this->foodStyleManag->getFoodStyleById($foodStyleId1);
-            $chiefWithFoodStyleAndSpecialDish[] = $foodstyle1;
+            $chiefWithFoodStyleAndSpecialDish["foodStyle"][] = $foodstyle1;
             
             $foodStyleId2 = $chief->getSecondFoodStyleId();
             if (!isset($foodStyleId2)){
@@ -35,103 +34,73 @@ class ChiefController extends AbstractController {
             else{
                 $foodstyle2 = $this->foodStyleManag->getFoodStyleById($foodStyleId2);
             }
-            $chiefWithFoodStyleAndSpecialDish[] = $foodstyle2;
+            $chiefWithFoodStyleAndSpecialDish["foodStyle"][] = $foodstyle2;
             
-            $allChiefsWithFoodStyleAndSpecialDish[] = $chiefWithFoodStyleAndSpecialDish;
+            $data[] = $chiefWithFoodStyleAndSpecialDish;
 
         }
-        // var_dump($allChiefsWithFoodStyleAndSpecialDish);
-        return $allChiefsWithFoodStyleAndSpecialDish;
+        return $data;
     }
     
-    public function displayAllChiefs()
-    {
-        $data = $this->createData();
+    private function chiefData($id){
+        $data = [];
+        
+        // On ajoute l'objet chief aux datas
+        $chief = $this->chiefManag->getChiefById($id);
+        $data["chief"]=$chief;
+        
+        // On ajoute les objets dish aux datas
+        $dishes = $this->dishManag->getAllDishes();
+        $chiefsDishes = [];
+        foreach($dishes as $dish){
+            if ($dish->getChiefId()===$chief->getId()){
+                $chiefsDishes[]=$dish;
+            }
+        }
+        $data["dishes"]=$chiefsDishes;
+
+        // On ajoute les objets FoodStyle aux datas
+        $foodStyles = $this->foodStyleManag->getAllFoodStyles();
+        $chiefFoodStyles = [];
+        foreach($foodStyles as $foodStyle){
+            if ($chief->getFirstFoodStyleId()===$foodStyle->getId()){
+                $chiefFoodStyles []= $foodStyle;
+            }
+        }
+        foreach($foodStyles as $foodStyle){
+            if ($chief->getSecondFoodStyleId()===$foodStyle->getId()){
+                $chiefFoodStyles []= $foodStyle;
+            }
+        }
+        $data["foodstyles"]=$chiefFoodStyles;
+        
         // var_dump($data);
-        // render
+        return $data;
+    }
+    
+    public function displayAllChiefs(){
+        $data = $this->chiefsData();
+
         $this->render("visitor/chiefs", $data);
     }
 
-    public function visitorHome()
-    {
-        $data = $this->createData();
+    public function visitorHome(){
+        $data = $this->chiefsData();
         $longeurData = count($data);
         $threeLastChiefs = [$data[$longeurData-1], $data[$longeurData-2], $data[$longeurData-3]];
 
         $this->render("visitor/home", $threeLastChiefs);
     }
 
-    public function displayChief($id)
-    {
-        $data = [];
+    public function displayChief($id){
+        $data = $this->chiefData();
         
-        // On ajoute l'objet chief aux datas
-        $chief = $this->chiefManag->getChiefById($id);
-        $data["chief"]=$chief;
-        
-        // On ajoute les objets dish aux datas
-        $dishes = $this->dishManag->getAllDishes();
-        $chiefsDishes = [];
-        foreach($dishes as $dish){
-            if ($dish->getChiefId()===$chief->getId()){
-                $chiefsDishes[]=$dish;
-            }
-        }
-        $data["dishes"]=$chiefsDishes;
-
-        // On ajoute les objets FoodStyle aux datas
-        $foodStyles = $this->foodStyleManag->getAllFoodStyles();
-        $chiefFoodStyles = [];
-        foreach($foodStyles as $foodStyle){
-            if ($chief->getFirstFoodStyleId()===$foodStyle->getId()){
-                $chiefFoodStyles []= $foodStyle;
-            }
-        }
-        foreach($foodStyles as $foodStyle){
-            if ($chief->getSecondFoodStyleId()===$foodStyle->getId()){
-                $chiefFoodStyles []= $foodStyle;
-            }
-        }
-        $data["foodstyles"]=$chiefFoodStyles;
-
-        // render
         $this->render("visitor/chief", $data);
     }
 
-    public function displayMonCompte($id)
-    {
-        $data = [];
+    public function displayMonCompte($id){
+        $data = $this->chiefData();
         
-        // On ajoute l'objet chief aux datas
-        $chief = $this->chiefManag->getChiefById($id);
-        $data["chief"]=$chief;
-        
-        // On ajoute les objets dish aux datas
-        $dishes = $this->dishManag->getAllDishes();
-        $chiefsDishes = [];
-        foreach($dishes as $dish){
-            if ($dish->getChiefId()===$chief->getId()){
-                $chiefsDishes[]=$dish;
-            }
-        }
-        $data["dishes"]=$chiefsDishes;
-
-        // On ajoute les objets FoodStyle aux datas
-        $foodStyles = $this->foodStyleManag->getAllFoodStyles();
-        $chiefFoodStyles = [];
-        foreach($foodStyles as $foodStyle){
-            if ($chief->getFirstFoodStyleId()===$foodStyle->getId()){
-                $chiefFoodStyles []= $foodStyle;
-            }
-        }
-        foreach($foodStyles as $foodStyle){
-            if ($chief->getSecondFoodStyleId()===$foodStyle->getId()){
-                $chiefFoodStyles []= $foodStyle;
-            }
-        }
-        $data["foodstyles"]=$chiefFoodStyles;
-        
-        // render
         $this->render("chef/profil", $data);
     }
 
@@ -140,12 +109,17 @@ class ChiefController extends AbstractController {
     // ADMIN
     public function adminAllChiefs()
     {
-        $data = $this->createData();
-        // var_dump($data);
-        // render
+        $data = $this->chiefsData();
+
         $this->render("admin/chiefs", $data);
     }
 
+    public function editChief($id)
+    {
+        $data = $this->chiefData($id);
+
+        $this->render("admin/chief/$id/modifier", $data);
+    }
 
 
 

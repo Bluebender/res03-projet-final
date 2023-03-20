@@ -1,40 +1,42 @@
 <!--<?php var_dump($data); ?>-->
 <main id="adminChefs">
-    <h2>Les chefs</h2>
-    <table class="table table-striped">
-        <thead>
-            <tr class="conteneur">
-                <th>Id</th>
-                <th>Prénom</th>
-                <th>Nom</th>
-                <th>Email</th>
-                <th>Téléphone</th>
-                <th>URL de la photo de profil</th>
-                <th>Déscritpion</th>
-                <th>Premier style de cuisine</th>
-                <th>Second style de cuisine</th>
-                <th>Fonctions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach($data as $chief){ ?>
-            <tr>
-                <td><?= $chief[0]->getId() ?></td>
-                <td><?= $chief[0]->getFirstName() ?></td>
-                <td><?= $chief[0]->getLastName() ?></td>
-                <td><?= $chief[0]->getEmail() ?></td>
-                <td><?= $chief[0]->getPhone() ?></td>
-                <td><?= $chief[0]->getProfilPictureUrl() ?></td>
-                <td><?= $chief[0]->getDescription() ?></td>
-                <td><?= $chief[0]->getFirstFoodStyleId() ?></td>
-                <td><?= $chief[0]->getSecondFoodStyleId() ?></td>
-                <td>
-                    <a href=""><i class="fa-solid fa-eye"></i></a>
-                    <a href=""><i class="fa-solid fa-pen"></i></a>
-                    <a href=""><i class="fa-solid fa-trash"></i></a>
-                </td>
-            </tr>
-            <?php } ?>
-        </tbody>
-    </table>
+    <h2 class="text-center m-5">Les chefs</h2>
+    <section class="d-flex flex-column align-items-center">
+        <table class="table col-10 table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Téléphone</th>
+                    <th>Photo de profil</th>
+                    <th>Déscritpion</th>
+                    <th>Premier style de cuisine</th>
+                    <th>Second style de cuisine</th>
+                    <th>Fonctions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($data as $chief){ ?>
+                <tr>
+                    <td><?= $chief["chief"]->getId() ?></td>
+                    <td><?= $chief["chief"]->getFirstName() ?></td>
+                    <td><?= $chief["chief"]->getLastName() ?></td>
+                    <td><?= $chief["chief"]->getEmail() ?></td>
+                    <td><?= $chief["chief"]->getPhone() ?></td>
+                    <td><?= $chief["chief"]->getProfilPictureUrl() ?><img height="100px" src="<?= $chief["chief"]->getProfilPictureUrl() ?>" alt="Photo de profil du chef"></img></td>
+                    <td><?= $chief["chief"]->getDescription() ?></td>
+                    <td><?= $chief["foodStyle"][0]->getName() ?> (id=<?= $chief["chief"]->getFirstFoodStyleId() ?>)</td>
+                    <td><?= $chief["foodStyle"][1]->getName() ?> (id=<?= $chief["chief"]->getSecondFoodStyleId() ?>)</td>
+                    <td>
+                        <a href="chef/<?= $chief["chief"]->getId() ?>"><i class="fa-solid fa-eye"></i></a>
+                        <a href="chef/<?= $chief["chief"]->getId() ?>/modifier"><i class="fa-solid fa-pen"></i></a>
+                        <a href="chef/<?= $chief["chief"]->getId() ?>/supprimer"><i class="fa-solid fa-trash"></i></a>
+                    </td>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </section>
 </main>

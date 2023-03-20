@@ -119,6 +119,9 @@ class Router {
                 else if ($route[3]==="modifier"){
                     $this->chiefControl->editChief($route[2]);
                 }
+                else if ($route[3]==="supprimer"){
+                    $this->chiefControl->editChief($route[2]);
+                }
                 else if ($route[3]==="carte"){
                     $this->chiefControl->displayMenuChief($route[2]);
                 }
