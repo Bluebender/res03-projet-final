@@ -1,5 +1,5 @@
 <!--<?php var_dump($data); ?>-->
-<main id="adminChefs">
+<main>
     <h2 class="text-center m-5">Les chefs</h2>
     <section class="d-flex flex-column align-items-center">
         <table class="table col-10 table-hover">
@@ -25,14 +25,13 @@
                     <td><?= $chief["chief"]->getLastName() ?></td>
                     <td><?= $chief["chief"]->getEmail() ?></td>
                     <td><?= $chief["chief"]->getPhone() ?></td>
-                    <td><?= $chief["chief"]->getProfilPictureUrl() ?><img height="100px" src="<?= $chief["chief"]->getProfilPictureUrl() ?>" alt="Photo de profil du chef"></img></td>
+                    <td><?= $chief["chief"]->getProfilPictureUrl() ?><img height="100px" src="/res03-projet-final/chef-we-chef-!/<?= $chief["chief"]->getProfilPictureUrl() ?>" alt="Photo de profil du chef"></img></td>
                     <td><?= $chief["chief"]->getDescription() ?></td>
                     <td><?= $chief["foodStyle"][0]->getName() ?> (id=<?= $chief["chief"]->getFirstFoodStyleId() ?>)</td>
                     <td><?= $chief["foodStyle"][1]->getName() ?> (id=<?= $chief["chief"]->getSecondFoodStyleId() ?>)</td>
                     <td>
                         <a href="chef/<?= $chief["chief"]->getId() ?>"><i class="fa-solid fa-eye"></i></a>
-                        <a href="chef/<?= $chief["chief"]->getId() ?>/modifier"><i class="fa-solid fa-pen"></i></a>
-                        <a href="chef/<?= $chief["chief"]->getId() ?>/supprimer"><i class="fa-solid fa-trash"></i></a>
+                        <a href="admin/chef/<?= $chief["chief"]->getId() ?>/supprimer"><i class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
                 <?php } ?>

@@ -71,6 +71,15 @@ class ChiefManager extends AbstractManager {
         return $loadedSavedChiefObject;
     }
 
+    public function deleteChief(int $id) : void
+    {
+        $query= $this->db->prepare("DELETE FROM chiefs WHERE id=:value");
+        $parameters = [
+        'value' => $id
+        ];
+        $query->execute($parameters);
+    }
+
     // public function updateUser(User $user) : User
     // {
     //     $query= $this->db->prepare("UPDATE users SET username=:value2, first_name=:value3, last_name=:value4, email=:value5 WHERE id=:value1");
@@ -93,14 +102,4 @@ class ChiefManager extends AbstractManager {
     //     return $loadedUpdatedUserObject;
     // }
 
-    // public function deleteUser(int $id) : array
-    // {
-    //     $query= $this->db->prepare("DELETE FROM users WHERE id=:value");
-    //     $parameters = [
-    //     'value' => $id,
-    //     ];
-    //     $query->execute($parameters);
-
-    //     return $this->getAllUsers();
-    // }
 }

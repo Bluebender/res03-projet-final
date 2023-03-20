@@ -109,38 +109,12 @@ class Router {
             if (!isset($route[1])){
                 $this->chiefControl->adminAllChiefs();
             }
-            else if ($route[1]==="chefs"){
-                $this->chiefControl->displayAllChiefs();
-            }
             else if ($route[1]==="chef"){
                 if (!isset($route[3])){
                     $this->chiefControl->displayChief($route[2]);
                 }
-                else if ($route[3]==="modifier"){
-                    $this->chiefControl->editChief($route[2]);
-                }
                 else if ($route[3]==="supprimer"){
-                    $this->chiefControl->editChief($route[2]);
-                }
-                else if ($route[3]==="carte"){
-                    $this->chiefControl->displayMenuChief($route[2]);
-                }
-                else if ($route[3]==="plats"){
-                    $this->dishControl->displayAllChiefDishes($route[2]);
-                }
-                else if ($route[3]==="plat"){
-                    if (!isset($route[5])){
-                        $this->dishControl->displayDish($route[4]);
-                    }
-                    else if ($route[5]==="modifier"){
-                        $this->dishControl->editDish($route[4]);
-                    }
-                    else if ($route[5]==="modifier"){
-                        $this->dishControl->editDish($route[4]);
-                    }
-                    else{
-                        echo "erreur 404";
-                    }
+                    $this->chiefControl->deleteChief($route[2]);
                 }
                 else if ($route[3]==="zone"){
                     if (!isset($route[4])){
@@ -168,6 +142,12 @@ class Router {
                     echo "erreur 404";   
                 }
             }
+            else if ($route[1]==="plats"){
+                $this->dishControl->adminAllDishes();
+            }
+            
+            
+            
             else if ($route[1]==="categorie"){
                 if (!isset($route[3])){
                     $this->categoryControl->displayAllCategories($route[2]);

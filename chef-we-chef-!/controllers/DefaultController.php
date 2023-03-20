@@ -12,8 +12,7 @@ class DefaultController extends AbstractController {
         $this->adminManag = new AdminManager();
     }
 
-    public function register($post)
-    {
+    public function register($post){
         if (empty($post)){
             $foodstyles = $this->foodStyleManag->getAllFoodStyles();
             $this->render("visitor/register-form", $foodstyles);
@@ -107,8 +106,7 @@ class DefaultController extends AbstractController {
         }
     }
 
-    public function login($post)
-    {   
+    public function login($post){   
         if (empty($post)){
             $this->render("visitor/login-form", [""]);
         }
@@ -168,8 +166,7 @@ class DefaultController extends AbstractController {
         }        
     }
     
-    public function logout()
-    {
+    public function logout(){
         session_destroy();
         
         header('Location: /res03-projet-final/chef-we-chef-!');

@@ -14,12 +14,12 @@ class DishController extends AbstractController {
         $this->chiefManag = new ChiefManager();
     }
 
-    public function displayAllDishes()
-    {
+    
+    private function dishesData(){
         // get all the dishes from the manager
         $allDishes = $this->dishManag->getAllDishes();
 
-        $allDishesWithFoodStyleAndCategory=[];
+        $data=[];
         foreach ($allDishes as $dish){
             // Je crée le tableau de donnée et j'y ajoute le plat
             $dishWithFoodStyleAndCategory=[];
@@ -40,16 +40,18 @@ class DishController extends AbstractController {
             $chief = $this->chiefManag->getChiefById($chiefId);
             $dishWithFoodStyleAndCategory["chief"] = $chief;
             
-            
-            $allDishesWithFoodStyleAndCategory[] = $dishWithFoodStyleAndCategory;
+            $data[] = $dishWithFoodStyleAndCategory;
         }
-        // var_dump($allDishesWithFoodStyleAndCategory);
-        // render
-        $this->render("visitor/dishes", $allDishesWithFoodStyleAndCategory);
+        return $data;
+    }
+    
+    public function displayAllDishes(){
+        $data = $this->dishesData();
+
+        $this->render("visitor/dishes", $data);
     }
 
-    public function createDish($post)
-    {
+    public function createDish($post){
         if (empty($post)){
             $foodstyles = $this->foodStyleManag->getAllFoodStyles();
             $categories = $this->categoryManag->getAllCategories();
@@ -99,4 +101,25 @@ class DishController extends AbstractController {
             }
         }
     }
+
+
+
+
+    // ADMIN
+    public function adminAllDishes(){
+        $data = $this->dishesData();
+
+        $this->render("admin/dishes", $data);
+    }
+
+    public function deleteDish($id){
+        $this->chiefManag->deleteChief($id);
+
+        $data = $this->chiefsData();
+        
+        $this->render("admin/chiefs", $data);
+    }
+
+    
 }
+

@@ -93,7 +93,7 @@ class ChiefController extends AbstractController {
     }
 
     public function displayChief($id){
-        $data = $this->chiefData();
+        $data = $this->chiefData($id);
         
         $this->render("visitor/chief", $data);
     }
@@ -107,19 +107,19 @@ class ChiefController extends AbstractController {
 
 
     // ADMIN
-    public function adminAllChiefs()
-    {
+    public function adminAllChiefs(){
         $data = $this->chiefsData();
 
         $this->render("admin/chiefs", $data);
     }
 
-    public function editChief($id)
-    {
-        $data = $this->chiefData($id);
+    // public function deleteChief($id){
+    //     $this->chiefManag->deleteChief($id);
 
-        $this->render("admin/chief/$id/modifier", $data);
-    }
+    //     $data = $this->chiefsData();
+        
+    //     $this->render("admin/chiefs", $data);
+    // }
 
 
 
