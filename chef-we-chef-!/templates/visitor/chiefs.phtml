@@ -1,3 +1,4 @@
+<!--<?php var_dump($data); ?>-->
 <main id="visitorChiefs">
     <h2>Les chefs</h2>
     <ul>
@@ -6,19 +7,19 @@
             <article>
                 <header>
                     <figure>
-                        <img src="<?= $chief[0]->getProfilPictureUrl() ?>" alt="Photo de profil du chef">
+                        <img src="<?= $chief["chief"]->getProfilPictureUrl() ?>" alt="Photo de profil du chef">
                     </figure>
                 </header>
                 <section>
-                    <h3>Chef <?= $chief[0]->getChiefName() ?></h3>
-                    <p><?= $chief[0]->getDescription() ?></p>
+                    <h3>Chef <?= $chief["chief"]->getChiefName() ?></h3>
+                    <p><?= $chief["chief"]->getDescription() ?></p>
                     <section>
-                        <p><?= $chief[1]->getName() ?></p>
-                        <p><?php if ($chief[2]!=="Pas de second style de cuisine") echo $chief[2]->getName() ?></p>
+                        <p><?= $chief["foodStyle"][0]->getName() ?></p>
+                        <p><?php if ($chief["foodStyle"][0]!=="Pas de second style de cuisine") echo $chief["foodStyle"][0]->getName() ?></p>
                     </section>
                 </section>
                 <footer>
-                    <a href="chef/<?= $chief[0]->getId() ?>">Voir ce chef</a>
+                    <a href="chef/<?= $chief["chief"]->getId() ?>">Voir ce chef</a>
                 </footer>
             </article>
         </li>

@@ -99,7 +99,7 @@ class ChiefController extends AbstractController {
     }
 
     public function displayMonCompte($id){
-        $data = $this->chiefData();
+        $data = $this->chiefData($id);
         
         $this->render("chef/profil", $data);
     }

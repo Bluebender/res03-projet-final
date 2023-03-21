@@ -62,7 +62,7 @@ class CategoryController extends AbstractController {
         }
     }
     
-    public function adminFoodStyleDelete($id){
+    public function adminCategoryDelete($id){
         $this->categoryManag->deleteCategory($id);
 
         header('Location: /res03-projet-final/chef-we-chef-!/admin/categories');
