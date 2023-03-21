@@ -7,7 +7,6 @@
                 <tr>
                     <th>Id</th>
                     <th>Nom</th>
-                    <th>Fonctions</th>
                 </tr>
             </thead>
             <tbody>
@@ -15,10 +14,6 @@
                 <tr>
                     <td><?= $category->getId() ?></td>
                     <td><?= $category->getName() ?></td>
-                    <td>
-                        <a href="categorie/<?= $category->getId() ?>"><span class="fa-solid fa-pen"></span></a>
-                        <a href="categorie/<?= $category->getId() ?>/supprimer"><span class="fa-solid fa-trash"></span></a>
-                    </td>
                 </tr>
                 <?php } ?>
             </tbody>

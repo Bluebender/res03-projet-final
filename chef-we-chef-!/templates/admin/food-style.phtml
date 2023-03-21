@@ -8,7 +8,6 @@
                     <th>Id</th>
                     <th>Nom</th>
                     <th>Déscritpion</th>
-                    <th>Fonctions</th>
                 </tr>
             </thead>
             <tbody>
@@ -17,10 +16,6 @@
                     <td><?= $foodStyle->getId() ?></td>
                     <td><?= $foodStyle->getName() ?></td>
                     <td><?= $foodStyle->getDescription() ?></td>
-                    <td>
-                        <a href="style-de-cuisine/<?= $foodStyle->getId() ?>"><span class="fa-solid fa-pen"></span></a>
-                        <a href="../admin/plat/<?= $foodStyle->getId() ?>/supprimer"><span class="fa-solid fa-trash"></span></a>
-                    </td>
                 </tr>
                 <?php } ?>
             </tbody>

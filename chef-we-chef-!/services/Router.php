@@ -106,6 +106,8 @@ class Router {
         
         // Admin pages
         else if ($route[0]==="admin"){
+            
+            // Chefs
             if (!isset($route[1])){
                 $this->chiefControl->adminAllChiefs();
             }
@@ -120,6 +122,8 @@ class Router {
                     echo "erreur 404";   
                 }
             }
+            
+            // Plats
             else if ($route[1]==="plats"){
                 $this->dishControl->adminAllDishes();
             }
@@ -128,6 +132,10 @@ class Router {
                     $this->dishControl->deleteDish($route[2]);
                 }
             }
+
+
+
+            // Styles de cuisine
             else if ($route[1]==="styles-de-cuisine"){
                 if (!isset($route[2])){
                     $this->foodStyleControl->adminAllFoodStyles();
@@ -148,52 +156,31 @@ class Router {
                 }
             }
             
+
+            // Catégories
             else if ($route[1]==="categories"){
-                $this->categoryControl->adminAllCategories();
+                if (!isset($route[2])){
+                    $this->categoryControl->adminAllCategories();
+                }
+                else if ($route[2]==="creer"){
+                    $this->categoryControl->adminCreateCategory($_POST);
+                }
             }
             else if ($route[1]==="categorie"){
                 if (!isset($route[3])){
-                    $this->categoryControl->adminFoodStyle($route[2]);
+                    $this->categoryControl->adminCategory($route[2]);
                 }
                 else if ($route[3]==="modifier"){
-                    $this->categoryControl->adminFoodStyleUpdate($route[2]);
+                    $this->categoryControl->adminCategoryUpdate($route[2]);
                 }
                 else if ($route[3]==="supprimer"){
-                    $this->categoryControl->adminFoodStyleDelete($route[2]);
+                    $this->categoryControl->adminCategoryDelete($route[2]);
                 }
             }
             
-            else if ($route[1]==="categorie"){
-                if (!isset($route[3])){
-                    $this->categoryControl->displayAllCategories($route[2]);
-                }
-                else if ($route[3]==="creer"){
-                    $this->categoryControl->createCategory($route[2]);
-                }
-                else if ($route[3]==="modifier"){
-                    $this->categoryControl->editCategory($route[2]);
-                }
-                else{
-                    echo "erreur 404";
-                }
-            }
-            else if ($route[1]==="style"){
-                if (!isset($route[3])){
-                    $this->foodStyleControl->displayAllStyles($route[2]);
-                }
-                else if ($route[3]==="creer"){
-                    $this->foodStyleControl->createstyle($route[2]);
-                }
-                else if ($route[3]==="modifier"){
-                    $this->foodStyleControl->editStyle($route[2]);
-                }
-                else{
-                    echo "erreur 404";
-                }
-            }
-            else{
-                echo "erreur 404";
-            }
+            
+            
+            
         }
         else{
             echo "erreur 404";

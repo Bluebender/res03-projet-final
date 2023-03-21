@@ -3,8 +3,7 @@
 
 class FoodStyleManager extends AbstractManager {
 
-    public function getAllFoodStyles() : array
-    {   
+    public function getAllFoodStyles() : array{   
         $query = $this->db->prepare('SELECT * FROM food_styles');
         $query->execute();
         $loadedFoodStyles = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -18,8 +17,7 @@ class FoodStyleManager extends AbstractManager {
         return $loadedFoodStylesObject;
     }
 
-    public function getFoodStyleById(int $id) : FoodStyle
-    {
+    public function getFoodStyleById(int $id) : FoodStyle{
         $query= $this->db->prepare("SELECT * FROM `food_styles` WHERE id=:value");
         $parameters=['value' => $id];
         $query->execute($parameters);
@@ -31,8 +29,7 @@ class FoodStyleManager extends AbstractManager {
         return $loadedFoodStyleObject;
     }
 
-    public function createFoodStyle(FoodStyle $foodStyle) : void
-    {
+    public function createFoodStyle(FoodStyle $foodStyle) : void{
         $query = $this->db->prepare('INSERT INTO food_styles VALUES (null, :value1, :value2)');
         $parameters = [
         'value1' => $foodStyle -> getName(),
@@ -41,8 +38,7 @@ class FoodStyleManager extends AbstractManager {
         $query->execute($parameters);
     }
 
-    public function updateFoodStyle(FoodStyle $foodStyle) : void
-    {
+    public function updateFoodStyle(FoodStyle $foodStyle) : void{
         $query= $this->db->prepare("UPDATE food_styles SET name=:value2, description=:value3 WHERE id=:value1");
         $parameters = [
         'value1' => $foodStyle -> getId(),
@@ -52,8 +48,7 @@ class FoodStyleManager extends AbstractManager {
         $query->execute($parameters);
     }
 
-    public function deleteFoodStyle(int $id) : void
-    {
+    public function deleteFoodStyle(int $id) : void{
         $query= $this->db->prepare("DELETE FROM food_styles WHERE id=:value");
         $parameters = [
         'value' => $id,

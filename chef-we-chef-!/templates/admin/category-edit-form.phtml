@@ -1,1 +1,11 @@
-<h2>Formulaire de modification d'une catégorie</h2>
+<!--<?php var_dump($data) ?>-->
+<main>
+    <h2 class="text-center m-5">Modifier la catégorie</h2>
+    <form action="/res03-projet-final/chef-we-chef-!/admin/categorie/<?= $data["category"]->getId() ?>/modifier" method="post">
+        <fieldset>
+            <label>Nom</label>
+            <input type="text" name="categoryName" value="<?= $data["category"]->getName() ?>"/>
+        </fieldset>
+        <button>Modifier</button>
+    </form>
+</main>
