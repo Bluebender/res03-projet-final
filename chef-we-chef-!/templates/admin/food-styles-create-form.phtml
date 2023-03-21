@@ -1,14 +1,31 @@
 <main>
     <h2 class="text-center m-5">Nouveau style de cuisine</h2>
-    <form action="/res03-projet-final/chef-we-chef-!/admin/styles-de-cuisine/creer" method="post">
-        <fieldset>
-            <label>Nom</label>
-            <input type="text" name="foodStyleName"/>
-        </fieldset>
-        <fieldset>
-            <label>Description</label>
-            <input type="text" name="foodStyleDescription"/>
-        </fieldset>
-        <button>Créer</button>
-    </form>
+    
+    <section class="d-flex justify-content-center">
+
+        <form action="/res03-projet-final/chef-we-chef-!/admin/styles-de-cuisine/creer" method="post" class="col-4">
+            
+            <section class="mb-3">
+
+                <fieldset>
+                    <label class="form-label">Nom</label>
+                    <input class="form-control" type="text" name="foodStyleName"/>
+                </fieldset>
+
+            </section>
+            
+            <section class="mb-3">
+
+                <fieldset>
+                    <label class="form-label">Description</label>
+                    <input class="form-control" type="text" name="foodStyleDescription"/>
+                </fieldset>
+
+            </section>
+
+            <button class="btn btn-primary">Créer</button>
+
+        </form>
+    
+    </section>
 </main>

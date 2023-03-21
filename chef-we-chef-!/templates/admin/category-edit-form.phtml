@@ -1,11 +1,23 @@
 <!--<?php var_dump($data) ?>-->
 <main>
     <h2 class="text-center m-5">Modifier la catégorie</h2>
-    <form action="/res03-projet-final/chef-we-chef-!/admin/categorie/<?= $data["category"]->getId() ?>/modifier" method="post">
-        <fieldset>
-            <label>Nom</label>
-            <input type="text" name="categoryName" value="<?= $data["category"]->getName() ?>"/>
-        </fieldset>
-        <button>Modifier</button>
-    </form>
+    
+    <section class="d-flex justify-content-center">
+
+        <form action="/res03-projet-final/chef-we-chef-!/admin/categorie/<?= $data["category"]->getId() ?>/modifier" method="post" class="col-4">
+        
+            <section class="mb-3">
+                
+                <fieldset>
+                    <label class="form-label">Nom</label>
+                    <input class="form-control" type="text" name="categoryName" value="<?= $data["category"]->getName() ?>"/>
+                </fieldset>
+            </section>
+            
+            <button class="btn btn-primary">Modifier</button>
+        
+        </form>
+        
+        
+    </section>
 </main>
