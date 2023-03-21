@@ -113,66 +113,22 @@ class ChiefController extends AbstractController {
         $this->render("admin/chiefs", $data);
     }
 
-    // public function deleteChief($id){
-    //     $this->chiefManag->deleteChief($id);
-
-    //     $data = $this->chiefsData();
+    public function adminChief($id){
+        $data = $this->chiefData($id);
         
-    //     $this->render("admin/chiefs", $data);
-    // }
-
-
-
-
-
-
-
-
-
-
-    public function getUser(string $get)
-    {
-        // get the user from the manager
-        $id=intval($get);
-        $user = $this->um->getUserById($id);
-        $userArray=$user->toArray();
-        // either by email or by id
-
-        // render
-        $this->render($userArray);
+        $this->render("admin/chief", $data);
     }
 
-    public function createUser(array $post)
-    {
-        // create the user in the manager
-        $UserToCreate=new User (null, $post["username"], $post["firstName"], $post["lastName"], $post["email"]);
-        $userCreated = $this->um->createUser($UserToCreate);
-        $userCreatedArray=$userCreated->toArray();
+    public function deleteChief($id){
+        $data = $this->chiefData($id);
+        foreach($data["dishes"] as $dish){
+            $this->dishManag->deleteDish($dish->getId());
+        }        
+        
+        $this->chiefManag->deleteChief($id);
 
-        // render the created user
-        $this->render($userCreatedArray);
+        header('Location: /res03-projet-final/chef-we-chef-!/admin');
     }
 
-    public function updateUser(string $post)
-    {   
-        // update the user in the manager
-        $UserToUpdate=new User ($_POST["id"], $_POST["username"], $_POST["firstName"], $_POST["lastName"], $_POST["email"]);
-        $userUpdated = $this->um->updateUser($UserToUpdate);
-        $userUpdatedArray=$userUpdated->toArray();
 
-        // render the updated user
-        $this->render($userUpdatedArray);
-    }
-
-    public function deleteUser(int $post)
-    {
-        // delete the user in the manager
-        var_dump($post);
-        // $UserToDelete=new User ($_POST["id"], $_POST["username"], $_POST["firstName"], $_POST["lastName"], $_POST["email"]);
-        $DeletedUser = $this->um->deleteUser($post);
-        // $NewUserTabArray=$NewUserTab->toArray();
-
-        // render the list of all users
-        $this->render($NewUserTabArray);
-    }
 }

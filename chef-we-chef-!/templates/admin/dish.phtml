@@ -1,0 +1,32 @@
+<!--<?php var_dump($data) ?>-->
+<main>
+    <h2 class="text-center m-5">Plat</h2>
+    <section class="d-flex flex-column align-items-center">
+        <table class="table col-10 table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Photo du plat</th>
+                    <th>Déscritpion</th>
+                    <th>Prix</th>
+                    <th>Chef associé</th>
+                    <th>Style de cuisine</th>
+                    <th>Catégorie</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><?= $data["dish"]->getId() ?></td>
+                    <td><?= $data["dish"]->getName() ?></td>
+                    <td><?= $data["dish"]->getPictureUrl() ?><img height="100px" src="/res03-projet-final/chef-we-chef-!/<?= $data["dish"]->getPictureUrl() ?>" alt="Photo du plat"></img></td>
+                    <td><?= $data["dish"]->getDescription() ?></td>
+                    <td><?= $data["dish"]->getPrice() ?></td>
+                    <td><?= $data["chief"]->getChiefName() ?> (id=<?= $data["dish"]->getChiefId() ?>)</td>
+                    <td><?= $data["foodStyle"]->getName() ?> (id=<?= $data["dish"]->getFoodStyleId() ?>)</td>
+                    <td><?= $data["category"]->getName() ?> (id=<?= $data["dish"]->getCategoryId() ?>)</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</main>

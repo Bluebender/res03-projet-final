@@ -44,6 +44,31 @@ class DishController extends AbstractController {
         }
         return $data;
     }
+
+    private function dishData($id){
+        $data=[];
+
+        $dish = $this->dishManag->getDishById($id);
+        $data["dish"] = $dish;
+
+
+        // Je vais chercher la catégorie qui va avec le plat et je l'ajoute au tableau           
+        $categoryId = $dish->getCategoryId();
+        $category = $this->categoryManag->getCategoryById($categoryId);
+        $data["category"] = $category;
+        
+        // Je vais chercher le food-style qui va avec le plat et je l'ajoute au tableau           
+        $foodStyleId = $dish->getFoodStyleId();
+        $foodStyle = $this->foodStyleManag->getFoodStyleById($foodStyleId);
+        $data["foodStyle"] = $foodStyle;
+        
+        // Je vais chercher le chef qui va avec le plat et je l'ajoute au tableau           
+        $chiefId = $dish->getChiefId();
+        $chief = $this->chiefManag->getChiefById($chiefId);
+        $data["chief"] = $chief;
+
+        return $data;
+    }
     
     public function displayAllDishes(){
         $data = $this->dishesData();
@@ -111,6 +136,13 @@ class DishController extends AbstractController {
 
         $this->render("admin/dishes", $data);
     }
+    
+    public function adminDish($id){
+        $data = $this->dishData($id);
+        
+        $this->render("admin/dish", $data);
+    }
+
 
     public function deleteDish($id){
         $this->dishManag->deleteDish($id);

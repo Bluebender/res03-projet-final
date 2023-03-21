@@ -1,0 +1,34 @@
+<!--<?php var_dump($data) ?>-->
+<main>
+    <h2 class="text-center m-5">Chef</h2>
+    <section class="d-flex flex-column align-items-center">
+        <table class="table col-10 table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Téléphone</th>
+                    <th>Photo de profil</th>
+                    <th>Description</th>
+                    <th>Premier Style de cuisine</th>
+                    <th>Deuxième Style de cuisine</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><?= $data["chief"]->getId() ?></td>
+                    <td><?= $data["chief"]->getFirstName() ?></td>
+                    <td><?= $data["chief"]->getLastName() ?></td>
+                    <td><?= $data["chief"]->getEmail() ?></td>
+                    <td><?= $data["chief"]->getPhone() ?></td>
+                    <td><?= $data["chief"]->getProfilPictureUrl() ?><img height="100px" src="/res03-projet-final/chef-we-chef-!/<?= $data["chief"]->getProfilPictureUrl() ?>" alt="Photo de profil du chef"></img></td>
+                    <td><?= $data["chief"]->getDescription() ?></td>
+                    <td><?= $data["foodstyles"][0]->getName() ?> (id=<?= $data["chief"]->getFirstFoodStyleId() ?>)</td>
+                    <td><?= $data["foodstyles"][1]->getName() ?> (id=<?= $data["chief"]->getSecondFoodStyleId() ?>)</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</main>

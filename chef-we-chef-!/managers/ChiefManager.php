@@ -79,27 +79,4 @@ class ChiefManager extends AbstractManager {
         ];
         $query->execute($parameters);
     }
-
-    // public function updateUser(User $user) : User
-    // {
-    //     $query= $this->db->prepare("UPDATE users SET username=:value2, first_name=:value3, last_name=:value4, email=:value5 WHERE id=:value1");
-    //     $parameters = [
-    //     'value1' => $user -> getId(),
-    //     'value2' => $user -> getUsername(),
-    //     'value3' => $user -> getFirstName(),
-    //     'value4' => $user -> getLastName(),
-    //     'value5' => $user -> getEmail()
-    //     ];
-    //     $query->execute($parameters);
-
-    //     $query= $this->db->prepare("SELECT * FROM users WHERE email=:value");
-    //     $parameters=['value' => $user -> getEmail()];
-    //     $query->execute($parameters);
-    //     $loadedUpdatedUser = $query->fetch(PDO::FETCH_ASSOC);
-
-    //     $loadedUpdatedUserObject=new User ($loadedUpdatedUser["id"], $loadedUpdatedUser["username"],$loadedUpdatedUser["first_name"], $loadedUpdatedUser["last_name"], $loadedUpdatedUser["email"]);
-
-    //     return $loadedUpdatedUserObject;
-    // }
-
 }

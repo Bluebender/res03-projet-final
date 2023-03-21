@@ -113,13 +113,10 @@ class Router {
             }
             else if ($route[1]==="chef"){
                 if (!isset($route[3])){
-                    $this->chiefControl->displayChief($route[2]);
+                    $this->chiefControl->adminChief($route[2]);
                 }
                 else if ($route[3]==="supprimer"){
                     $this->chiefControl->deleteChief($route[2]);
-                }
-                else{
-                    echo "erreur 404";   
                 }
             }
             
@@ -128,7 +125,10 @@ class Router {
                 $this->dishControl->adminAllDishes();
             }
             else if ($route[1]==="plat"){
-                if ($route[3]==="supprimer"){
+                if (!isset($route[3])){
+                    $this->dishControl->adminDish($route[2]);
+                }
+                else if ($route[3]==="supprimer"){
                     $this->dishControl->deleteDish($route[2]);
                 }
             }
