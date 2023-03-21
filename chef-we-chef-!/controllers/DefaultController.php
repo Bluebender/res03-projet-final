@@ -171,4 +171,9 @@ class DefaultController extends AbstractController {
         
         header('Location: /res03-projet-final/chef-we-chef-!');
     }
+    
+    public function erreur404(){
+        $this->render("404", [""]);
+    }
+
 }
