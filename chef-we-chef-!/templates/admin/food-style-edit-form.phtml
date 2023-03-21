@@ -1,0 +1,15 @@
+<!--<?php var_dump($data) ?>-->
+<main>
+    <h2 class="text-center m-5">Modifier le style de cuisine</h2>
+    <form action="/res03-projet-final/chef-we-chef-!/admin/style-de-cuisine/<?= $data["foodStyle"]->getId() ?>/modifier" method="post">
+        <fieldset>
+            <label>Nom</label>
+            <input type="text" name="foodStyleName" value="<?= $data["foodStyle"]->getName() ?>"/>
+        </fieldset>
+        <fieldset>
+            <label>Description</label>
+            <input type="text" name="foodStyleDescription" value="<?= $data["foodStyle"]->getDescription() ?>"/>
+        </fieldset>
+        <button>Modifier</button>
+    </form>
+</main>

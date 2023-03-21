@@ -129,7 +129,12 @@ class Router {
                 }
             }
             else if ($route[1]==="styles-de-cuisine"){
-                $this->foodStyleControl->adminAllFoodStyles();
+                if (!isset($route[2])){
+                    $this->foodStyleControl->adminAllFoodStyles();
+                }
+                else if ($route[2]==="creer"){
+                    $this->foodStyleControl->adminCreateFoodStyle($_POST);
+                }
             }
             else if ($route[1]==="style-de-cuisine"){
                 if (!isset($route[3])){
