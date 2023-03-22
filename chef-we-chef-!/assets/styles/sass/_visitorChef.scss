@@ -113,4 +113,63 @@
             }
         }
     }
+    > section:nth-of-type(4){
+        background-color: $yellow;
+        padding: 5vh 5vw;
+        > h2{
+            font-size: 3rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 5vh;
+        }
+        > section{
+                background-color: white;
+                border-radius: 5px;
+            > h3{
+                
+            }
+            > table{
+                width: 100%;
+                > thead{
+                    > tr{
+                        > th{
+                            border: 1px solid black;
+                            padding: 5px;
+                            
+                        }
+                    }
+                }
+                > tbody{
+                    > tr{
+                        > td{
+                            border: 1px solid black;
+                            &.today{
+                                background-color: $blue;
+                            }
+                            > p{
+                            padding: 5px;
+                                
+                            }
+                            > section{
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-around;
+                                > p{
+                                    border-radius: 100%;
+                                    padding: 10px;
+                                    &.notAvailable{
+                                        background-color: $red;
+                                    }
+                                    &.available{
+                                        background-color: $green;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }

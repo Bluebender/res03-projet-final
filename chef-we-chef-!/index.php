@@ -4,25 +4,14 @@ session_start();
 
 require "autoload.php";
 
-try {
-    $router = new Router();
-    
-    if(isset($_GET['path']))
-    {
-        $request = $_GET['path'];
-    }
-    else
-    {
-        $request = "";
-    }
-    $router->checkroute($request);
-    
-}
+$router = new Router();
 
-catch(Exception $e)
+if(isset($_GET['path']))
 {
-    if($e->getCode() === 404)
-    {
-
-    }
+    $request = $_GET['path'];
 }
+else
+{
+    $request = "";
+}
+$router->checkroute($request);

@@ -74,6 +74,10 @@ class ChiefController extends AbstractController {
         }
         $data["foodstyles"]=$chiefFoodStyles;
         
+        // Je rajoute les datas du calendar
+        $calendarData = $this->calendarData();
+        $data["calendar"]=$calendarData;
+        
         // var_dump($data);
         return $data;
     }
@@ -131,4 +135,77 @@ class ChiefController extends AbstractController {
     }
 
 
+    // CALENDAR
+    private function calendarData(){
+        // Set timezone
+        date_default_timezone_set("Europe/Paris");
+        // Get prev & next month
+        if (isset($_GET["ym"])){
+            $ym = $_GET["ym"];
+        }
+        else{
+            $ym = date("Y-m");
+        }
+        // Check format
+        $timestamp = strtotime($ym,"-01");
+        if ($timestamp === false){
+            $timestamp = time();
+        }
+        
+        // Today
+        $today = date("Y-m-j", time());
+        // For h3 title
+        $html_title = date("Y / m", $timestamp);
+
+        // Create prev & next month link      mktime(hour,minute,second,month,day,year)
+        $prev = date("Y-m", mktime(0, 0, 0, date("m", $timestamp)-1, 1, date("Y", $timestamp)));
+        $next = date("Y-m", mktime(0, 0, 0, date("m", $timestamp)+1, 1, date("Y", $timestamp)));
+
+        // Numer of day in a month
+        $day_count = date("t", $timestamp);
+
+        // 0:Lun 1:Mar 2:Mer...
+        $str = date("w", mktime(0, 0, 0, date("m", $timestamp), 1, date("Y", $timestamp)));
+
+        // Create Calendar!!
+        $weeks = array();
+        $week = "";
+        
+        $week .= str_repeat("<td></td>", $str);
+        
+        for ($day=1; $day <= $day_count; $day++, $str++){
+            
+            $date = $ym."-".$day;
+
+            if ($today == $date){
+                $week .= "<td class='today'><p><strong>".$day."</strong></p><section><p date='".$date."-midi' class='event notAvailable'>Midi</p><p date='".$date."-soir' class='event notAvailable'>Soir</p></section>";
+            }
+            else{
+                $week .= "<td><p><strong>".$day."</strong></p><section><p date='".$date."-midi' class='event notAvailable'>Midi</p><p date='".$date."-soir' class='event notAvailable'>Soir</p></section>";
+            }
+            $week .= "</td>";
+            
+            // End of the week OR End of the month
+            if ($str % 7 == 6 || $day == $day_count){
+                
+                if ($day == $day_count){
+                    // Add empty cell
+                    $week .= str_repeat("<td></td>", 6 - ($str % 7));
+                }
+                
+                $weeks[] = "<tr>".$week."</tr>";
+                
+                // Prepare for new week
+                $week = "";
+            }
+        }
+        $data = [];
+        $data["preview"]=$prev;
+        $data["next"]=$next;
+        $data["title"]=$html_title;
+        $data["weeks"]=$weeks;
+        
+        
+        return $data;
+    }
 }

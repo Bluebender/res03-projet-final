@@ -565,6 +565,51 @@ table {
 #visitorChef > section:nth-of-type(3) > ul > li > figure > figcaption {
   font-size: 1.2rem;
 }
+#visitorChef > section:nth-of-type(4) {
+  background-color: gold;
+  padding: 5vh 5vw;
+}
+#visitorChef > section:nth-of-type(4) > h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 5vh;
+}
+#visitorChef > section:nth-of-type(4) > section {
+  background-color: white;
+  border-radius: 5px;
+}
+#visitorChef > section:nth-of-type(4) > section > table {
+  width: 100%;
+}
+#visitorChef > section:nth-of-type(4) > section > table > thead > tr > th {
+  border: 1px solid black;
+  padding: 5px;
+}
+#visitorChef > section:nth-of-type(4) > section > table > tbody > tr > td {
+  border: 1px solid black;
+}
+#visitorChef > section:nth-of-type(4) > section > table > tbody > tr > td.today {
+  background-color: skyblue;
+}
+#visitorChef > section:nth-of-type(4) > section > table > tbody > tr > td > p {
+  padding: 5px;
+}
+#visitorChef > section:nth-of-type(4) > section > table > tbody > tr > td > section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+#visitorChef > section:nth-of-type(4) > section > table > tbody > tr > td > section > p {
+  border-radius: 100%;
+  padding: 10px;
+}
+#visitorChef > section:nth-of-type(4) > section > table > tbody > tr > td > section > p.notAvailable {
+  background-color: crimson;
+}
+#visitorChef > section:nth-of-type(4) > section > table > tbody > tr > td > section > p.available {
+  background-color: green;
+}
 
 #registerForm {
   background-color: lightgrey;
@@ -811,6 +856,51 @@ table {
 #profil > section:nth-of-type(3) > section > a:hover {
   transform: translateY(-2px);
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
+}
+#profil > section:nth-of-type(4) {
+  background-color: gold;
+  padding: 5vh 5vw;
+}
+#profil > section:nth-of-type(4) > h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 5vh;
+}
+#profil > section:nth-of-type(4) > section {
+  background-color: white;
+  border-radius: 5px;
+}
+#profil > section:nth-of-type(4) > section > table {
+  width: 100%;
+}
+#profil > section:nth-of-type(4) > section > table > thead > tr > th {
+  border: 1px solid black;
+  padding: 5px;
+}
+#profil > section:nth-of-type(4) > section > table > tbody > tr > td {
+  border: 1px solid black;
+}
+#profil > section:nth-of-type(4) > section > table > tbody > tr > td.today {
+  background-color: skyblue;
+}
+#profil > section:nth-of-type(4) > section > table > tbody > tr > td > p {
+  padding: 5px;
+}
+#profil > section:nth-of-type(4) > section > table > tbody > tr > td > section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+#profil > section:nth-of-type(4) > section > table > tbody > tr > td > section > p {
+  border-radius: 100%;
+  padding: 10px;
+}
+#profil > section:nth-of-type(4) > section > table > tbody > tr > td > section > p.notAvailable {
+  background-color: crimson;
+}
+#profil > section:nth-of-type(4) > section > table > tbody > tr > td > section > p.available {
+  background-color: green;
 }
 
 #createDishForm {
