@@ -4,10 +4,9 @@ import { eventsCreation } from './eventsCreation.js';
 
 
 window.addEventListener("DOMContentLoaded", function(){  
-console.log(window.location.toString().includes("/mon-compte"))
+
     if (window.location.toString().includes("/mon-compte")) {
-        console.log("route01");
-        
+        console.log("route1");
         myCalendar();
     }
 

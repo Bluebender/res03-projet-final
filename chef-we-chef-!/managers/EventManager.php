@@ -16,4 +16,21 @@ class EventManager extends AbstractManager {
         // var_dump($loadedEventsObject);
         return $loadedEventsObject;
     }
+    
+    public function createEvent($event){
+        $query = $this->db->prepare('INSERT INTO events VALUES (null, :value1, :value2, :value3, :value4)');
+        $parameters = [
+        'value1' => $event["event"],
+        'value2' => $event["slot"],
+        'value3' => 1,
+        'value4' => $_SESSION["chiefId"]
+        ];
+        $query->execute($parameters);
+    }
+    public function updateEvent($event){
+        
+    }
+    public function deleteEvent($event){
+        
+    }
 }

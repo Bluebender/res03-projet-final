@@ -117,7 +117,7 @@ class ChiefController extends AbstractController {
 
     public function displayCalendar($id){
         $data = $this->chiefData($id);
-        
+
         $this->render("chef/events", $data);
     }
 
@@ -164,7 +164,7 @@ class ChiefController extends AbstractController {
         }
         
         // Today
-        $today = date("Y-m-j", time());
+        $today = date("Y-m-d", time());
         // For h3 title
         $html_title = date("Y / m", $timestamp);
 
@@ -192,8 +192,13 @@ class ChiefController extends AbstractController {
         }
 
         for ($day=1; $day <= $day_count; $day++, $str++){
-            
-            $date = $ym."-".$day;
+            $date;
+            if(strlen($day)===1){
+                $date = $ym."-0".$day;
+            }
+            else{
+                $date = $ym."-".$day;
+            }
             
             $slot1 = $date."-1";
             $slot2 = $date."-2";

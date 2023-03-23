@@ -83,6 +83,9 @@ class Router {
             else if ($route[1]==="calendar"){
                 $this->chiefControl->displayCalendar($_SESSION["chiefId"]);
             }
+            else if ($route[1]==="createEvent"){
+                $this->eventControl->createEvent($_POST);
+            }
             
         }
         
