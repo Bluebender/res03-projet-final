@@ -214,7 +214,7 @@ table {
   column-gap: 4vw;
 }
 #visitorHome > section:nth-of-type(3) > ul > li > article {
-  background-color: white;
+  background-color: whitesmoke;
   border-radius: 10px;
   padding: 3vh 3vw;
 }
@@ -305,7 +305,7 @@ table {
   row-gap: 4vh;
 }
 #visitorChiefs > ul > li > article {
-  background-color: white;
+  background-color: whitesmoke;
   border-radius: 10px;
   padding: 3vh 3vw;
 }
@@ -382,7 +382,7 @@ table {
   row-gap: 4vh;
 }
 #visitorDishes > ul > li > article {
-  background-color: white;
+  background-color: whitesmoke;
 }
 #visitorDishes > ul > li > article > header {
   width: 100%;
@@ -506,7 +506,7 @@ table {
   margin-bottom: 5vh;
 }
 #visitorChef > section:nth-of-type(2) > section {
-  background-color: white;
+  background-color: whitesmoke;
   width: 50vw;
   margin: auto;
   display: flex;
@@ -576,7 +576,7 @@ table {
   margin-bottom: 5vh;
 }
 #visitorChef > section:nth-of-type(4) > section {
-  background-color: white;
+  background-color: whitesmoke;
   border-radius: 5px;
 }
 #visitorChef > section:nth-of-type(4) > section > table {
@@ -603,12 +603,13 @@ table {
 #visitorChef > section:nth-of-type(4) > section > table > tbody > tr > td > section > p {
   border-radius: 100%;
   padding: 10px;
+  border: 1px solid grey;
 }
-#visitorChef > section:nth-of-type(4) > section > table > tbody > tr > td > section > p.notAvailable {
-  background-color: crimson;
+#visitorChef > section:nth-of-type(4) > section > table > tbody > tr > td > section > p.booked {
+  background-color: lightsalmon;
 }
 #visitorChef > section:nth-of-type(4) > section > table > tbody > tr > td > section > p.available {
-  background-color: green;
+  background-color: lightgreen;
 }
 
 #registerForm {
@@ -776,7 +777,7 @@ table {
   margin-bottom: 5vh;
 }
 #profil > section:nth-of-type(2) > section {
-  background-color: white;
+  background-color: whitesmoke;
   width: 50vw;
   margin: auto;
   display: flex;
@@ -868,11 +869,16 @@ table {
   margin-bottom: 5vh;
 }
 #profil > section:nth-of-type(4) > section {
-  background-color: white;
+  background-color: whitesmoke;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
 }
 #profil > section:nth-of-type(4) > section > table {
   width: 100%;
+  margin: 2vh 2vw;
 }
 #profil > section:nth-of-type(4) > section > table > thead > tr > th {
   border: 1px solid black;
@@ -893,14 +899,32 @@ table {
   justify-content: space-around;
 }
 #profil > section:nth-of-type(4) > section > table > tbody > tr > td > section > p {
-  border-radius: 100%;
+  border-radius: 30%;
   padding: 10px;
+  border: 1px solid grey;
 }
-#profil > section:nth-of-type(4) > section > table > tbody > tr > td > section > p.notAvailable {
-  background-color: crimson;
+#profil > section:nth-of-type(4) > section > table > tbody > tr > td > section > p.booked {
+  background-color: lightsalmon;
 }
 #profil > section:nth-of-type(4) > section > table > tbody > tr > td > section > p.available {
-  background-color: green;
+  background-color: lightgreen;
+}
+#profil > section:nth-of-type(4) > section > a {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 20px;
+  border: none;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  background-color: skyblue;
+}
+#profil > section:nth-of-type(4) > section > a:hover {
+  transform: translateY(-2px);
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 #createDishForm {
@@ -945,6 +969,75 @@ table {
   background-color: gold;
   border-radius: 10px;
   justify-self: center;
+}
+
+#events > section {
+  background-color: lightgrey;
+  padding: 5vh 5vw;
+}
+#events > section > h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 5vh;
+}
+#events > section > section {
+  background-color: whitesmoke;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+#events > section > section > table {
+  width: 100%;
+  margin: 2vh 2vw;
+}
+#events > section > section > table > thead > tr > th {
+  border: 1px solid black;
+  padding: 5px;
+}
+#events > section > section > table > tbody > tr > td {
+  border: 1px solid black;
+}
+#events > section > section > table > tbody > tr > td.today {
+  background-color: skyblue;
+}
+#events > section > section > table > tbody > tr > td > p {
+  padding: 5px;
+}
+#events > section > section > table > tbody > tr > td > section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+#events > section > section > table > tbody > tr > td > section > p {
+  border-radius: 30%;
+  padding: 10px;
+  border: 1px solid grey;
+}
+#events > section > section > table > tbody > tr > td > section > p.booked {
+  background-color: lightsalmon;
+}
+#events > section > section > table > tbody > tr > td > section > p.available {
+  background-color: lightgreen;
+}
+#events > section > section > a {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 20px;
+  border: none;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  background-color: skyblue;
+}
+#events > section > section > a:hover {
+  transform: translateY(-2px);
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 /*# sourceMappingURL=style.css.map */

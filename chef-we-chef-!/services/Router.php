@@ -7,8 +7,7 @@ class Router {
     private DishController $dishControl;
     private CategoryController $categoryControl;
     private FoodStyleController $foodStyleControl;
-    // private EventController $eventControl;
-    // private ZoneController $zoneControl;
+    private EventController $eventControl;
 
     public function __construct()
     {
@@ -17,6 +16,7 @@ class Router {
         $this->dishControl = new DishController();
         $this->categoryControl = new CategoryController();
         $this->foodStyleControl = new FoodStyleController();
+        $this->eventControl = new EventController();
     }
     
     function checkRoute(string $request) : void
@@ -41,6 +41,11 @@ class Router {
             else if ($route[2]==="demande-de-prestation"){
                 $this->chiefControl->displayChiefRequest($route[1]);
             }
+            else if ($route[1]==="chefCalendar"){
+                $this->eventControl->displayEvents($route[2]);
+            }
+
+
         }
 
         else if ($route[0]==="inscription"){
@@ -72,17 +77,13 @@ class Router {
                     $this->dishControl->editChiefDish($route[3]);
                 }
             }
-            else if ($route[2]==="secteur"){
-                if (!isset($route[3])){
-                    $this->zoneControl->displayChiefZone($route[1]);
-                }
-                else if (($route[3]==="creer")){
-                    $this->zoneControl->createChiefZone($route[1]);
-                }
-                else if (($route[3]==="modifier")){
-                    $this->zoneControl->updateChiefZone($route[1]);
-                }
+            else if ($route[1]==="myCalendar"){
+                $this->eventControl->displayEvents($_SESSION["chiefId"]);
             }
+            else if ($route[1]==="calendar"){
+                $this->chiefControl->displayCalendar($_SESSION["chiefId"]);
+            }
+            
         }
         
         // Admin pages

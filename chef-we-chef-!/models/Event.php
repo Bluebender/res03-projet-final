@@ -2,15 +2,17 @@
 
 class Event {
     private ?int $id;
-    private date $day;
-    private int $slot;
+    private string $event;
+    private string $slot;
+    private int $availablity;
     private int $chiefId;
 
-    public function __construct(?int $id, date $day, int $slot, int $chiefId)
+    public function __construct(?int $id, string $event, string $slot, int $availablity, int $chiefId)
     {
         $this->id = $id;
-        $this->day = $day;
+        $this->event = $event;
         $this->slot = $slot;
+        $this->availablity = $availablity;
         $this->chiefId = $chiefId;
     }
 
@@ -24,17 +26,17 @@ class Event {
     }
 
 
-    public function getDay() : date
+    public function getEvent() : string
     {
-        return $this->day;
+        return $this->event;
     }
-    public function setDay(string $day) : void
+    public function setEvent(string $event) : void
     {
-        $this->day = $day;
+        $this->event = $event;
     }
 
 
-    public function getSlot() : int
+    public function getSlot() : string
     {
         return $this->slot;
     }
@@ -42,15 +44,36 @@ class Event {
     {
         $this->slot = $slot;
     }
+    
+    public function getAvailablity() : int
+    {
+        return $this->availablity;
+    }
+    public function setAvailablity(int $availablity) : void
+    {
+        $this->availablity = $availablity;
+    }
 
 
-    public function getChiefId() : int
+    public function getChiefId() : string
     {
         return $this->chiefId;
     }
     public function setChiefId(string $chiefId) : void
     {
         $this->chiefId = $chiefId;
+    }
+
+
+    public function toArray() : array
+    {
+        return [
+            "id" => $this->id,
+            "event" => $this->event,
+            "slot" => $this->slot,
+            "availablity" => $this->availablity,
+            "chiefId" => $this->chiefId,
+        ];
     }
 
 }

@@ -8,10 +8,8 @@ abstract class AbstractController
         $data = $values;
         require "templates/layout.phtml";
     }  
-    protected function adminRender(string $view, array $values) : void
+    protected function jsRender(array $values)
     {  
-        $template = $view;
-        $data = $values;
-        require "templates/admin/layout.phtml";
+        echo json_encode($values);
     }  
 }

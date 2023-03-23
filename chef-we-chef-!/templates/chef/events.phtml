@@ -1,1 +1,41 @@
-<h2>Mes disponibilités</h2>
+<main id="events">
+    </section>
+        <section>
+        <h2>Les disponibilités du chef <?= $data["chief"]->getChiefName(); ?></h2>
+
+
+
+        <section>
+            <h3><a href="?ym=<?= $data["calendar"]["preview"]; ?>"><</a><?= $data["calendar"]["title"] ?><a href="?ym=<?= $data["calendar"]["next"]; ?>">></a></h3>
+            <br>
+            <table>
+                <thead>
+                    <tr>
+                        <th><strong>Lu</strong></th>
+                        <th><strong>Ma</strong></th>
+                        <th><strong>Me</strong></th>
+                        <th><strong>Je</strong></th>
+                        <th><strong>Ve</strong></th>
+                        <th><strong>Sa</strong></th>
+                        <th><strong>Di</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($data["calendar"]["weeks"] as $week){
+                        echo $week;
+                    }?>
+                </tbody>
+            </table>
+
+            <!--<a href="/res03-projet-final/chef-we-chef-!/mon-compte/calendar">Modifier mes disponibilités</a>-->
+
+        </section>
+
+
+
+
+
+
+
+    </section>
+</main>

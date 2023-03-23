@@ -123,7 +123,7 @@
             margin-bottom: 5vh;
         }
         > section{
-                background-color: white;
+                background-color: $white;
                 border-radius: 5px;
             > h3{
                 
@@ -157,7 +157,8 @@
                                 > p{
                                     border-radius: 100%;
                                     padding: 10px;
-                                    &.notAvailable{
+                                    border: 1px solid grey;
+                                    &.booked{
                                         background-color: $red;
                                     }
                                     &.available{

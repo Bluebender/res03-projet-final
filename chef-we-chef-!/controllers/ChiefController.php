@@ -4,12 +4,14 @@ class ChiefController extends AbstractController {
     private ChiefManager $chiefManag;
     private FoodStyleManager $foodStyleManag;
     private DishManager $dishManag;
+    private EventManager $eventManag;
 
     public function __construct()
     {
         $this->chiefManag = new ChiefManager();
         $this->foodStyleManag = new FoodStyleManager();
         $this->dishManag = new DishManager();
+        $this->eventManag = new EventManager();
     }
 
     private function chiefsData(){
@@ -77,7 +79,12 @@ class ChiefController extends AbstractController {
         // Je rajoute les datas du calendar
         $calendarData = $this->calendarData();
         $data["calendar"]=$calendarData;
+
+        // Je rajoute les datas des events
+        // $eventData = $this->eventManag->getAllEvents();
+        // $data["events"]=$eventData;
         
+
         // var_dump($data);
         return $data;
     }
@@ -108,7 +115,11 @@ class ChiefController extends AbstractController {
         $this->render("chef/profil", $data);
     }
 
-
+    public function displayCalendar($id){
+        $data = $this->chiefData($id);
+        
+        $this->render("chef/events", $data);
+    }
 
     // ADMIN
     public function adminAllChiefs(){
@@ -133,9 +144,9 @@ class ChiefController extends AbstractController {
 
         header('Location: /res03-projet-final/chef-we-chef-!/admin');
     }
-
-
-    // CALENDAR
+    
+    
+    // Calendar Datas
     private function calendarData(){
         // Set timezone
         date_default_timezone_set("Europe/Paris");
@@ -172,16 +183,41 @@ class ChiefController extends AbstractController {
         $week = "";
         
         $week .= str_repeat("<td></td>", $str);
-        
+
+        // import des event de la database
+        $eventData = $this->eventManag->getAllEvents();
+        $events = [];
+        foreach ($eventData as $data){
+            $events[]=$data->getEvent()."-".$data->getSlot();
+        }
+
         for ($day=1; $day <= $day_count; $day++, $str++){
             
             $date = $ym."-".$day;
+            
+            $slot1 = $date."-1";
+            $slot2 = $date."-2";
 
+            
             if ($today == $date){
-                $week .= "<td class='today'><p><strong>".$day."</strong></p><section><p date='".$date."-midi' class='event notAvailable'>Midi</p><p date='".$date."-soir' class='event notAvailable'>Soir</p></section>";
+                $week .= "
+                    <td class='today'>
+                        <p><strong>".$day."</strong></p>
+                        <section>
+                            <p date='".$date."-1' class='event'>Midi</p>
+                            <p date='".$date."-2' class='event'>Soir</p>
+                        </section>
+                    ";
             }
             else{
-                $week .= "<td><p><strong>".$day."</strong></p><section><p date='".$date."-midi' class='event notAvailable'>Midi</p><p date='".$date."-soir' class='event notAvailable'>Soir</p></section>";
+                $week .= "
+                    <td>
+                        <p><strong>".$day."</strong></p>
+                        <section>
+                            <p date='".$date."-1' class='event'>Midi</p>
+                            <p date='".$date."-2' class='event'>Soir</p>
+                        </section>
+                    ";
             }
             $week .= "</td>";
             
@@ -208,4 +244,6 @@ class ChiefController extends AbstractController {
         
         return $data;
     }
+
+
 }
