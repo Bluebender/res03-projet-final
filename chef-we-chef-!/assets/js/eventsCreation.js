@@ -20,8 +20,6 @@ function eventsCreation(){
                 // console.log(data);
             window.location.href="http://vincentollivier.sites.3wa.io/res03-projet-final/chef-we-chef-!/mon-compte/calendar";
             });  
-            
-
         });
     }
 }

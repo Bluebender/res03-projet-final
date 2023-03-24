@@ -76,4 +76,3 @@ class FoodStyleController extends AbstractController {
         header('Location: /res03-projet-final/chef-we-chef-!/admin/styles-de-cuisine');
     }
 }
-

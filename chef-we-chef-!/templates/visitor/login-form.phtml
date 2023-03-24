@@ -3,11 +3,11 @@
     <form action="/res03-projet-final/chef-we-chef-!/connexion" method="post">
         <fieldset>
             <label for="">Email</label>
-            <input type="email" name="loginEmail"/>
+            <input type="email" name="loginEmail" require patern="^[A-Za-z '-]+$"/>
         </fieldset>
         <fieldset>
             <label for="">Mot de passe</label>
-            <input type="password" name="loginPassword"/>
+            <input type="password" name="loginPassword" require patern="^[A-Za-z '-]+$"/>
         </fieldset>
         <button type="submit">Connexion</button>
     </form>
