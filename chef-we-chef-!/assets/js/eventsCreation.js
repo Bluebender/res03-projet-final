@@ -4,14 +4,11 @@ function eventsCreation(){
 
     for (let calendarEvent of calendarEvents){
         calendarEvent.addEventListener("click", function(){
-            let newEvent = calendarEvent.getAttribute("date")
-            console.log(newEvent);
-           
+            let newEvent = calendarEvent.getAttribute("date");
+
             let formData = new FormData();
             formData.append('newEvent', newEvent);
-            
-            // console.log(formData);
-            
+
             const options = {
                 method: 'POST',
                 body: formData
@@ -21,9 +18,9 @@ function eventsCreation(){
             .then(response => response.json())
             .then(data => {
                 // console.log(data);
+            window.location.href="http://vincentollivier.sites.3wa.io/res03-projet-final/chef-we-chef-!/mon-compte/calendar";
             });  
             
-            // window.location.href="http://vincentollivier.sites.3wa.io/res03-projet-final/chef-we-chef-!/mon-compte/calendar";
 
         });
     }

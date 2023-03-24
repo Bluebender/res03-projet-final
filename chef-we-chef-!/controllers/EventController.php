@@ -30,17 +30,14 @@ class EventController extends AbstractController {
         $events = $this->eventManag->getAllEvents();
         $chiefEvents = [];
         foreach ($events as $event){
-            if($event->getChiefId()===$_SESSION["chiefId"]){
+            if(intval($event->getChiefId())===$_SESSION["chiefId"]){
                 $chiefEvents[]=$event;
             }
         }
-        
-        
         $toCreate=true;
 
         foreach ($chiefEvents as $event){
             $eventInForm =   $event->getEvent()."-".$event->getSlot();
-            // var_dump($eventInForm);
 
             if ($newEvent["newEvent"] == $event->getEvent()."-".$event->getSlot()){
                 if($event->getAvailablity()===0){
@@ -64,7 +61,7 @@ class EventController extends AbstractController {
             $newEventCut = explode("-", $newEvent["newEvent"]);
             $eventArry["event"]=$newEventCut[0]."-".$newEventCut[1]."-".$newEventCut[2];
             $eventArry["slot"]=$newEventCut[3];
-                    var_dump($eventArry);
+                    // var_dump($eventArry);
 
             
 

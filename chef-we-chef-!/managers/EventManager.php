@@ -27,10 +27,21 @@ class EventManager extends AbstractManager {
         ];
         $query->execute($parameters);
     }
-    public function updateEvent($event){
+    public function updateEvent($id){
+        $query = $this->db->prepare('UPDATE events SET availablity=:value2 WHERE id=:value1');
+        $parameters = [
+        'value1' => $id,
+        'value2' => 0,
+        ];
+        $query->execute($parameters);
         
     }
-    public function deleteEvent($event){
+    public function deleteEvent($id){
+        $query= $this->db->prepare("DELETE FROM events WHERE id=:value");
+        $parameters = [
+        'value' => $id,
+        ];
+        $query->execute($parameters);
         
     }
 }
