@@ -10,7 +10,7 @@ window.addEventListener("DOMContentLoaded", function(){
         myCalendar();
     }
 
-    if (window.location.toString().includes("/chef/")) {
+    if (window.location.toString().includes("/chef&id")) {
         console.log("route2");
         chiefCalendar();
     }

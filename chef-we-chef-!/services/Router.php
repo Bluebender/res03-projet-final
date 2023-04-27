@@ -40,6 +40,10 @@ class Router {
                     $this->chiefControl->displayChief($_GET['id']);
                     break;
 
+                case 'chefCalendar':
+                    $this->eventControl->displayEvents($_GET['id']);
+                    break;
+
                 case 'inscription':
                     $this->defaultControl->register($_POST);
                     break;
@@ -65,6 +69,14 @@ class Router {
 
                 case 'mon-compte/calendar':
                     $this->chiefControl->displayCalendar($_SESSION["chiefId"]);
+                    break;
+
+                case 'mon-compte/myCalendar':
+                    $this->eventControl->displayEvents($_SESSION["chiefId"]);
+                    break;
+
+                case 'mon-compte/createEvent':
+                    $this->eventControl->createEvent($_POST);
                     break;
 
 
