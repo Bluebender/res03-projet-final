@@ -1,11 +1,12 @@
-function myCalendar(){
+function myCalendar(requestUrlStart){
+    
     let calendarEvents = document.getElementsByClassName("event");
-
-    fetch('http://vincentollivier.sites.3wa.io/res03-projet-final/chef-we-chef-!/mon-compte/myCalendar')
+    console.log(requestUrlStart+'/mon-compte/myCalendar');
+    fetch(requestUrlStart+'/mon-compte/myCalendar')
     .then(response => response.json())
     .then(data => {
         let chiefEvents=data;
-        
+
         // on vérifie si un evenement du Calendar est Booked ou non    
         for (let calendarEvent of calendarEvents){
             for (let chiefEvent of chiefEvents){
@@ -24,14 +25,13 @@ function myCalendar(){
 
 export { myCalendar };
 
-function chiefCalendar(){
+function chiefCalendar(requestUrlStart){
     let queryString = window.location.pathname;
-    let chiefId = queryString.substring (queryString.lastIndexOf( "/" )+1 );
-    console.log(chiefId);
+    let chiefId = queryString.substring (queryString.lastIndexOf( "=" )+1 );
 
     let calendarEvents = document.getElementsByClassName("event");
     
-    fetch('http://vincentollivier.sites.3wa.io/res03-projet-final/chef-we-chef-!/chefCalendar&id='+chiefId)
+    fetch(requestUrlStart+'/chefCalendar&id='+chiefId)
     .then(response => response.json())
     .then(data => {
         let chiefEvents=data;

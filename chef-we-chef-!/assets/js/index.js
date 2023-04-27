@@ -3,21 +3,36 @@ import { chiefCalendar } from './calendar.js';
 import { eventsCreation } from './eventsCreation.js';
 
 
+
 window.addEventListener("DOMContentLoaded", function(){  
+
+    // URL start verification. If URL start is https, FETCH url start with https. If not FETCH url start with http 
+    let url = window.location.href;
+    let urlStart = url.substr(0, 5);
+    let requestUrlStart;
+    if(urlStart === "https"){
+        requestUrlStart='https://vincentollivier.sites.3wa.io/res03-projet-final/chef-we-chef-!';
+    }
+    else{
+        requestUrlStart ='http://vincentollivier.sites.3wa.io/res03-projet-final/chef-we-chef-!';
+    }
+    console.log(requestUrlStart);
+
+
 
     if (window.location.toString().includes("/mon-compte")) {
         console.log("route1");
-        myCalendar();
+        myCalendar(requestUrlStart);
     }
 
     if (window.location.toString().includes("/chef&id")) {
         console.log("route2");
-        chiefCalendar();
+        chiefCalendar(requestUrlStart);
     }
 
     if (window.location.toString().includes("/mon-compte/calendar")) {
         console.log("route3");
-        eventsCreation();
+        eventsCreation(requestUrlStart);
     }
 
 });

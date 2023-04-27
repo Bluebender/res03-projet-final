@@ -1,4 +1,4 @@
-function eventsCreation(){
+function eventsCreation(requestUrlStart){
     let calendarEvents = document.getElementsByClassName("event");
 
 
@@ -14,11 +14,11 @@ function eventsCreation(){
                 body: formData
             };
                 
-            fetch('http://vincentollivier.sites.3wa.io/res03-projet-final/chef-we-chef-!/mon-compte/createEvent', options)
+            fetch(requestUrlStart+'/mon-compte/createEvent', options)
             .then(response => response.json())
             .then(data => {
                 // console.log(data);
-            window.location.href="http://vincentollivier.sites.3wa.io/res03-projet-final/chef-we-chef-!/mon-compte/calendar";
+            window.location.href=requestUrlStart+"/mon-compte/calendar";
             });  
         });
     }
