@@ -19,149 +19,131 @@ class Router {
         $this->eventControl = new EventController();
     }
     
-    function checkRoute(string $request) : void
-    {
-        $route=explode("/", $request);
-        // var_dump($route);
+    function checkRoute() : void{
+        if(array_key_exists('path', $_GET)) {
+            switch($_GET['path']) {
+                
+                // Public pages
+                case 'home':
+                    $this->chiefControl->visitorHome();
+                    break;
 
-        // Public pages
-        if ($route[0]===""){
-            $this->chiefControl->visitorHome();
-        }
-        else if ($route[0]==="chefs"){
-            $this->chiefControl->displayAllChiefs();
-        }
-        else if ($route[0]==="plats"){
-            $this->dishControl->displayAllDishes();
-        }
-        else if ($route[0]==="chef"){
-            if (!isset($route[2])){
-                $this->chiefControl->displayChief($route[1]);
-            }
-            else if ($route[2]==="demande-de-prestation"){
-                $this->chiefControl->displayChiefRequest($route[1]);
-            }
-            else if ($route[1]==="chefCalendar"){
-                $this->eventControl->displayEvents($route[2]);
-            }
+                case 'chefs':
+                    $this->chiefControl->displayAllChiefs();
+                    break;
+                    
+                case 'plats':
+                    $this->dishControl->displayAllDishes();
+                    break;
+
+                case 'chef':
+                    $this->chiefControl->displayChief($_GET['id']);
+                    break;
+
+                case 'inscription':
+                    $this->defaultControl->register($_POST);
+                    break;
+
+                case 'connexion':
+                    $this->defaultControl->login($_POST);
+                    break;
+
+                case 'deconnexion':
+                    $this->defaultControl->logout();
+                    break;
 
 
-        }
+                // Chief pages
 
-        else if ($route[0]==="inscription"){
-            $this->defaultControl->register($_POST);
-        }
-        else if ($route[0]==="connexion"){
-            $this->defaultControl->login($_POST);
-        }
-        else if ($route[0]==="deconnexion"){
-            $this->defaultControl->logout();
-        }
+                case 'mon-compte':
+                    $this->chiefControl->displayMonCompte($_SESSION["chiefId"]);
+                    break;
 
-        // Chief pages
-        else if ($route[0]==="mon-compte"){
-            if (!isset($route[1])){
-                $this->chiefControl->displayMonCompte($_SESSION["chiefId"]);
-            }
-            else if ($route[1]==="plats"){
-                $this->dishControl->displayChiefDishes($route[1]);
-            }
-            else if ($route[1]==="plat"){
-                if ($route[2]==="creer"){
+                case 'mon-compte/plat/creer':
                     $this->dishControl->createDish($_POST);
-                }
-                else if (!isset($route[4])){
-                    $this->dishControl->displayChiefDish($route[3]);
-                }
-                else if (($route[4]==="modifier")){
-                    $this->dishControl->editChiefDish($route[3]);
-                }
-            }
-            else if ($route[1]==="myCalendar"){
-                $this->eventControl->displayEvents($_SESSION["chiefId"]);
-            }
-            else if ($route[1]==="calendar"){
-                $this->chiefControl->displayCalendar($_SESSION["chiefId"]);
-            }
-            else if ($route[1]==="createEvent"){
-                $this->eventControl->createEvent($_POST);
-            }
-            
-        }
-        
-        // Admin pages
-        else if ($route[0]==="admin"){
-            
-            // Chefs
-            if (!isset($route[1])){
-                $this->chiefControl->adminAllChiefs();
-            }
-            else if ($route[1]==="chef"){
-                if (!isset($route[3])){
-                    $this->chiefControl->adminChief($route[2]);
-                }
-                else if ($route[3]==="supprimer"){
-                    $this->chiefControl->deleteChief($route[2]);
-                }
-            }
-            
-            // Plats
-            else if ($route[1]==="plats"){
-                $this->dishControl->adminAllDishes();
-            }
-            else if ($route[1]==="plat"){
-                if (!isset($route[3])){
-                    $this->dishControl->adminDish($route[2]);
-                }
-                else if ($route[3]==="supprimer"){
-                    $this->dishControl->deleteDish($route[2]);
-                }
-            }
+                    break;
+
+                case 'mon-compte/calendar':
+                    $this->chiefControl->displayCalendar($_SESSION["chiefId"]);
+                    break;
 
 
+                // Admin pages
+                // Chiefs
+                case 'admin':
+                    $this->chiefControl->adminAllChiefs();
+                    break;
 
-            // Styles de cuisine
-            else if ($route[1]==="styles-de-cuisine"){
-                if (!isset($route[2])){
+                case 'admin/chef':
+                    $this->chiefControl->adminChief($_GET['id']);
+                    break;
+
+                case 'admin/supprimer-chef':
+                    $this->chiefControl->deleteChief($_GET['id']);
+                    break;
+
+                // Plats
+                case 'admin/plats':
+                    $this->dishControl->adminAllDishes();
+                    break;
+
+                case 'admin/plat':
+                    $this->dishControl->adminDish($_GET['id']);
+                    break;
+
+                case 'admin/supprimer-plat':
+                    $this->dishControl->adminDishDelete($_GET['id']);
+                    break;
+
+                // Food Styles
+                case 'admin/styles-de-cuisine':
                     $this->foodStyleControl->adminAllFoodStyles();
-                }
-                else if ($route[2]==="creer"){
+                    break;
+                
+                case 'admin/styles-de-cuisine/creer':
                     $this->foodStyleControl->adminCreateFoodStyle($_POST);
-                }
-            }
-            else if ($route[1]==="style-de-cuisine"){
-                if (!isset($route[3])){
-                    $this->foodStyleControl->adminFoodStyle($route[2]);
-                }
-                else if ($route[3]==="modifier"){
-                    $this->foodStyleControl->adminFoodStyleUpdate($route[2]);
-                }
-                else if ($route[3]==="supprimer"){
-                    $this->foodStyleControl->adminFoodStyleDelete($route[2]);
-                }
-            }
-            
+                    break;
 
-            // Catégories
-            else if ($route[1]==="categories"){
-                if (!isset($route[2])){
+                case 'admin/style-de-cuisine':
+                    $this->foodStyleControl->adminFoodStyle($_GET['id']);
+                    break;
+
+                case 'admin/modifier-style-de-cuisine':
+                    $this->foodStyleControl->adminFoodStyleUpdate($_GET['id']);
+                    break;
+
+                case 'admin/supprimer-style-de-cuisine':
+                    $this->foodStyleControl->adminFoodStyleDelete($_GET['id']);
+                    break;
+
+                // Categories
+                case 'admin/categories':
                     $this->categoryControl->adminAllCategories();
-                }
-                else if ($route[2]==="creer"){
+                    break;
+
+                case 'admin/categories/creer':
                     $this->categoryControl->adminCreateCategory($_POST);
-                }
+                    break;
+
+                case 'admin/categorie':
+                    $this->categoryControl->adminCategory($_GET['id']);
+                    break;
+
+                case 'admin/modifier-categorie':
+                    $this->categoryControl->adminCategoryUpdate($_GET['id']);
+                    break;
+
+                case 'admin/supprimer-categorie':
+                    $this->categoryControl->adminCategoryDelete($_GET['id']);
+                    break;
+
+                default:
+                    $this->chiefControl->visitorHome();
+                    break;
             }
-            else if ($route[1]==="categorie"){
-                if (!isset($route[3])){
-                    $this->categoryControl->adminCategory($route[2]);
-                }
-                else if ($route[3]==="modifier"){
-                    $this->categoryControl->adminCategoryUpdate($route[2]);
-                }
-                else if ($route[3]==="supprimer"){
-                    $this->categoryControl->adminCategoryDelete($route[2]);
-                }
-            }
+        }
+        else {
+            $this->chiefControl->visitorHome();
         }
     }
 }

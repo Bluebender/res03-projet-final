@@ -1,7 +1,7 @@
 function myCalendar(){
     let calendarEvents = document.getElementsByClassName("event");
 
-    fetch('http://vincentollivier.sites.3wa.io/res03-projet-final/chef-we-chef-!/mon-compte/myCalendar')
+    fetch('https://vincentollivier.sites.3wa.io/res03-projet-final/chef-we-chef-!/mon-compte/myCalendar')
     .then(response => response.json())
     .then(data => {
         let chiefEvents=data;
@@ -31,7 +31,7 @@ function chiefCalendar(){
 
     let calendarEvents = document.getElementsByClassName("event");
     
-    fetch('http://vincentollivier.sites.3wa.io/res03-projet-final/chef-we-chef-!/chef/chefCalendar/'+chiefId)
+    fetch('https://vincentollivier.sites.3wa.io/res03-projet-final/chef-we-chef-!/chef/chefCalendar/'+chiefId)
     .then(response => response.json())
     .then(data => {
         let chiefEvents=data;

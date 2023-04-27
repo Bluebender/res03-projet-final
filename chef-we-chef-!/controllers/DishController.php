@@ -143,8 +143,7 @@ class DishController extends AbstractController {
         $this->render("admin/dish", $data);
     }
 
-
-    public function deleteDish($id){
+    public function adminDishDelete($id){
         $this->dishManag->deleteDish($id);
 
         $data = $this->dishesData();

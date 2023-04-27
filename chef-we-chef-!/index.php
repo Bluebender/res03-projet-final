@@ -1,17 +1,10 @@
 <?php
 session_start();
 // var_dump($_SESSION);
+// var_dump($_GET);
+// var_dump($_POST);
 
 require "autoload.php";
 
 $router = new Router();
-
-if(isset($_GET['path']))
-{
-    $request = $_GET['path'];
-}
-else
-{
-    $request = "";
-}
-$router->checkroute($request);
+$router->checkroute();

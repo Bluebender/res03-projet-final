@@ -19,9 +19,9 @@
                     <td><?= $foodStyle->getName() ?></td>
                     <td><?= $foodStyle->getDescription() ?></td>
                     <td>
-                        <a href="style-de-cuisine/<?= $foodStyle->getId() ?>"><span class="fa-solid fa-eye"></span></a>
-                        <a href="style-de-cuisine/<?= $foodStyle->getId() ?>/modifier"><span class="fa-solid fa-pen"></span></a>
-                        <a href="style-de-cuisine/<?= $foodStyle->getId() ?>/supprimer"><span class="fa-solid fa-trash"></span></a>
+                        <a href="style-de-cuisine&id=<?= $foodStyle->getId() ?>"><span class="fa-solid fa-eye"></span></a>
+                        <a href="modifier-style-de-cuisine&id=<?= $foodStyle->getId() ?>"><span class="fa-solid fa-pen"></span></a>
+                        <a href="supprimer-style-de-cuisine&id=<?= $foodStyle->getId() ?>"><span class="fa-solid fa-trash"></span></a>
                     </td>
                 </tr>
                 <?php } ?>
