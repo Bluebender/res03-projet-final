@@ -594,10 +594,11 @@ table {
 #registerForm > form > fieldset {
   display: grid;
   grid-template-columns: 1fr 2fr;
+  grid-template-row: 2fr 1fr;
 }
 #registerForm > form > fieldset > label {
   text-align: right;
-  margin: 1vh 1vw;
+  margin: 1vh 1vw 0 0;
   font-size: 1.2rem;
 }
 #registerForm > form > fieldset > input, #registerForm > form > fieldset textarea, #registerForm > form > fieldset select {
@@ -608,6 +609,12 @@ table {
   background-color: gold;
   font-size: 1.2rem;
   padding: 0 15px;
+}
+#registerForm > form > fieldset > small {
+  display: none;
+  grid-column: 2/3;
+  margin: 0 0 2vh 2vw;
+  color: darkred;
 }
 #registerForm > form > button {
   width: 200px;

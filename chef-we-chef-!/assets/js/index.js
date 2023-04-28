@@ -1,6 +1,7 @@
 import { myCalendar } from './calendar.js';
 import { chiefCalendar } from './calendar.js';
 import { eventsCreation } from './eventsCreation.js';
+import { registerForm } from './registerForm.js';
 
 
 
@@ -16,7 +17,6 @@ window.addEventListener("DOMContentLoaded", function(){
     else{
         requestUrlStart ='http://vincentollivier.sites.3wa.io/res03-projet-final/chef-we-chef-!';
     }
-    console.log(requestUrlStart);
 
 
 
@@ -33,6 +33,11 @@ window.addEventListener("DOMContentLoaded", function(){
     if (window.location.toString().includes("/mon-compte/calendar")) {
         console.log("route3");
         eventsCreation(requestUrlStart);
+    }
+
+    if (window.location.toString().includes("/inscription")) {
+        console.log("route4");
+        registerForm();
     }
 
 });
