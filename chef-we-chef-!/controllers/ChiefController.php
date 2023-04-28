@@ -25,18 +25,9 @@ class ChiefController extends AbstractController {
             $chiefWithFoodStyleAndSpecialDish["chief"] = $chief;
 
             // Je vais chercher le food-style qui va avec le plat et je l'ajoute au tableau           
-            $foodStyleId1 = $chief->getFirstFoodStyleId();
+            $foodStyleId1 = $chief->getFoodStyleId();
             $foodstyle1 = $this->foodStyleManag->getFoodStyleById($foodStyleId1);
             $chiefWithFoodStyleAndSpecialDish["foodStyle"][] = $foodstyle1;
-            
-            $foodStyleId2 = $chief->getSecondFoodStyleId();
-            if (!isset($foodStyleId2)){
-                $foodstyle2="Pas de second style de cuisine";
-            }
-            else{
-                $foodstyle2 = $this->foodStyleManag->getFoodStyleById($foodStyleId2);
-            }
-            $chiefWithFoodStyleAndSpecialDish["foodStyle"][] = $foodstyle2;
             
             $data[] = $chiefWithFoodStyleAndSpecialDish;
 
@@ -65,12 +56,7 @@ class ChiefController extends AbstractController {
         $foodStyles = $this->foodStyleManag->getAllFoodStyles();
         $chiefFoodStyles = [];
         foreach($foodStyles as $foodStyle){
-            if ($chief->getFirstFoodStyleId()===$foodStyle->getId()){
-                $chiefFoodStyles []= $foodStyle;
-            }
-        }
-        foreach($foodStyles as $foodStyle){
-            if ($chief->getSecondFoodStyleId()===$foodStyle->getId()){
+            if ($chief->getFoodStyleId()===$foodStyle->getId()){
                 $chiefFoodStyles []= $foodStyle;
             }
         }

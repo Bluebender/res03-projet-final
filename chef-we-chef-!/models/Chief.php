@@ -10,10 +10,9 @@ class Chief {
     private string $phone;
     private string $profilPictureUrl;
     private string $description;
-    private int $firstFoodStyleId;
-    private ?int $secondFoodStyleId;
+    private int $foodStyleId;
 
-    public function __construct(?int $id, string $firstName, string $lastName, ?string $chiefName, string $email, string $password, string $phone, string $profilPictureUrl, string $description, int $firstFoodStyleId, ?int $secondFoodStyleId)
+    public function __construct(?int $id, string $firstName, string $lastName, ?string $chiefName, string $email, string $password, string $phone, string $profilPictureUrl, string $description, int $foodStyleId)
     {
         $this->id = $id;
         $this->firstName = $firstName;
@@ -24,8 +23,7 @@ class Chief {
         $this->phone = $phone;
         $this->profilPictureUrl = $profilPictureUrl;
         $this->description = $description;
-        $this->firstFoodStyleId = $firstFoodStyleId;
-        $this->secondFoodStyleId = $secondFoodStyleId;
+        $this->foodStyleId = $foodStyleId;
     }
 
     public function getId() : ?int
@@ -118,23 +116,13 @@ class Chief {
     }
 
 
-    public function getFirstFoodStyleId() : int
+    public function getFoodStyleId() : int
     {
-        return $this->firstFoodStyleId;
+        return $this->foodStyleId;
     }
-    public function setFirstFoodStyleId(string $firstFoodStyleId) : void
+    public function setFoodStyleId(string $foodStyleId) : void
     {
-        $this->firstFoodStyleId = $firstFoodStyleId;
-    }
-
-
-    public function getSecondFoodStyleId() : ?int
-    {
-        return $this->secondFoodStyleId;
-    }
-    public function setSecondFoodStyleId(string $secondFoodStyleId) : void
-    {
-        $this->secondFoodStyleId = $secondFoodStyleId;
+        $this->foodStyleId = $foodStyleId;
     }
 
 }

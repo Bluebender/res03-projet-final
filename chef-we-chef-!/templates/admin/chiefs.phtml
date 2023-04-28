@@ -12,8 +12,7 @@
                     <th>Téléphone</th>
                     <th>Photo de profil</th>
                     <th>Déscritpion</th>
-                    <th>Premier style de cuisine</th>
-                    <th>Second style de cuisine</th>
+                    <th>Style de cuisine</th>
                     <th>Fonctions</th>
                 </tr>
             </thead>
@@ -27,8 +26,7 @@
                     <td><?= $chief["chief"]->getPhone() ?></td>
                     <td><?= $chief["chief"]->getProfilPictureUrl() ?><img height="100px" src="/res03-projet-final/chef-we-chef-!/<?= $chief["chief"]->getProfilPictureUrl() ?>" alt="Photo de profil du chef"></img></td>
                     <td><?= $chief["chief"]->getDescription() ?></td>
-                    <td><?= $chief["foodStyle"][0]->getName() ?> (id=<?= $chief["chief"]->getFirstFoodStyleId() ?>)</td>
-                    <td><?= $chief["foodStyle"][1]->getName() ?> (id=<?= $chief["chief"]->getSecondFoodStyleId() ?>)</td>
+                    <td><?= $chief["foodStyle"][0]->getName() ?> (id=<?= $chief["chief"]->getFoodStyleId() ?>)</td>
                     <td>
                         <a href="admin/chef&id=<?= $chief["chief"]->getId() ?>"><i class="fa-solid fa-eye"></i></a>
                         <a href="admin/supprimer-chef&id=<?= $chief["chief"]->getId() ?>"><i class="fa-solid fa-trash"></i></a>
