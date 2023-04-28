@@ -575,42 +575,6 @@ table {
   text-align: center;
   margin-bottom: 5vh;
 }
-#visitorChef > section:nth-of-type(4) > section {
-  background-color: whitesmoke;
-  border-radius: 5px;
-}
-#visitorChef > section:nth-of-type(4) > section > table {
-  width: 100%;
-}
-#visitorChef > section:nth-of-type(4) > section > table > thead > tr > th {
-  border: 1px solid black;
-  padding: 5px;
-}
-#visitorChef > section:nth-of-type(4) > section > table > tbody > tr > td {
-  border: 1px solid black;
-}
-#visitorChef > section:nth-of-type(4) > section > table > tbody > tr > td.today {
-  background-color: skyblue;
-}
-#visitorChef > section:nth-of-type(4) > section > table > tbody > tr > td > p {
-  padding: 5px;
-}
-#visitorChef > section:nth-of-type(4) > section > table > tbody > tr > td > section {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-#visitorChef > section:nth-of-type(4) > section > table > tbody > tr > td > section > p {
-  border-radius: 100%;
-  padding: 10px;
-  border: 1px solid grey;
-}
-#visitorChef > section:nth-of-type(4) > section > table > tbody > tr > td > section > p.booked {
-  background-color: lightsalmon;
-}
-#visitorChef > section:nth-of-type(4) > section > table > tbody > tr > td > section > p.available {
-  background-color: lightgreen;
-}
 
 #registerForm {
   background-color: lightgrey;
@@ -861,6 +825,9 @@ table {
 #profil > section:nth-of-type(4) {
   background-color: gold;
   padding: 5vh 5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 #profil > section:nth-of-type(4) > h2 {
   font-size: 3rem;
@@ -868,48 +835,10 @@ table {
   text-align: center;
   margin-bottom: 5vh;
 }
-#profil > section:nth-of-type(4) > section {
-  background-color: whitesmoke;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
-}
-#profil > section:nth-of-type(4) > section > table {
-  width: 100%;
-  margin: 2vh 2vw;
-}
-#profil > section:nth-of-type(4) > section > table > thead > tr > th {
-  border: 1px solid black;
-  padding: 5px;
-}
-#profil > section:nth-of-type(4) > section > table > tbody > tr > td {
-  border: 1px solid black;
-}
-#profil > section:nth-of-type(4) > section > table > tbody > tr > td.today {
-  background-color: skyblue;
-}
-#profil > section:nth-of-type(4) > section > table > tbody > tr > td > p {
-  padding: 5px;
-}
-#profil > section:nth-of-type(4) > section > table > tbody > tr > td > section {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-#profil > section:nth-of-type(4) > section > table > tbody > tr > td > section > p {
-  border-radius: 30%;
-  padding: 10px;
-  border: 1px solid grey;
-}
-#profil > section:nth-of-type(4) > section > table > tbody > tr > td > section > p.booked {
-  background-color: lightsalmon;
-}
-#profil > section:nth-of-type(4) > section > table > tbody > tr > td > section > p.available {
-  background-color: lightgreen;
-}
-#profil > section:nth-of-type(4) > section > a {
+#profil > section:nth-of-type(4) > a {
+  align-self: center;
+  width: auto;
+  margin: 20px;
   display: inline-block;
   cursor: pointer;
   border-radius: 20px;
@@ -922,7 +851,7 @@ table {
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
   background-color: skyblue;
 }
-#profil > section:nth-of-type(4) > section > a:hover {
+#profil > section:nth-of-type(4) > a:hover {
   transform: translateY(-2px);
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
 }
@@ -981,63 +910,72 @@ table {
   text-align: center;
   margin-bottom: 5vh;
 }
-#events > section > section {
+
+.agenda {
   background-color: whitesmoke;
   border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   padding: 10px;
 }
-#events > section > section > table {
-  width: 100%;
-  margin: 2vh 2vw;
+.agenda > h3 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px;
 }
-#events > section > section > table > thead > tr > th {
+.agenda > h3 > a {
+  font-size: 1.4rem;
+  background-color: gold;
+  border-radius: 100%;
+  padding: 5px;
+  margin: 10px;
+}
+.agenda > h3 > a > span {
+  color: black;
+  margin: 0 10px;
+}
+.agenda > table {
+  width: 100%;
+}
+.agenda > table > thead > tr > th {
   border: 1px solid black;
   padding: 5px;
 }
-#events > section > section > table > tbody > tr > td {
+.agenda > table > thead > tr > th > strong {
+  font-weight: bold;
+}
+.agenda > table > tbody > tr > td {
   border: 1px solid black;
 }
-#events > section > section > table > tbody > tr > td.today {
+.agenda > table > tbody > tr > td.today {
   background-color: skyblue;
 }
-#events > section > section > table > tbody > tr > td > p {
+.agenda > table > tbody > tr > td > p {
   padding: 5px;
 }
-#events > section > section > table > tbody > tr > td > section {
+.agenda > table > tbody > tr > td > p > strong {
+  font-weight: bold;
+}
+.agenda > table > tbody > tr > td > section {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  padding: 10px;
 }
-#events > section > section > table > tbody > tr > td > section > p {
-  border-radius: 30%;
+.agenda > table > tbody > tr > td > section > p {
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
   padding: 10px;
   border: 1px solid grey;
+  box-shadow: 5px 5px 5px lightgrey;
 }
-#events > section > section > table > tbody > tr > td > section > p.booked {
+.agenda > table > tbody > tr > td > section > p.booked {
   background-color: lightsalmon;
 }
-#events > section > section > table > tbody > tr > td > section > p.available {
+.agenda > table > tbody > tr > td > section > p.available {
   background-color: lightgreen;
-}
-#events > section > section > a {
-  display: inline-block;
-  cursor: pointer;
-  border-radius: 20px;
-  border: none;
-  text-decoration: none;
-  color: white;
-  text-align: center;
-  font-size: 1.2rem;
-  padding: 10px 20px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-  background-color: skyblue;
-}
-#events > section > section > a:hover {
-  transform: translateY(-2px);
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 /*# sourceMappingURL=style.css.map */

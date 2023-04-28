@@ -1,0 +1,74 @@
+.agenda{
+        background-color: $white;
+        border-radius: 5px;
+        padding: 10px;
+    > h3{
+        font-size: 1.6rem;
+        font-weight: bold;
+        text-align: center;
+        margin: 10px;
+        > a{
+            font-size: 1.4rem;
+            background-color: $yellow;
+            border-radius: 100%;
+            padding: 5px;
+            margin: 10px;
+            > span{
+                color: $black;
+                margin: 0 10px;
+            }
+        }
+    }
+    > table{
+        width: 100%;
+        > thead{
+            > tr{
+                > th{
+                    border: 1px solid black;
+                    padding: 5px;
+                    > strong{
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+        > tbody{
+            > tr{
+                > td{
+                    border: 1px solid black;
+                    &.today{
+                        background-color: $blue;
+                    }
+                    > p{
+                    padding: 5px;
+                        > strong{
+                            font-weight: bold;
+                        }
+                    }
+                    > section{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-around;
+                        padding: 10px;
+                        > p{
+                            aspect-ratio: 1/1;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            border-radius: 100%;
+                            padding: 10px;
+                            border: 1px solid grey;
+                            box-shadow: 5px 5px 5px $grey;
+                            &.booked{
+                                background-color: $red;
+                            }
+                            &.available{
+                                background-color: $green;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

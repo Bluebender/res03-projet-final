@@ -6,7 +6,7 @@ import { eventsCreation } from './eventsCreation.js';
 
 window.addEventListener("DOMContentLoaded", function(){  
 
-    // URL start verification. If URL start is https, FETCH url start with https. If not FETCH url start with http 
+    // URL start verification. If URL start by https, FETCH url start with https. If not FETCH url start with http 
     let url = window.location.href;
     let urlStart = url.substr(0, 5);
     let requestUrlStart;
