@@ -1,0 +1,54 @@
+.calendarByWeek{
+        background-color: $white;
+        border-radius: 5px;
+        padding: 10px;
+    > h3{
+        font-size: 1.6rem;
+        font-weight: bold;
+        text-align: center;
+        margin: 10px;
+        > a{
+            font-size: 1.4rem;
+            background-color: $yellow;
+            border-radius: 100%;
+            padding: 5px;
+            margin: 10px;
+            > span{
+                color: $black;
+                margin: 0 10px;
+            }
+        }
+    }
+    > section:nth-of-type(1){
+        width: 60%;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid $black;
+        > section{
+            border: 1px solid $black;
+            text-align: center;
+            padding: 5px;
+            font-weight: bold;
+            margin: 1vh 0;
+            > section{
+                display: flex;
+                justify-content: center;
+                margin: 1vh 1vw;
+                > p{
+                    border: 1px solid $black;
+                    padding: 1vh 1vw;
+                    margin: 0 1vw;
+                    &.today{
+                        background-color: $blue;
+                    }
+                    &.booked{
+                        background-color: $red;
+                    }
+                    &.available{
+                        background-color: $green;
+                    }
+                }
+            }
+        }
+    }
+}

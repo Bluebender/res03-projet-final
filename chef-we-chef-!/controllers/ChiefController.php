@@ -65,6 +65,11 @@ class ChiefController extends AbstractController {
         // Je rajoute les datas du calendar
         $calendarData = $this->calendarData();
         $data["calendar"]=$calendarData;
+        
+        // Je rajoute les datas du calendarByWeek
+        $weekData = $this->calendarByWeek();
+        $data["week"]=$weekData;
+        
 
         // Je rajoute les datas des events
         // $eventData = $this->eventManag->getAllEvents();
@@ -83,6 +88,8 @@ class ChiefController extends AbstractController {
 
     public function visitorHome(){
         $data = $this->chiefsData();
+        $test = $this->calendarByWeek();
+        
         $longeurData = count($data);
         $threeLastChiefs = [$data[$longeurData-1], $data[$longeurData-2], $data[$longeurData-3]];
 
@@ -162,7 +169,7 @@ class ChiefController extends AbstractController {
         $day_count = date("t", $timestamp);
 
         // 0:Lun 1:Mar 2:Mer...
-        $str = date("w", mktime(0, 0, 0, date("m", $timestamp), 1, date("Y", $timestamp)));
+        $str = date("w", mktime(0, 0, 0, date("m", $timestamp), 0, date("Y", $timestamp)));
 
         // Create Calendar!!
         $weeks = array();
@@ -236,5 +243,34 @@ class ChiefController extends AbstractController {
         return $data;
     }
 
+    private function calendarByWeek(){
 
+        // Set timezone
+        date_default_timezone_set("Europe/Paris");
+
+        // Date du jour
+        $date = new DateTime('now');
+        // Définir le début de la semaine
+        $date->modify('this week');
+        // Date du début de la semaine au format 2023-02-24
+        $startOfWeek = $date->format('Y-m-d');
+
+        // Date de fin de la semaine
+        $date->modify('+6 days');
+        // Date de la fin de la semaine au format 2023-02-24
+        $endOfWeek = $date->format('Y-m-d');
+
+        $week;       
+        $date = new DateTime($startOfWeek);
+        for ($i=0; $i<7; $i++){
+            $data=[];
+            $day = $date->format('Y-m-d');
+            $daystr = $date->format('d m Y');
+            $data[]=$day;
+            $data[]=$daystr;
+            $week[]=$data;
+            $date->modify('+1 day');
+        }
+        return $week;
+    }
 }

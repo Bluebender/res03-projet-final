@@ -985,4 +985,59 @@ table {
   background-color: lightgreen;
 }
 
+.calendarByWeek {
+  background-color: whitesmoke;
+  border-radius: 5px;
+  padding: 10px;
+}
+.calendarByWeek > h3 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px;
+}
+.calendarByWeek > h3 > a {
+  font-size: 1.4rem;
+  background-color: gold;
+  border-radius: 100%;
+  padding: 5px;
+  margin: 10px;
+}
+.calendarByWeek > h3 > a > span {
+  color: black;
+  margin: 0 10px;
+}
+.calendarByWeek > section:nth-of-type(1) {
+  width: 60%;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid black;
+}
+.calendarByWeek > section:nth-of-type(1) > section {
+  border: 1px solid black;
+  text-align: center;
+  padding: 5px;
+  font-weight: bold;
+  margin: 1vh 0;
+}
+.calendarByWeek > section:nth-of-type(1) > section > section {
+  display: flex;
+  justify-content: center;
+  margin: 1vh 1vw;
+}
+.calendarByWeek > section:nth-of-type(1) > section > section > p {
+  border: 1px solid black;
+  padding: 1vh 1vw;
+  margin: 0 1vw;
+}
+.calendarByWeek > section:nth-of-type(1) > section > section > p.today {
+  background-color: skyblue;
+}
+.calendarByWeek > section:nth-of-type(1) > section > section > p.booked {
+  background-color: lightsalmon;
+}
+.calendarByWeek > section:nth-of-type(1) > section > section > p.available {
+  background-color: lightgreen;
+}
+
 /*# sourceMappingURL=style.css.map */

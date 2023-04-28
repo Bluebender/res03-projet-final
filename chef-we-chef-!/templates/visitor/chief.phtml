@@ -89,13 +89,61 @@
 
 
         </section>
-
-
-
-
-
-
-
-
+        
+        <section class="calendarByWeek">
+            <h3><a href="?ym=<?= $data["calendar"]["preview"]; ?>"><span class="fa-solid fa-chevron-left"></span></a>Semaine du <?= $data['week'][0][1] ?> au <?= $data['week'][6][1] ?><a href="?ym=<?= $data["calendar"]["next"]; ?>"><span class="fa-solid fa-chevron-right"></span></a></h3>
+            
+            <section>
+                <section>
+                    <p>Lundi <?= $data['week'][0][1] ?></p>
+                    <section>
+                        <p class="event" date="<?= $data['week'][0][0] ?>-1">12:00</p>
+                        <p class="event" date="<?= $data['week'][0][0] ?>-2">19:00</p>
+                    </section>
+                </section>
+                <section>
+                    <p>Mardi <?= $data['week'][1][1] ?></p>
+                    <section>
+                        <p class="event" date="<?= $data['week'][1][0] ?>-1">12:00</p>
+                        <p class="event" date="<?= $data['week'][1][0] ?>-2">19:00</p>
+                    </section>
+                </section>
+                <section>
+                    <p>Mercredi <?= $data['week'][2][1] ?></p>
+                    <section>
+                        <p class="event" date="<?= $data['week'][2][0] ?>-1">12:00</p>
+                        <p class="event" date="<?= $data['week'][2][0] ?>-2">19:00</p>
+                    </section>
+                </section>
+                <section>
+                    <p>Jeudi <?= $data['week'][3][1] ?></p>
+                    <section>
+                        <p class="event" date="<?= $data['week'][3][0] ?>-1">12:00</p>
+                        <p class="event" date="<?= $data['week'][3][0] ?>-2">19:00</p>
+                    </section>
+                </section>
+                <section>
+                    <p>Vendredi <?= $data['week'][4][1] ?></p>
+                    <section>
+                        <p class="event" date="<?= $data['week'][4][0] ?>-1">12:00</p>
+                        <p class="event" date="<?= $data['week'][4][0] ?>-2">19:00</p>
+                    </section>
+                </section>
+                <section>
+                    <p>Samedi <?= $data['week'][5][1] ?></p>
+                    <section>
+                        <p class="event" date="<?= $data['week'][5][0] ?>-1">12:00</p>
+                        <p class="event" date="<?= $data['week'][5][0] ?>-2">19:00</p>
+                    </section>
+                </section>
+                <section>
+                    <p>Dimanche <?= $data['week'][6][1] ?></p>
+                    <section>
+                        <p class="event" date="<?= $data['week'][6][0] ?>-1">12:00</p>
+                        <p class="event" date="<?= $data['week'][6][0] ?>-2">19:00</p>
+                    </section>
+                </section>
+            </section>
+        </section>
     </section>
 </main>
