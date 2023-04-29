@@ -67,10 +67,10 @@
             <a href="/res03-projet-final/chef-we-chef-!/mon-compte/plat/creer">Ajouter un plat</a>
         </section>
     </section>
-        <section>
+    <section id="chiefCalendar">
         <h2>Les disponibilités du chef <?= $data["chief"]->getChiefName(); ?></h2>
 
-        <section class='agenda'>
+        <section class='calendarByMonth'>
             <h3><a href="?ym=<?= $data["calendar"]["preview"]; ?>"><span class="fa-solid fa-chevron-left"></span></a><?= $data["calendar"]["title"] ?><a href="?ym=<?= $data["calendar"]["next"]; ?>"><span class="fa-solid fa-chevron-right"></span></a></h3>
             <br>
             <table>
@@ -92,6 +92,23 @@
                 </tbody>
             </table>
         </section>
+        
+        <section class="calendarByWeek">
+            <h3><a href="?date=<?= $data["weekCalendar"]["pastWeekDate"]."#chiefCalendar"; ?>"><span class="fa-solid fa-chevron-left"></span></a>Semaine du <?= $data['weekCalendar']['weekData']['day1']['dateStr']." ".$data['weekCalendar']['weekData']['day1']['year'] ?> au <?= $data['weekCalendar']['weekData']['day7']['dateStr']." ".$data['weekCalendar']['weekData']['day7']['year'] ?><a href="?date=<?= $data["weekCalendar"]["nextWeekDate"]."#chiefCalendar"; ?>"><span class="fa-solid fa-chevron-right"></span></a></h3>
+            
+            <section>
+                <?php foreach($data['weekCalendar']['weekData'] as $week){ ?>
+                <section>
+                    <p><?= $week['day']." ".$week['dateStr'] ?></p>
+                    <section>
+                        <p class="event" date="<?= $week['date'] ?>-1">12:00</p>
+                        <p class="event" date="<?= $week['date'] ?>-2">19:00</p>
+                    </section>
+                </section>
+                <?php } ?>
+            </section>
+        </section>
+
         <a href="/res03-projet-final/chef-we-chef-!/mon-compte/calendar">Modifier mes disponibilités</a>
     </section>
 

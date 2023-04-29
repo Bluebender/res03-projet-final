@@ -68,7 +68,7 @@ class ChiefController extends AbstractController {
         
         // Je rajoute les datas du calendarByWeek
         $weekData = $this->calendarByWeek();
-        $data["week"]=$weekData;
+        $data["weekCalendar"]=$weekData;
         
 
         // Je rajoute les datas des events
@@ -247,30 +247,50 @@ class ChiefController extends AbstractController {
 
         // Set timezone
         date_default_timezone_set("Europe/Paris");
-
+        
+        $startOfWeek;
+        if(isset($_GET['date'])){
+            $startOfWeek=$_GET['date'];
+        }
+        else{
         // Date du jour
         $date = new DateTime('now');
         // Définir le début de la semaine
         $date->modify('this week');
         // Date du début de la semaine au format 2023-02-24
         $startOfWeek = $date->format('Y-m-d');
+        }
 
-        // Date de fin de la semaine
-        $date->modify('+6 days');
-        // Date de la fin de la semaine au format 2023-02-24
-        $endOfWeek = $date->format('Y-m-d');
-
-        $week;       
+        // Week table
+        $weekDay = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+        // Month table
+        $yearMonth = ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+        
+        $weekData;
         $date = new DateTime($startOfWeek);
         for ($i=0; $i<7; $i++){
             $data=[];
             $day = $date->format('Y-m-d');
-            $daystr = $date->format('d m Y');
-            $data[]=$day;
-            $data[]=$daystr;
-            $week[]=$data;
+            $daystr = $weekDay[$i];
+            $datestr = $date->format('d')." ".$yearMonth[$date->format('n')];
+            $year = $date->format('Y');
+            $data['date']=$day;
+            $data['day']=$daystr;
+            $data['dateStr']=$datestr;
+            $data['year']=$year;
+            $weekData['day'.$i+1]=$data;
             $date->modify('+1 day');
         }
+        // Déclaration du début de la semaine suivante
+        $week['weekData']=$weekData;
+        $nextWeekDate = $date->format('Y-m-d');
+
+        // Déclaration du début de la semaine précédente
+        $date->modify('-14 days');
+        $pastWeekDate = $date->format('Y-m-d');
+
+        $week['nextWeekDate']= $nextWeekDate;  
+        $week['pastWeekDate']= $pastWeekDate;  
         return $week;
     }
 }

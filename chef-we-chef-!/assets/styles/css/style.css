@@ -918,57 +918,58 @@ table {
   margin-bottom: 5vh;
 }
 
-.agenda {
+.calendarByMonth {
+  display: none;
   background-color: whitesmoke;
   border-radius: 5px;
   padding: 10px;
 }
-.agenda > h3 {
+.calendarByMonth > h3 {
   font-size: 1.6rem;
   font-weight: bold;
   text-align: center;
   margin: 10px;
 }
-.agenda > h3 > a {
+.calendarByMonth > h3 > a {
   font-size: 1.4rem;
   background-color: gold;
   border-radius: 100%;
   padding: 5px;
   margin: 10px;
 }
-.agenda > h3 > a > span {
+.calendarByMonth > h3 > a > span {
   color: black;
   margin: 0 10px;
 }
-.agenda > table {
+.calendarByMonth > table {
   width: 100%;
 }
-.agenda > table > thead > tr > th {
+.calendarByMonth > table > thead > tr > th {
   border: 1px solid black;
   padding: 5px;
 }
-.agenda > table > thead > tr > th > strong {
+.calendarByMonth > table > thead > tr > th > strong {
   font-weight: bold;
 }
-.agenda > table > tbody > tr > td {
+.calendarByMonth > table > tbody > tr > td {
   border: 1px solid black;
 }
-.agenda > table > tbody > tr > td.today {
+.calendarByMonth > table > tbody > tr > td.today {
   background-color: skyblue;
 }
-.agenda > table > tbody > tr > td > p {
+.calendarByMonth > table > tbody > tr > td > p {
   padding: 5px;
 }
-.agenda > table > tbody > tr > td > p > strong {
+.calendarByMonth > table > tbody > tr > td > p > strong {
   font-weight: bold;
 }
-.agenda > table > tbody > tr > td > section {
+.calendarByMonth > table > tbody > tr > td > section {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   padding: 10px;
 }
-.agenda > table > tbody > tr > td > section > p {
+.calendarByMonth > table > tbody > tr > td > section > p {
   aspect-ratio: 1/1;
   display: flex;
   justify-content: center;
@@ -978,10 +979,10 @@ table {
   border: 1px solid grey;
   box-shadow: 5px 5px 5px lightgrey;
 }
-.agenda > table > tbody > tr > td > section > p.booked {
+.calendarByMonth > table > tbody > tr > td > section > p.booked {
   background-color: lightsalmon;
 }
-.agenda > table > tbody > tr > td > section > p.available {
+.calendarByMonth > table > tbody > tr > td > section > p.available {
   background-color: lightgreen;
 }
 
