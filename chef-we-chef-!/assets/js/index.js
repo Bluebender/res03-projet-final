@@ -2,10 +2,13 @@ import { myCalendar } from './calendar.js';
 import { chiefCalendar } from './calendar.js';
 import { eventsCreation } from './eventsCreation.js';
 import { registerForm } from './registerForm.js';
+import { asideMenu } from './asideMenu.js';
 
 
 
 window.addEventListener("DOMContentLoaded", function(){  
+
+    asideMenu();
 
     // URL start verification. If URL start by https, FETCH url start with https. If not FETCH url start with http 
     let url = window.location.href;
@@ -17,7 +20,6 @@ window.addEventListener("DOMContentLoaded", function(){
     else{
         requestUrlStart ='http://vincentollivier.sites.3wa.io/res03-projet-final/chef-we-chef-!';
     }
-
 
 
     if (window.location.toString().includes("/mon-compte")) {

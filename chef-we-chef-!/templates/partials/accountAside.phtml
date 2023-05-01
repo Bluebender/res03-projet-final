@@ -1,7 +1,15 @@
-<header id="visitor_header">
-    <figure>
-        <img src="/res03-projet-final/chef-we-chef-!/assets/img/2.png"></img>
-    </figure>
+<aside id="visitor_aside" class='hidden'>
+    <ul>
+        <li>
+            <figure>
+                <img src="/res03-projet-final/chef-we-chef-!/<?= $_SESSION["chiefPicture"] ?>"></img>
+            </figure>
+        </li>
+        <li>
+            <a href="/res03-projet-final/chef-we-chef-!/deconnexion">Déconnexion</a>
+        </li>
+
+    </ul>
     <nav>
         <ul>
             <li>
@@ -18,16 +26,4 @@
             </li>                
         </ul>
     </nav>
-    <ul>
-        <li>
-            <figure>
-                <img src="/res03-projet-final/chef-we-chef-!/<?= $_SESSION["chiefPicture"] ?>"></img>
-            </figure>
-        </li>
-        <li>
-            <a href="/res03-projet-final/chef-we-chef-!/deconnexion">Déconnexion</a>
-        </li>
-
-    </ul>
-    <span id='menuBtn' class="fa-solid fa-bars"></span>
-</header>
+</aside>

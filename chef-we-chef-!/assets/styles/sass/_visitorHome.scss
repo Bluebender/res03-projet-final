@@ -2,6 +2,8 @@
     > section:nth-of-type(1){
         background-image: url("https://images.pexels.com/photos/3298637/pexels-photo-3298637.jpeg");
         background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
         padding: 40vh 5vw;
         h1{
             font-size: 5rem;

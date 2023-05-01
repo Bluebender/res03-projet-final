@@ -13,4 +13,8 @@
 @import "_events";
 @import "_calendarByMonth";
 @import "_calendarByWeek";
+@import "_aside";
 
+.hidden{
+    display: none;
+}

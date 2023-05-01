@@ -146,6 +146,7 @@ table {
   font-size: 1.4rem;
   text-decoration: none;
   color: black;
+  margin-left: 10px;
 }
 #visitor_header > ul > li > a:hover {
   transform: translateY(-4px);
@@ -221,6 +222,8 @@ table {
 #visitorHome > section:nth-of-type(1) {
   background-image: url("https://images.pexels.com/photos/3298637/pexels-photo-3298637.jpeg");
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   padding: 40vh 5vw;
 }
 #visitorHome > section:nth-of-type(1) h1 {
@@ -1151,6 +1154,42 @@ table {
 }
 .calendarByWeek > section:nth-of-type(1) > section > section > p.available {
   background-color: lightgreen;
+}
+
+#visitor_aside {
+  position: absolute;
+  top: 10vh;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 2vh 2vw;
+}
+#visitor_aside > ul {
+  margin-bottom: 3vh;
+}
+#visitor_aside > ul > li > figure {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#visitor_aside > ul > li > figure > img {
+  height: 60%;
+  border-radius: 100%;
+}
+#visitor_aside > ul > li > a {
+  color: white;
+  font-size: 3rem;
+}
+#visitor_aside > nav > ul > li {
+  text-align: center;
+}
+#visitor_aside > nav > ul > li > a {
+  color: white;
+  font-size: 3rem;
+}
+
+.hidden {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

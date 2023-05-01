@@ -23,6 +23,7 @@
     <?php
     if(isset($_SESSION) && !empty($_SESSION) && $_SESSION["connected"] && $_SESSION["role"]==="chief"){
         require 'partials/accountHeader.phtml';
+        require 'partials/accountAside.phtml';
         require $template.".phtml";
         require 'partials/footer.phtml';
     }
@@ -33,6 +34,7 @@
     }
     else{
         require 'partials/header.phtml';
+        require 'partials/aside.phtml';
         require $template.".phtml";
         require 'partials/footer.phtml';
     }
