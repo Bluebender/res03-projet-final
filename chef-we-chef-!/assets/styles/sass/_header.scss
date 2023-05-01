@@ -1,8 +1,13 @@
 #visitor_header{
-    background-color: $yellow;
+    background-color: white;
     display: grid;
-    grid-template-columns: 0.1fr 0.1fr 0.1fr 0.8fr 0.4fr 0.4fr 0.1fr;
+    grid-template-columns: 0.1fr 0.1fr 0.1fr 0.8fr 0.2fr 0.4fr 0.1fr;
+    @media only screen and (min-width: 1200px) {
     grid-template-rows: 20vh;
+    }
+    @media only screen and (max-width: 1200px) {
+    grid-template-rows: 10vh;
+    }
     box-shadow: 2px 2px 5px rgba(220, 220, 220, 0.5);
     > figure{
         grid-column: 2 / 3;
@@ -11,9 +16,26 @@
             height: 100%;
         }
     }
+    > span{
+        grid-column: 6 / 7;
+        align-self: center;
+        justify-self: center;
+        font-size: 50px;
+        @media only screen and (min-width: 1025px) {
+        display: none;
+        }
+        @media only screen and (max-width: 1025px) {
+        display: block;
+        }
+    }
     > nav{
         grid-column: 4 / 5;
+        @media only screen and (min-width: 1025px) {
         display: flex;
+        }
+        @media only screen and (max-width: 1025px) {
+        display: none;
+        }
         > ul{
             width: 100%;
             display: flex;
@@ -36,7 +58,12 @@
     }
     > ul{
         grid-column: 6 / 7;
+        @media only screen and (min-width: 1025px) {
         display: flex;
+        }
+        @media only screen and (max-width: 1025px) {
+        display: none;
+        }
         justify-content: space-between;
         align-items: center;
         > li{

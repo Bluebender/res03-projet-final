@@ -53,11 +53,20 @@ table {
 }
 
 #visitor_header {
-  background-color: gold;
+  background-color: white;
   display: grid;
-  grid-template-columns: 0.1fr 0.1fr 0.1fr 0.8fr 0.4fr 0.4fr 0.1fr;
-  grid-template-rows: 20vh;
+  grid-template-columns: 0.1fr 0.1fr 0.1fr 0.8fr 0.2fr 0.4fr 0.1fr;
   box-shadow: 2px 2px 5px rgba(220, 220, 220, 0.5);
+}
+@media only screen and (min-width: 1200px) {
+  #visitor_header {
+    grid-template-rows: 20vh;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  #visitor_header {
+    grid-template-rows: 10vh;
+  }
 }
 #visitor_header > figure {
   grid-column: 2/3;
@@ -66,9 +75,34 @@ table {
 #visitor_header > figure > img {
   height: 100%;
 }
+#visitor_header > span {
+  grid-column: 6/7;
+  align-self: center;
+  justify-self: center;
+  font-size: 50px;
+}
+@media only screen and (min-width: 1025px) {
+  #visitor_header > span {
+    display: none;
+  }
+}
+@media only screen and (max-width: 1025px) {
+  #visitor_header > span {
+    display: block;
+  }
+}
 #visitor_header > nav {
   grid-column: 4/5;
-  display: flex;
+}
+@media only screen and (min-width: 1025px) {
+  #visitor_header > nav {
+    display: flex;
+  }
+}
+@media only screen and (max-width: 1025px) {
+  #visitor_header > nav {
+    display: none;
+  }
 }
 #visitor_header > nav > ul {
   width: 100%;
@@ -90,9 +124,18 @@ table {
 }
 #visitor_header > ul {
   grid-column: 6/7;
-  display: flex;
   justify-content: space-between;
   align-items: center;
+}
+@media only screen and (min-width: 1025px) {
+  #visitor_header > ul {
+    display: flex;
+  }
+}
+@media only screen and (max-width: 1025px) {
+  #visitor_header > ul {
+    display: none;
+  }
 }
 #visitor_header > ul > li {
   display: flex;
@@ -209,11 +252,18 @@ table {
   margin-bottom: 5vh;
 }
 #visitorHome > section:nth-of-type(3) > ul {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 4vw;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#visitorHome > section:nth-of-type(3) > ul > li {
+  max-width: 400px;
+  margin: 20px;
 }
 #visitorHome > section:nth-of-type(3) > ul > li > article {
+  height: 100%;
   background-color: whitesmoke;
   border-radius: 10px;
   padding: 3vh 3vw;
@@ -234,20 +284,15 @@ table {
   text-align: center;
   margin: 5vh 0;
 }
-#visitorHome > section:nth-of-type(3) > ul > li > article > section > p {
+#visitorHome > section:nth-of-type(3) > ul > li > article > section > p:nth-of-type(1) {
   font-size: 1.2rem;
   margin-bottom: 5vh;
   text-align: justify;
   overflow: auto;
-  height: 25vh;
 }
-#visitorHome > section:nth-of-type(3) > ul > li > article > section > section {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+#visitorHome > section:nth-of-type(3) > ul > li > article > section > p:nth-of-type(2) {
+  text-align: center;
   margin-bottom: 3vh;
-}
-#visitorHome > section:nth-of-type(3) > ul > li > article > section > section > p {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 3vh;
@@ -299,12 +344,18 @@ table {
   margin-bottom: 5vh;
 }
 #visitorChiefs > ul {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 4vw;
-  row-gap: 4vh;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#visitorChiefs > ul > li {
+  max-width: 400px;
+  margin: 20px;
 }
 #visitorChiefs > ul > li > article {
+  height: 100%;
   background-color: whitesmoke;
   border-radius: 10px;
   padding: 3vh 3vw;
@@ -325,20 +376,15 @@ table {
   text-align: center;
   margin: 5vh 0;
 }
-#visitorChiefs > ul > li > article > section > p {
+#visitorChiefs > ul > li > article > section > p:nth-of-type(1) {
   font-size: 1.2rem;
   margin-bottom: 5vh;
   text-align: justify;
   overflow: auto;
-  height: 25vh;
 }
-#visitorChiefs > ul > li > article > section > section {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+#visitorChiefs > ul > li > article > section > p:nth-of-type(2) {
+  text-align: center;
   margin-bottom: 3vh;
-}
-#visitorChiefs > ul > li > article > section > section > p {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 3vh;
@@ -456,10 +502,28 @@ table {
   background-color: lightgrey;
   padding: 5vh 5vw;
   display: grid;
-  grid-template-columns: 4fr 6fr;
 }
-#visitorChef > section:nth-of-type(1) > figure {
-  width: 100%;
+@media only screen and (min-width: 769px) {
+  #visitorChef > section:nth-of-type(1) {
+    grid-template-columns: 4fr 6fr;
+  }
+}
+@media only screen and (max-width: 769px) {
+  #visitorChef > section:nth-of-type(1) {
+    grid-template-columns: 1fr;
+  }
+}
+@media only screen and (min-width: 769px) {
+  #visitorChef > section:nth-of-type(1) > figure {
+    width: 100%;
+    grid-template-columns: 4fr 6fr;
+  }
+}
+@media only screen and (max-width: 769px) {
+  #visitorChef > section:nth-of-type(1) > figure {
+    width: 80%;
+    margin: auto;
+  }
 }
 #visitorChef > section:nth-of-type(1) > figure > img {
   width: 100%;
@@ -507,13 +571,22 @@ table {
 }
 #visitorChef > section:nth-of-type(2) > section {
   background-color: whitesmoke;
-  width: 50vw;
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 5vh 5vw;
   border-radius: 15px;
+}
+@media only screen and (min-width: 1025px) {
+  #visitorChef > section:nth-of-type(2) > section {
+    width: 50vw;
+  }
+}
+@media only screen and (max-width: 1025px) {
+  #visitorChef > section:nth-of-type(2) > section {
+    width: 90vw;
+  }
 }
 #visitorChef > section:nth-of-type(2) > section > ul {
   display: flex;
@@ -529,8 +602,18 @@ table {
 #visitorChef > section:nth-of-type(2) > section > ul > li {
   width: 100%;
   display: flex;
-  flex-direction: row;
   justify-content: center;
+}
+@media only screen and (min-width: 769px) {
+  #visitorChef > section:nth-of-type(2) > section > ul > li {
+    flex-direction: row;
+    grid-template-columns: 4fr 6fr;
+  }
+}
+@media only screen and (max-width: 769px) {
+  #visitorChef > section:nth-of-type(2) > section > ul > li {
+    flex-direction: column;
+  }
 }
 #visitorChef > section:nth-of-type(2) > section > ul > li > p {
   font-size: 1.2rem;
@@ -547,13 +630,15 @@ table {
   margin-bottom: 5vh;
 }
 #visitorChef > section:nth-of-type(3) > ul {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 2vw;
-  row-gap: 2vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: auto;
 }
 #visitorChef > section:nth-of-type(3) > ul > li {
-  width: 25vw;
+  width: 400px;
+  margin: 20px;
 }
 #visitorChef > section:nth-of-type(3) > ul > li > figure {
   width: 100%;
@@ -563,7 +648,9 @@ table {
   aspect-ratio: 3/2;
 }
 #visitorChef > section:nth-of-type(3) > ul > li > figure > figcaption {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
 }
 #visitorChef > section:nth-of-type(4) {
   background-color: gold;
@@ -919,10 +1006,19 @@ table {
 }
 
 .calendarByMonth {
-  display: none;
   background-color: whitesmoke;
   border-radius: 5px;
   padding: 10px;
+}
+@media only screen and (min-width: 1025px) {
+  .calendarByMonth {
+    display: block;
+  }
+}
+@media only screen and (max-width: 1025px) {
+  .calendarByMonth {
+    display: none;
+  }
 }
 .calendarByMonth > h3 {
   font-size: 1.6rem;
@@ -990,6 +1086,16 @@ table {
   background-color: whitesmoke;
   border-radius: 5px;
   padding: 10px;
+}
+@media only screen and (min-width: 1025px) {
+  .calendarByWeek {
+    display: none;
+  }
+}
+@media only screen and (max-width: 1025px) {
+  .calendarByWeek {
+    display: block;
+  }
 }
 .calendarByWeek > h3 {
   font-size: 1.6rem;

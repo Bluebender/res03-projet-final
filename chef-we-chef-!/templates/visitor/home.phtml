@@ -24,9 +24,7 @@
                     <section>
                         <h3>Chef <?= $chief["chief"]->getChiefName() ?></h3>
                         <p><?= $chief["chief"]->getDescription() ?></p>
-                        <section>
-                            <p><?= $chief["foodStyle"][0]->getName() ?></p>
-                        </section>
+                        <p><?= $chief["foodStyle"][0]->getName() ?></p>
                     </section>
                     <footer>
                         <a href="chef&id=<?= $chief["chief"]->getId() ?>">Voir ce chef</a>

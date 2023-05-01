@@ -8,12 +8,16 @@
         margin-bottom: 5vh;
     }
     > ul{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        column-gap: 4vw;
-        row-gap: 4vh;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        flex-wrap: wrap;
+        justify-content: center;
         > li{
+            max-width: 400px;
+            margin: 20px;
             > article{
+                height: 100%;
                 background-color: $white;
                 border-radius: 10px;
                 padding: 3vh 3vw;
@@ -36,23 +40,18 @@
                         text-align: center;
                         margin: 5vh 0;
                     }
-                    > p{
+                    > p:nth-of-type(1){
                         font-size: 1.2rem;
                         margin-bottom: 5vh;
                         text-align: justify;
                         overflow: auto;
-                        height: 25vh;
                     }
-                    > section{
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: space-between;
+                    > p:nth-of-type(2){
+                        text-align: center;
                         margin-bottom: 3vh;
-                        > p{
-                            font-size: 1.2rem;
-                            font-weight: bold;
-                            margin-bottom: 3vh;
-                        }
+                        font-size: 1.2rem;
+                        font-weight: bold;
+                        margin-bottom: 3vh;
                     }
                 }
                 > footer{
