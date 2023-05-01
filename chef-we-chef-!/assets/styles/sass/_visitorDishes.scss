@@ -8,12 +8,16 @@
         margin-bottom: 5vh;
     }
     > ul{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        column-gap: 4vw;
-        row-gap: 4vh;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        flex-wrap: wrap;
+        justify-content: center;
         > li{
+            max-width: 400px;
+            margin: 20px;
             > article{
+                height: 100%;
                 background-color: $white;
                 > header{
                     width: 100%;

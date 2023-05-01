@@ -422,12 +422,18 @@ table {
   margin-bottom: 5vh;
 }
 #visitorDishes > ul {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 4vw;
-  row-gap: 4vh;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#visitorDishes > ul > li {
+  max-width: 400px;
+  margin: 20px;
 }
 #visitorDishes > ul > li > article {
+  height: 100%;
   background-color: whitesmoke;
 }
 #visitorDishes > ul > li > article > header {
