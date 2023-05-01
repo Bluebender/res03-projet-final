@@ -89,7 +89,11 @@
         </section>
         
         <section class="calendarByWeek">
-            <h3><a href="?date=<?= $data["weekCalendar"]["pastWeekDate"]."#chiefCalendar"; ?>"><span class="fa-solid fa-chevron-left"></span></a>Semaine du <?= $data['weekCalendar']['weekData']['day1']['dateStr']." ".$data['weekCalendar']['weekData']['day1']['year'] ?> au <?= $data['weekCalendar']['weekData']['day7']['dateStr']." ".$data['weekCalendar']['weekData']['day7']['year'] ?><a href="?date=<?= $data["weekCalendar"]["nextWeekDate"]."#chiefCalendar"; ?>"><span class="fa-solid fa-chevron-right"></span></a></h3>
+            <h3>Semaine du <?= $data['weekCalendar']['weekData']['day1']['dateStr']." ".$data['weekCalendar']['weekData']['day1']['year'] ?> au <?= $data['weekCalendar']['weekData']['day7']['dateStr']." ".$data['weekCalendar']['weekData']['day7']['year'] ?></h3>
+            <section>
+                <a href="?date=<?= $data["weekCalendar"]["pastWeekDate"]."#chiefCalendar"; ?>"><span class="fa-solid fa-chevron-left"></span></a>
+                <a href="?date=<?= $data["weekCalendar"]["nextWeekDate"]."#chiefCalendar"; ?>"><span class="fa-solid fa-chevron-right"></span></a>
+            </section>
             
             <section>
                 <?php foreach($data['weekCalendar']['weekData'] as $week){ ?>

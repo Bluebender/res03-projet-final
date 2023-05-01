@@ -463,7 +463,7 @@ table {
   margin-bottom: 5vh;
   text-align: justify;
   overflow: auto;
-  height: 10vh;
+  height: 5vh;
 }
 #visitorDishes > ul > li > article > section > section {
   display: flex;
@@ -776,11 +776,30 @@ table {
 }
 #profil > section:nth-of-type(1) > section {
   display: grid;
-  grid-template-columns: 4fr 6fr;
-  grid-template-rows: 8fr 1fr;
 }
-#profil > section:nth-of-type(1) > section > figure {
-  width: 100%;
+@media only screen and (min-width: 769px) {
+  #profil > section:nth-of-type(1) > section {
+    grid-template-columns: 4fr 6fr;
+    grid-template-rows: 8fr 1fr;
+  }
+}
+@media only screen and (max-width: 769px) {
+  #profil > section:nth-of-type(1) > section {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+@media only screen and (min-width: 769px) {
+  #profil > section:nth-of-type(1) > section > figure {
+    width: 100%;
+    grid-template-columns: 4fr 6fr;
+  }
+}
+@media only screen and (max-width: 769px) {
+  #profil > section:nth-of-type(1) > section > figure {
+    width: 80%;
+    margin: auto;
+  }
 }
 #profil > section:nth-of-type(1) > section > figure > img {
   width: 100%;
@@ -845,13 +864,22 @@ table {
 }
 #profil > section:nth-of-type(2) > section {
   background-color: whitesmoke;
-  width: 50vw;
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 5vh 5vw;
   border-radius: 15px;
+}
+@media only screen and (min-width: 1025px) {
+  #profil > section:nth-of-type(2) > section {
+    width: 50vw;
+  }
+}
+@media only screen and (max-width: 1025px) {
+  #profil > section:nth-of-type(2) > section {
+    width: 90vw;
+  }
 }
 #profil > section:nth-of-type(2) > section > ul {
   display: flex;
@@ -867,8 +895,18 @@ table {
 #profil > section:nth-of-type(2) > section > ul > li {
   width: 100%;
   display: flex;
-  flex-direction: row;
   justify-content: center;
+}
+@media only screen and (min-width: 769px) {
+  #profil > section:nth-of-type(2) > section > ul > li {
+    flex-direction: row;
+    grid-template-columns: 4fr 6fr;
+  }
+}
+@media only screen and (max-width: 769px) {
+  #profil > section:nth-of-type(2) > section > ul > li {
+    flex-direction: column;
+  }
 }
 #profil > section:nth-of-type(2) > section > ul > li > p {
   font-size: 1.2rem;
@@ -890,13 +928,15 @@ table {
   align-items: center;
 }
 #profil > section:nth-of-type(3) > section > ul {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 2vw;
-  row-gap: 2vh;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 #profil > section:nth-of-type(3) > section > ul > li {
-  width: 25vw;
+  max-width: 400px;
+  margin: 20px;
 }
 #profil > section:nth-of-type(3) > section > ul > li > figure {
   width: 100%;
@@ -906,7 +946,9 @@ table {
   aspect-ratio: 3/2;
 }
 #profil > section:nth-of-type(3) > section > ul > li > figure > figcaption {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
 }
 #profil > section:nth-of-type(3) > section > a {
   display: inline-block;
@@ -1112,47 +1154,63 @@ table {
   text-align: center;
   margin: 10px;
 }
-.calendarByWeek > h3 > a {
+.calendarByWeek > section:nth-of-type(1) {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.calendarByWeek > section:nth-of-type(1) > a {
   font-size: 1.4rem;
   background-color: gold;
   border-radius: 100%;
   padding: 5px;
   margin: 10px;
 }
-.calendarByWeek > h3 > a > span {
+.calendarByWeek > section:nth-of-type(1) > a > span {
   color: black;
   margin: 0 10px;
 }
-.calendarByWeek > section:nth-of-type(1) {
-  width: 60%;
+.calendarByWeek > section:nth-of-type(2) {
   margin: auto;
   padding: 20px;
   border: 1px solid black;
 }
-.calendarByWeek > section:nth-of-type(1) > section {
+@media only screen and (min-width: 769px) {
+  .calendarByWeek > section:nth-of-type(2) {
+    width: 60%;
+  }
+}
+@media only screen and (max-width: 769px) {
+  .calendarByWeek > section:nth-of-type(2) {
+    width: 90%;
+  }
+}
+.calendarByWeek > section:nth-of-type(2) > section {
   border: 1px solid black;
   text-align: center;
   padding: 5px;
   font-weight: bold;
   margin: 1vh 0;
 }
-.calendarByWeek > section:nth-of-type(1) > section > section {
+.calendarByWeek > section:nth-of-type(2) > section > section {
   display: flex;
   justify-content: center;
   margin: 1vh 1vw;
 }
-.calendarByWeek > section:nth-of-type(1) > section > section > p {
+.calendarByWeek > section:nth-of-type(2) > section > section > p {
+  width: 30vw;
   border: 1px solid black;
   padding: 1vh 1vw;
   margin: 0 1vw;
 }
-.calendarByWeek > section:nth-of-type(1) > section > section > p.today {
+.calendarByWeek > section:nth-of-type(2) > section > section > p.today {
   background-color: skyblue;
 }
-.calendarByWeek > section:nth-of-type(1) > section > section > p.booked {
+.calendarByWeek > section:nth-of-type(2) > section > section > p.booked {
   background-color: lightsalmon;
 }
-.calendarByWeek > section:nth-of-type(1) > section > section > p.available {
+.calendarByWeek > section:nth-of-type(2) > section > section > p.available {
   background-color: lightgreen;
 }
 
