@@ -55,8 +55,17 @@ table {
 #visitor_header {
   background-color: white;
   display: grid;
-  grid-template-columns: 0.1fr 0.1fr 0.1fr 0.8fr 0.2fr 0.4fr 0.1fr;
   box-shadow: 2px 2px 5px rgba(220, 220, 220, 0.5);
+}
+@media only screen and (min-width: 1025px) {
+  #visitor_header {
+    grid-template-columns: 0.1fr 0.1fr 0.1fr 0.8fr 0.2fr 0.4fr 0.1fr;
+  }
+}
+@media only screen and (max-width: 1025px) {
+  #visitor_header {
+    grid-template-columns: 0.1fr 0.4fr 0.1fr 0.4fr 0.1fr;
+  }
 }
 @media only screen and (min-width: 1200px) {
   #visitor_header {
@@ -75,10 +84,21 @@ table {
 #visitor_header > figure > img {
   height: 100%;
 }
+@media only screen and (min-width: 1200px) {
+  #visitor_header > figure > img {
+    width: 20vh;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  #visitor_header > figure > img {
+    width: 10vh;
+  }
+}
 #visitor_header > span {
-  grid-column: 6/7;
+  grid-column: 4/5;
   align-self: center;
-  justify-self: center;
+  justify-self: right;
+  margin-right: 5px;
   font-size: 50px;
 }
 @media only screen and (min-width: 1025px) {
@@ -622,17 +642,28 @@ table {
 @media only screen and (min-width: 769px) {
   #visitorChef > section:nth-of-type(2) > section > ul > li {
     flex-direction: row;
-    grid-template-columns: 4fr 6fr;
+    justify-content: center;
   }
 }
 @media only screen and (max-width: 769px) {
   #visitorChef > section:nth-of-type(2) > section > ul > li {
     flex-direction: column;
+    align-items: center;
+  }
+  #visitorChef > section:nth-of-type(2) > section > ul > li > p:first-of-type {
+    margin-bottom: 0;
+  }
+  #visitorChef > section:nth-of-type(2) > section > ul > li > p:last-of-type {
+    margin-top: 0;
   }
 }
 #visitorChef > section:nth-of-type(2) > section > ul > li > p {
   font-size: 1.2rem;
   margin: 1vh 1vw;
+}
+#visitorChef > section:nth-of-type(2) > section > ul > li > p:first-of-type {
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 #visitorChef > section:nth-of-type(3) {
   background-color: lightgrey;
@@ -901,22 +932,32 @@ table {
 #profil > section:nth-of-type(2) > section > ul > li {
   width: 100%;
   display: flex;
-  justify-content: center;
 }
 @media only screen and (min-width: 769px) {
   #profil > section:nth-of-type(2) > section > ul > li {
     flex-direction: row;
-    grid-template-columns: 4fr 6fr;
+    justify-content: center;
   }
 }
 @media only screen and (max-width: 769px) {
   #profil > section:nth-of-type(2) > section > ul > li {
     flex-direction: column;
+    align-items: center;
+  }
+  #profil > section:nth-of-type(2) > section > ul > li > p:first-of-type {
+    margin-bottom: 0;
+  }
+  #profil > section:nth-of-type(2) > section > ul > li > p:last-of-type {
+    margin-top: 0;
   }
 }
 #profil > section:nth-of-type(2) > section > ul > li > p {
   font-size: 1.2rem;
   margin: 1vh 1vw;
+}
+#profil > section:nth-of-type(2) > section > ul > li > p:first-of-type {
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 #profil > section:nth-of-type(3) {
   background-color: lightgrey;

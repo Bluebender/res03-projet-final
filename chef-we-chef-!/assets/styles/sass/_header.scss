@@ -1,12 +1,17 @@
 #visitor_header{
     background-color: white;
     display: grid;
-    grid-template-columns: 0.1fr 0.1fr 0.1fr 0.8fr 0.2fr 0.4fr 0.1fr;
+    @media only screen and (min-width: 1025px) {
+        grid-template-columns: 0.1fr 0.1fr 0.1fr 0.8fr 0.2fr 0.4fr 0.1fr;
+    }
+    @media only screen and (max-width: 1025px) {
+        grid-template-columns: 0.1fr 0.4fr 0.1fr 0.4fr 0.1fr;
+    }
     @media only screen and (min-width: 1200px) {
-    grid-template-rows: 20vh;
+        grid-template-rows: 20vh;
     }
     @media only screen and (max-width: 1200px) {
-    grid-template-rows: 10vh;
+        grid-template-rows: 10vh;
     }
     box-shadow: 2px 2px 5px rgba(220, 220, 220, 0.5);
     > figure{
@@ -14,12 +19,19 @@
         height: 100%;
         > img{
             height: 100%;
+            @media only screen and (min-width: 1200px) {
+                width: 20vh;
+            }
+            @media only screen and (max-width: 1200px) {
+                width: 10vh;
+            }
         }
     }
     > span{
-        grid-column: 6 / 7;
+        grid-column: 4 / 5;
         align-self: center;
-        justify-self: center;
+        justify-self: right;
+        margin-right: 5px;
         font-size: 50px;
         @media only screen and (min-width: 1025px) {
         display: none;
