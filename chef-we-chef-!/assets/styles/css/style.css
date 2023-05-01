@@ -164,7 +164,7 @@ table {
 }
 
 #footer {
-  background-color: gold;
+  background-color: lightgrey;
   padding: 5vh 5vw;
   display: flex;
   flex-direction: column;
@@ -172,16 +172,16 @@ table {
 }
 #footer > section:nth-of-type(1) {
   display: grid;
-  grid-template-columns: 1fr 1fr;
 }
-#footer > section:nth-of-type(1) > section:nth-of-type(1) > h2 {
-  font-size: 1.2 rem;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 2vh;
+@media only screen and (min-width: 1025px) {
+  #footer > section:nth-of-type(1) {
+    grid-template-columns: 1fr 1fr;
+  }
 }
-#footer > section:nth-of-type(1) > section:nth-of-type(1) > p {
-  text-align: justify;
+@media only screen and (max-width: 1025px) {
+  #footer > section:nth-of-type(1) {
+    grid-template-columns: 1fr;
+  }
 }
 #footer > section:nth-of-type(1) > section:nth-of-type(2) > h2 {
   font-size: 1.2 rem;
@@ -189,23 +189,32 @@ table {
   text-align: center;
   margin-bottom: 2vh;
 }
-#footer > section:nth-of-type(1) > section:nth-of-type(2) > form {
+#footer > section:nth-of-type(1) > section:nth-of-type(2) > p {
+  text-align: justify;
+}
+#footer > section:nth-of-type(1) > section:nth-of-type(1) > h2 {
+  font-size: 1.2 rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2vh;
+}
+#footer > section:nth-of-type(1) > section:nth-of-type(1) > form {
   padding: 0 3vw;
 }
-#footer > section:nth-of-type(1) > section:nth-of-type(2) > form > fieldset {
+#footer > section:nth-of-type(1) > section:nth-of-type(1) > form > fieldset {
   display: flex;
   flex-direction: column;
   margin-bottom: 2vh;
 }
-#footer > section:nth-of-type(1) > section:nth-of-type(2) > form > fieldset > input {
+#footer > section:nth-of-type(1) > section:nth-of-type(1) > form > fieldset > input {
   border: none;
   border-radius: 5px;
 }
-#footer > section:nth-of-type(1) > section:nth-of-type(2) > form > fieldset > textarea {
+#footer > section:nth-of-type(1) > section:nth-of-type(1) > form > fieldset > textarea {
   border: none;
   border-radius: 5px;
 }
-#footer > section:nth-of-type(1) > section:nth-of-type(2) > form > button {
+#footer > section:nth-of-type(1) > section:nth-of-type(1) > form > button {
   border: none;
   background-color: gold;
   border-radius: 5px;
@@ -291,7 +300,6 @@ table {
   font-size: 1.2rem;
   margin-bottom: 5vh;
   text-align: justify;
-  overflow: auto;
 }
 #visitorHome > section:nth-of-type(3) > ul > li > article > section > p:nth-of-type(2) {
   text-align: center;
@@ -383,7 +391,6 @@ table {
   font-size: 1.2rem;
   margin-bottom: 5vh;
   text-align: justify;
-  overflow: auto;
 }
 #visitorChiefs > ul > li > article > section > p:nth-of-type(2) {
   text-align: center;
@@ -462,7 +469,6 @@ table {
   font-size: 1.2rem;
   margin-bottom: 5vh;
   text-align: justify;
-  overflow: auto;
   height: 5vh;
 }
 #visitorDishes > ul > li > article > section > section {
