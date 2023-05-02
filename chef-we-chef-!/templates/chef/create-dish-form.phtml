@@ -1,21 +1,25 @@
 <main id="createDishForm">
     <h2>Formulaire de création d'un plat</h2>
-    <form action="/res03-projet-final/chef-we-chef-!/mon-compte/plat/creer" method="post" enctype="multipart/form-data">
+    <form action="/res03-projet-final/chef-we-chef-!/mon-compte/plat/creer" id="createDish" method="post" enctype="multipart/form-data">
         <fieldset>
             <label for="dishName">Nom du plat</label>
             <input type="text" name="dishName" id="dishName"/>
+            <small id="dishNameError">Merci de saisir un nom de plat valide</small>
         </fieldset>
         <fieldset>
             <label for="image">Photo du plat</label>
             <input type="file" name="image" id="image"/>
+            <small id="imageError">Merci charger une photo valide</small>
         </fieldset>
         <fieldset>
             <label for="description">Description (250 charactères max)</label>
             <textarea name="description" id="description"></textarea>
+            <small id="descriptionError">Merci de saisir une description valide</small>
         </fieldset>
         <fieldset>
             <label for="dishPrice">Prix par personne</label>
             <input type="text" name="dishPrice" id="dishPrice"/>
+            <small id="dishPriceError">Merci de saisir un prix valide</small>
         </fieldset>
         <fieldset>
             <label for="dishFoodStyle">Style de cuisine</label>
@@ -25,6 +29,7 @@
                 <option value="<?= $foodstyle->getId() ?>"><?= $foodstyle->getName() ?></option>
                 <?php } ?>
             </select>
+            <small id="dishFoodStyleError">Merci de saisir un style de cuisine valide</small>
         </fieldset>
         <fieldset>
             <label for="dishCategory">Catégorie</label>
@@ -34,6 +39,7 @@
                 <option value="<?= $category->getId() ?>"><?= $category->getName() ?></option>
                 <?php } ?>
             </select>
+            <small id="dishCategoryError">Merci de saisir une catégorie valide</small>
         </fieldset>
         <button type="submit">Enregistrer</button>
     </form>

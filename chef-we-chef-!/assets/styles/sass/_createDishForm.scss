@@ -10,6 +10,7 @@
     > form{
         display: grid;
         grid-template-rows: (15 1fr);
+        grid-template-row: 2fr 1fr;
         padding: 5vh 5vw;
         > fieldset{
             display: grid;
@@ -28,6 +29,13 @@
                 font-size: 1.2rem;
                 padding: 0 15px;
             }
+            > small{
+                display: none;
+                grid-column: 2 / 3;
+                margin: 0 0 2vh 2vw;
+                color: darkred;
+            }
+
         }
         > button{
             width: 200px;

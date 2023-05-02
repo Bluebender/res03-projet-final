@@ -86,8 +86,6 @@ class DishController extends AbstractController {
             $this->render("chef/create-dish-form", $data);
         }
         else {
-                var_dump($_FILES);
-                var_dump($_POST);
             if ((isset($post["dishName"]) && !empty($post["dishName"]))
             && (isset($_FILES) && !empty($_FILES["image"]["name"]))
             && (isset($post["description"]) && !empty($post["description"]))

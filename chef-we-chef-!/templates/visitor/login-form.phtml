@@ -1,13 +1,15 @@
 <main id="loginForm">
     <h2>Formulaire de connexion</h2>
-    <form action="/res03-projet-final/chef-we-chef-!/connexion" method="post">
+    <form action="/res03-projet-final/chef-we-chef-!/connexion" id="login" method="post">
         <fieldset>
             <label for="loginEmail">Email</label>
             <input type="email" name="loginEmail" id="loginEmail"/>
+            <small id="loginEmailError">Merci de rentrer un email valide</small>
         </fieldset>
         <fieldset>
             <label for="loginPassword">Mot de passe</label>
             <input type="password" name="loginPassword" id="loginPassword"/>
+            <small id="loginPasswordError">Merci de rentrer votre mot de passe</small>
         </fieldset>
         <button type="submit">Connexion</button>
     </form>

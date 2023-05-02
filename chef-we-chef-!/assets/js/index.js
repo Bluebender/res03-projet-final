@@ -3,6 +3,8 @@ import { chiefCalendar } from './calendar.js';
 import { eventsCreation } from './eventsCreation.js';
 import { registerForm } from './registerForm.js';
 import { asideMenu } from './asideMenu.js';
+import { loginForm } from './loginForm.js';
+import { createDishForm } from './createDishForm.js';
 
 
 
@@ -41,5 +43,16 @@ window.addEventListener("DOMContentLoaded", function(){
         console.log("route4");
         registerForm();
     }
+    
+    if (window.location.toString().includes("/connexion")) {
+        console.log("route5");
+        loginForm();
+    }
+    
+    if (window.location.toString().includes("/plat/creer")) {
+        console.log("route6");
+        createDishForm();
+    }
+    
 
 });
