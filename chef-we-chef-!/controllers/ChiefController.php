@@ -95,6 +95,12 @@ class ChiefController extends AbstractController {
 
         $this->render("visitor/home", $threeLastChiefs);
     }
+    
+    public function error404(){
+
+        $this->render("visitor/error404", []);
+    }
+    
 
     public function displayChief($id){
         $data = $this->chiefData($id);
@@ -202,8 +208,9 @@ class ChiefController extends AbstractController {
                     <td class='today'>
                         <p><strong>".$day."</strong></p>
                         <section>
-                            <p date='".$date."-1' class='event'>Midi</p>
-                            <p date='".$date."-2' class='event'>Soir</p>
+                            <h4 class='hidden'>Week</h4>
+                            <p data-date='".$date."-1' class='event'>Midi</p>
+                            <p data-date='".$date."-2' class='event'>Soir</p>
                         </section>
                     ";
             }
@@ -212,8 +219,9 @@ class ChiefController extends AbstractController {
                     <td>
                         <p><strong>".$day."</strong></p>
                         <section>
-                            <p date='".$date."-1' class='event'>Midi</p>
-                            <p date='".$date."-2' class='event'>Soir</p>
+                            <h4 class='hidden'>Week</h4>
+                            <p data-date='".$date."-1' class='event'>Midi</p>
+                            <p data-date='".$date."-2' class='event'>Soir</p>
                         </section>
                     ";
             }

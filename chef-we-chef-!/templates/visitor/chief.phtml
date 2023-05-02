@@ -1,13 +1,15 @@
 <!--<?php var_dump($data['weekCalendar']); ?>-->
 <main id="visitorChef">
     <section>
+        <h2 class="hidden">Chef</h2>
         <figure>
-            <img src="/res03-projet-final/chef-we-chef-!/<?= $data["chief"]->getProfilPictureUrl(); ?>" alt="Photo de profil"></img>
+            <img src="/res03-projet-final/chef-we-chef-!/<?= $data["chief"]->getProfilPictureUrl(); ?>" alt="Photo de profil"/>
         </figure>
         <section>
-            <h2>Chef <?= $data["chief"]->getChiefName(); ?></h2>
+            <h3>Chef <?= $data["chief"]->getChiefName(); ?></h3>
             <p><?= $data["chief"]->getDescription(); ?></p>
             <section>
+                <h4 class="hidden">Style de cuisine</h4>
                 <?php foreach($data["foodstyles"] as $foodstyle){ ?>
                 <p><?= $foodstyle->getName(); ?></p>
                 <?php } ?>
@@ -18,34 +20,44 @@
     <section>
         <h2>Le menu du chef <?= $data["chief"]->getChiefName(); ?></h2>
         <section>
-            <ul>
-                <h3>Entrées</h3>
+            <h3 class="hidden">Menu</h3>
+
+            <section>
+                <h4>Entrées</h4>
                 <?php foreach($data["dishes"] as $dich){
                     if ($dich->getCategoryId()===1){?>
-                <li>
+                <section>
+                    <h5 class="hidden">Détail</h5>
                     <p><?= $dich->getName(); ?></p>
                     <p><?= $dich->getPrice(); ?> Euros/personne</p>
-                </li>
+                </section>    
                 <?php }}?>
+            </section>
 
-                <h3>Plats</h3>
+            <section>
+                <h4>Plats</h4>
                 <?php foreach($data["dishes"] as $dich){
                     if ($dich->getCategoryId()===2){?>
-                <li>
+                <section>
+                    <h5 class="hidden">Détail</h5>
                     <p><?= $dich->getName(); ?></p>
                     <p><?= $dich->getPrice(); ?> Euros/personne</p>
-                </li>
+                </section>
                 <?php }} ?>
+            </section>
 
-                <h3>Desserts</h3>
+            <section>
+                <h4>Desserts</h4>
                 <?php foreach($data["dishes"] as $dich){
                     if ($dich->getCategoryId()===3){?>
-                <li>
+                <section>
+                    <h5 class="hidden">Détail</h5>
                     <p><?= $dich->getName(); ?></p>
                     <p><?= $dich->getPrice(); ?> Euros/personne</p>
-                </li>
+                </section>
                 <?php }} ?>
-            </ul>
+            </section>
+
         </section>
     </section>
     <section>
@@ -54,7 +66,7 @@
         <?php foreach ($data["dishes"] as $dish){ ?>
         <li>
             <figure>
-                <img src="/res03-projet-final/chef-we-chef-!/<?= $dish->getPictureUrl() ?>" alt="Photo du plat">
+                <img src="/res03-projet-final/chef-we-chef-!/<?= $dish->getPictureUrl() ?>" alt="Photo du plat"/>
                 <figcaption><?= $dish->getName() ?></figcaption>
             </figure>
         </li>
@@ -91,17 +103,21 @@
         <section class="calendarByWeek">
             <h3>Semaine du <?= $data['weekCalendar']['weekData']['day1']['dateStr']." ".$data['weekCalendar']['weekData']['day1']['year'] ?> au <?= $data['weekCalendar']['weekData']['day7']['dateStr']." ".$data['weekCalendar']['weekData']['day7']['year'] ?></h3>
             <section>
+                <h4 class="hidden">Changer de semaine</h4>
                 <a href="?date=<?= $data["weekCalendar"]["pastWeekDate"]."#chiefCalendar"; ?>"><span class="fa-solid fa-chevron-left"></span></a>
                 <a href="?date=<?= $data["weekCalendar"]["nextWeekDate"]."#chiefCalendar"; ?>"><span class="fa-solid fa-chevron-right"></span></a>
             </section>
             
             <section>
+                <h4 class="hidden">Calendrier</h4>
                 <?php foreach($data['weekCalendar']['weekData'] as $week){ ?>
                 <section>
+                    <h5 class="hidden">Jour</h5>
                     <p><?= $week['day']." ".$week['dateStr'] ?></p>
                     <section>
-                        <p class="event" date="<?= $week['date'] ?>-1">12:00</p>
-                        <p class="event" date="<?= $week['date'] ?>-2">19:00</p>
+                        <h6 class="hidden">Créneaux</h6>
+                        <p class="event" data-date="<?= $week['date'] ?>-1">12:00</p>
+                        <p class="event" data-date="<?= $week['date'] ?>-2">19:00</p>
                     </section>
                 </section>
                 <?php } ?>

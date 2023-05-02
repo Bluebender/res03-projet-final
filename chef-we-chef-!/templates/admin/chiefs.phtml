@@ -2,6 +2,7 @@
 <main>
     <h2 class="text-center m-5">Les chefs</h2>
     <section class="d-flex flex-column align-items-center">
+        <h3 class="hidden">Tableau</h3>
         <table class="table col-10 table-hover">
             <thead>
                 <tr>
@@ -24,7 +25,7 @@
                     <td><?= $chief["chief"]->getLastName() ?></td>
                     <td><?= $chief["chief"]->getEmail() ?></td>
                     <td><?= $chief["chief"]->getPhone() ?></td>
-                    <td><?= $chief["chief"]->getProfilPictureUrl() ?><img height="100px" src="/res03-projet-final/chef-we-chef-!/<?= $chief["chief"]->getProfilPictureUrl() ?>" alt="Photo de profil du chef"></img></td>
+                    <td><?= $chief["chief"]->getProfilPictureUrl() ?><img src="/res03-projet-final/chef-we-chef-!/<?= $chief["chief"]->getProfilPictureUrl() ?>" class="adminImage" alt="Photo de profil du chef"/></td>
                     <td><?= $chief["chief"]->getDescription() ?></td>
                     <td><?= $chief["foodStyle"][0]->getName() ?> (id=<?= $chief["chief"]->getFoodStyleId() ?>)</td>
                     <td>

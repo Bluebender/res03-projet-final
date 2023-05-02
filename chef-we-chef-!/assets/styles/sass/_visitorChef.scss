@@ -30,7 +30,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            > h2{
+            > h3{
                 font-size: 3rem;
                 font-weight: bold;
                 margin-bottom: 4vh;
@@ -77,17 +77,17 @@
             align-items: center;
             padding: 5vh 5vw;
             border-radius: 15px;
-            > ul{
+            > section{
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                > h3{
+                > h4{
                     font-size: 1.6rem;
                     font-weight: bold;
                     text-transform: uppercase;
                     margin: 3vh 0;
                 }
-                > li{
+                > section{
                     width: 100%;
                     display: flex;
                     @media only screen and (min-width: 769px) {

@@ -2,6 +2,7 @@
 <main>
     <h2 class="text-center m-5">Plat</h2>
     <section class="d-flex flex-column align-items-center">
+        <h3 class="hidden">Tableau</h3>
         <table class="table col-10 table-hover">
             <thead>
                 <tr>
@@ -19,7 +20,7 @@
                 <tr>
                     <td><?= $data["dish"]->getId() ?></td>
                     <td><?= $data["dish"]->getName() ?></td>
-                    <td><?= $data["dish"]->getPictureUrl() ?><img height="100px" src="/res03-projet-final/chef-we-chef-!/<?= $data["dish"]->getPictureUrl() ?>" alt="Photo du plat"></img></td>
+                    <td><?= $data["dish"]->getPictureUrl() ?><img src="/res03-projet-final/chef-we-chef-!/<?= $data["dish"]->getPictureUrl() ?>" class="adminImage" alt="Photo du plat"/></td>
                     <td><?= $data["dish"]->getDescription() ?></td>
                     <td><?= $data["dish"]->getPrice() ?></td>
                     <td><?= $data["chief"]->getChiefName() ?> (id=<?= $data["dish"]->getChiefId() ?>)</td>

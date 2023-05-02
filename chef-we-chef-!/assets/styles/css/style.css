@@ -203,7 +203,7 @@ table {
     grid-template-columns: 1fr;
   }
 }
-#footer > section:nth-of-type(1) > section:nth-of-type(2) > h2 {
+#footer > section:nth-of-type(1) > section:nth-of-type(2) > h3 {
   font-size: 1.2 rem;
   font-weight: bold;
   text-align: center;
@@ -212,7 +212,7 @@ table {
 #footer > section:nth-of-type(1) > section:nth-of-type(2) > p {
   text-align: justify;
 }
-#footer > section:nth-of-type(1) > section:nth-of-type(1) > h2 {
+#footer > section:nth-of-type(1) > section:nth-of-type(1) > h3 {
   font-size: 1.2 rem;
   font-weight: bold;
   text-align: center;
@@ -243,7 +243,7 @@ table {
 #footer > section:nth-of-type(2) {
   margin-top: 3vh;
 }
-#footer > section:nth-of-type(2) > p {
+#footer > section:nth-of-type(2) > h3 {
   font-size: 1.2rem;
   font-weight: bold;
 }
@@ -310,7 +310,7 @@ table {
   width: 80%;
   aspect-ratio: 1/1;
 }
-#visitorHome > section:nth-of-type(3) > ul > li > article > section > h3 {
+#visitorHome > section:nth-of-type(3) > ul > li > article > section > h4 {
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
@@ -401,7 +401,7 @@ table {
   width: 80%;
   aspect-ratio: 1/1;
 }
-#visitorChiefs > ul > li > article > section > h3 {
+#visitorChiefs > ul > li > article > section > h4 {
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
@@ -479,7 +479,7 @@ table {
 #visitorDishes > ul > li > article > section {
   padding: 3vh 3vw;
 }
-#visitorDishes > ul > li > article > section > h3 {
+#visitorDishes > ul > li > article > section > h4 {
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
@@ -572,7 +572,7 @@ table {
   justify-content: center;
   align-items: center;
 }
-#visitorChef > section:nth-of-type(1) > section > h2 {
+#visitorChef > section:nth-of-type(1) > section > h3 {
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 4vh;
@@ -623,45 +623,45 @@ table {
     width: 90vw;
   }
 }
-#visitorChef > section:nth-of-type(2) > section > ul {
+#visitorChef > section:nth-of-type(2) > section > section {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-#visitorChef > section:nth-of-type(2) > section > ul > h3 {
+#visitorChef > section:nth-of-type(2) > section > section > h4 {
   font-size: 1.6rem;
   font-weight: bold;
   text-transform: uppercase;
   margin: 3vh 0;
 }
-#visitorChef > section:nth-of-type(2) > section > ul > li {
+#visitorChef > section:nth-of-type(2) > section > section > section {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 @media only screen and (min-width: 769px) {
-  #visitorChef > section:nth-of-type(2) > section > ul > li {
+  #visitorChef > section:nth-of-type(2) > section > section > section {
     flex-direction: row;
     justify-content: center;
   }
 }
 @media only screen and (max-width: 769px) {
-  #visitorChef > section:nth-of-type(2) > section > ul > li {
+  #visitorChef > section:nth-of-type(2) > section > section > section {
     flex-direction: column;
     align-items: center;
   }
-  #visitorChef > section:nth-of-type(2) > section > ul > li > p:first-of-type {
+  #visitorChef > section:nth-of-type(2) > section > section > section > p:first-of-type {
     margin-bottom: 0;
   }
-  #visitorChef > section:nth-of-type(2) > section > ul > li > p:last-of-type {
+  #visitorChef > section:nth-of-type(2) > section > section > section > p:last-of-type {
     margin-top: 0;
   }
 }
-#visitorChef > section:nth-of-type(2) > section > ul > li > p {
+#visitorChef > section:nth-of-type(2) > section > section > section > p {
   font-size: 1.2rem;
   margin: 1vh 1vw;
 }
-#visitorChef > section:nth-of-type(2) > section > ul > li > p:first-of-type {
+#visitorChef > section:nth-of-type(2) > section > section > section > p:first-of-type {
   font-size: 1.4rem;
   font-weight: bold;
 }
@@ -709,32 +709,32 @@ table {
   margin-bottom: 5vh;
 }
 
-#registerForm {
+#register {
   background-color: lightgrey;
   padding: 5vh 5vw;
 }
-#registerForm > h2 {
+#register > h2 {
   font-size: 3rem;
   font-weight: bold;
   text-align: center;
   margin-bottom: 5vh;
 }
-#registerForm > form {
+#register > form {
   display: grid;
   grid-template-rows: 15 1fr;
   padding: 5vh 5vw;
 }
-#registerForm > form > fieldset {
+#register > form > fieldset {
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-row: 2fr 1fr;
 }
-#registerForm > form > fieldset > label {
+#register > form > fieldset > label {
   text-align: right;
   margin: 1vh 1vw 0 0;
   font-size: 1.2rem;
 }
-#registerForm > form > fieldset > input, #registerForm > form > fieldset textarea, #registerForm > form > fieldset select {
+#register > form > fieldset > input, #register > form > fieldset textarea, #register > form > fieldset select {
   width: 300px;
   margin: 1vh 1vw;
   border: none;
@@ -743,13 +743,13 @@ table {
   font-size: 1.2rem;
   padding: 0 15px;
 }
-#registerForm > form > fieldset > small {
+#register > form > fieldset > small {
   display: none;
   grid-column: 2/3;
   margin: 0 0 2vh 2vw;
   color: darkred;
 }
-#registerForm > form > button {
+#register > form > button {
   width: 200px;
   margin-top: 5vh;
   padding: 5px 15px;
@@ -850,7 +850,7 @@ table {
   justify-content: center;
   align-items: center;
 }
-#profil > section:nth-of-type(1) > section > section > h2 {
+#profil > section:nth-of-type(1) > section > section > h3 {
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 4vh;
@@ -918,44 +918,44 @@ table {
     width: 90vw;
   }
 }
-#profil > section:nth-of-type(2) > section > ul {
+#profil > section:nth-of-type(2) > section > section {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-#profil > section:nth-of-type(2) > section > ul > h3 {
+#profil > section:nth-of-type(2) > section > section > h4 {
   font-size: 1.6rem;
   font-weight: bold;
   text-transform: uppercase;
   margin: 3vh 0;
 }
-#profil > section:nth-of-type(2) > section > ul > li {
+#profil > section:nth-of-type(2) > section > section > section {
   width: 100%;
   display: flex;
 }
 @media only screen and (min-width: 769px) {
-  #profil > section:nth-of-type(2) > section > ul > li {
+  #profil > section:nth-of-type(2) > section > section > section {
     flex-direction: row;
     justify-content: center;
   }
 }
 @media only screen and (max-width: 769px) {
-  #profil > section:nth-of-type(2) > section > ul > li {
+  #profil > section:nth-of-type(2) > section > section > section {
     flex-direction: column;
     align-items: center;
   }
-  #profil > section:nth-of-type(2) > section > ul > li > p:first-of-type {
+  #profil > section:nth-of-type(2) > section > section > section > p:first-of-type {
     margin-bottom: 0;
   }
-  #profil > section:nth-of-type(2) > section > ul > li > p:last-of-type {
+  #profil > section:nth-of-type(2) > section > section > section > p:last-of-type {
     margin-top: 0;
   }
 }
-#profil > section:nth-of-type(2) > section > ul > li > p {
+#profil > section:nth-of-type(2) > section > section > section > p {
   font-size: 1.2rem;
   margin: 1vh 1vw;
 }
-#profil > section:nth-of-type(2) > section > ul > li > p:first-of-type {
+#profil > section:nth-of-type(2) > section > section > section > p:first-of-type {
   font-size: 1.4rem;
   font-weight: bold;
 }
@@ -1293,8 +1293,31 @@ table {
   font-size: 3rem;
 }
 
+#error404 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: gold;
+  height: 80vh;
+}
+#error404 > h2 {
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 30px;
+}
+#error404 > p {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
 .hidden {
   display: none;
+}
+
+.adminImage {
+  height: 100px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -10,7 +10,7 @@ function myCalendar(requestUrlStart){
         // on vérifie si un evenement du Calendar est Booked ou non    
         for (let calendarEvent of calendarEvents){
             for (let chiefEvent of chiefEvents){
-                if(calendarEvent.getAttribute("date")===chiefEvent.event+"-"+chiefEvent.slot){
+                if(calendarEvent.getAttribute("data-date")===chiefEvent.event+"-"+chiefEvent.slot){
                     if(chiefEvent.availablity){
                         calendarEvent.classList.add("available");
                     }
@@ -40,7 +40,7 @@ function chiefCalendar(requestUrlStart){
         for (let calendarEvent of calendarEvents){
 
             for (let chiefEvent of chiefEvents){
-                if(calendarEvent.getAttribute("date")===chiefEvent.event+"-"+chiefEvent.slot){
+                if(calendarEvent.getAttribute("data-date")===chiefEvent.event+"-"+chiefEvent.slot){
                     if(chiefEvent.availablity){
                         calendarEvent.classList.add("available");
                     }

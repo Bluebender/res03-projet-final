@@ -3,11 +3,11 @@
     <h2 class="text-center m-5">Modifier le style de cuisine</h2>
     
     <section class="d-flex justify-content-center">
-    
+        <h3 class="hidden">Formulaire</h3>
         <form action="/res03-projet-final/chef-we-chef-!/admin/modifier-style-de-cuisine&id=<?= $data["foodStyle"]->getId() ?>" method="post" class="col-4">
 
             <section class="mb-3">
-
+                <h4 class="hidden">Champ</h4>
                 <fieldset>
                     <label class="form-label">Nom</label>
                     <input class="form-control" type="text" name="foodStyleName" value="<?= $data["foodStyle"]->getName() ?>"/>
@@ -16,7 +16,7 @@
             </section>
             
             <section class="mb-3">
-            
+                <h4 class="hidden">Champ</h4>
                 <fieldset>
                     <label class="form-label">Description</label>
                     <input class="form-control" type="text" name="foodStyleDescription" value="<?= $data["foodStyle"]->getDescription() ?>"/>
@@ -24,6 +24,7 @@
             
             </section>
             
-        <button class="btn btn-primary">Modifier</button>
-    </form>
+            <button class="btn btn-primary">Modifier</button>
+        </form>
+    </section>
 </main>

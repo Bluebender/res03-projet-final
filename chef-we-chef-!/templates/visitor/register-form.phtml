@@ -1,53 +1,53 @@
-<main id="registerForm">
+<main id="register">
     <h2>Formulaire de création de compte</h2>
     <form id='registerForm' action="/res03-projet-final/chef-we-chef-!/inscription" method="post" enctype="multipart/form-data">
         <fieldset>
             <label for="firstName">Prénom</label>
-            <input type="text" id="firstName" name="firstName" maxlength="25" require patern="^[A-Za-z '-]+$"/>
+            <input type="text" id="firstName" name="firstName"/>
             <small id="firstNameError">Merci de rentrer un prénom valide</small>
         </fieldset>
         <fieldset>
-            <label for="">Nom</label>
-            <input type="text" id="lastName" name="lastName" maxlength="25" require patern="^[A-Za-z '-]+$"/>
+            <label for="lastName">Nom</label>
+            <input type="text" id="lastName" name="lastName"/>
             <small id="lastNameError">Merci de rentrer un nom valide</small>
         </fieldset>
         <fieldset>
-            <label for="">Pseudo de chef</label>
-            <input type="text" id="chiefName" name="chiefName" maxlength="25" require patern="^[A-Za-z '-]+$"/>
+            <label for="chiefName">Pseudo de chef</label>
+            <input type="text" id="chiefName" name="chiefName"/>
             <small id="chiefNameError">Merci de rentrer un pseudo valide</small>
         </fieldset>
         <fieldset>
-            <label for="">Email</label>
-            <input type="text" id="email" name="email" maxlength="40" require patern="^[A-Za-z '-]+$"/>
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email"/>
             <small id="emailError">Merci de rentrer un email valide</small>
         </fieldset>
         <fieldset>
-            <label for="">Mot de passe</label>
-            <input type="password" id="firstPassword" name="firstPassword" maxlength="40" require patern="^[A-Za-z '-]+$"/>
+            <label for="firstPassword">Mot de passe</label>
+            <input type="password" id="firstPassword" name="firstPassword"/>
             <small id="firstPasswordError">Merci de rentrer un mot de passe valide</small>
         </fieldset>
         <fieldset>
-            <label for="">Vérification du mot de passe</label>
-            <input type="password" id="secondPassword" name="secondPassword" maxlength="40" require patern="^[A-Za-z '-]+$"/>
+            <label for="secondPassword">Vérification du mot de passe</label>
+            <input type="password" id="secondPassword" name="secondPassword"/>
             <small id="secondPasswordError">Votre second ot de passe n'est pas identique au premier</small>
         </fieldset>
         <fieldset>
-            <label for="">Phone</label>
-            <input type="text" id="phone" name="phone" maxlength="20" require patern="^[A-Za-z '-]+$"/>
+            <label for="phone">Phone</label>
+            <input type="text" id="phone" name="phone" maxlength="20"/>
             <small id="phoneError">Merci de rentrer un numéro de téléphone valide</small>
         </fieldset>
         <fieldset>
             <label for="image">Photo de profil</label>
-            <input type="file" id="image" name="image" require patern="^[A-Za-z '-]+$"/>
+            <input type="file" id="image" name="image"/>
             <small id="imageError">Merci de rentrer une photo valide</small>
         </fieldset>
         <fieldset>
-            <label for="">Description (250 charactères max)</label>
-            <textarea maxlength="250" id="description" name="description" require patern="^[A-Za-z '-]+$"></textarea>
+            <label for="description">Description (250 charactères max)</label>
+            <textarea id="description" name="description"></textarea>
             <small id="descriptionError">Merci de rentrer une description valide</small>
         </fieldset>
         <fieldset>
-            <label for="">Style de cuisine</label>
+            <label for="foodStyle">Style de cuisine</label>
             <select id="foodStyle" name="foodStyle">
                 <option value="">--Choisir un style de cuisine--</option>
                 <?php foreach($data as $foodstyle){ ?>

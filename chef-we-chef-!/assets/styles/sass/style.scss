@@ -6,7 +6,7 @@
 @import "_visitorChiefs";
 @import "_visitorDishes";
 @import "_visitorChef";
-@import "_registerForm";
+@import "_register";
 @import "_loginForm";
 @import "_profil";
 @import "_createDishForm";
@@ -14,7 +14,11 @@
 @import "_calendarByMonth";
 @import "_calendarByWeek";
 @import "_aside";
+@import "_error404";
 
 .hidden{
     display: none;
+}
+.adminImage{
+    height: 100px;
 }

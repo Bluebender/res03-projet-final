@@ -2,24 +2,24 @@
     <h2>Formulaire de création d'un plat</h2>
     <form action="/res03-projet-final/chef-we-chef-!/mon-compte/plat/creer" method="post" enctype="multipart/form-data">
         <fieldset>
-            <label for="">Nom du plat</label>
-            <input type="text" name="dishName" maxlength="25"/>
+            <label for="dishName">Nom du plat</label>
+            <input type="text" name="dishName" id="dishName"/>
         </fieldset>
         <fieldset>
             <label for="image">Photo du plat</label>
-            <input type="file" name="image"/>
+            <input type="file" name="image" id="image"/>
         </fieldset>
         <fieldset>
-            <label for="">Description (250 charactères max)</label>
-            <textarea maxlength="250" name="description"></textarea>
+            <label for="description">Description (250 charactères max)</label>
+            <textarea name="description" id="description"></textarea>
         </fieldset>
         <fieldset>
-            <label for="">Prix par personne</label>
-            <input type="text" name="dishPrice" maxlength="10"/>
+            <label for="dishPrice">Prix par personne</label>
+            <input type="text" name="dishPrice" id="dishPrice"/>
         </fieldset>
         <fieldset>
-            <label for="">Style de cuisine</label>
-            <select name="dishFoodStyle">
+            <label for="dishFoodStyle">Style de cuisine</label>
+            <select name="dishFoodStyle" id="dishFoodStyle">
                 <option value="">--Choisir un style de cuisine--</option>
                 <?php foreach($data["foodStyles"] as $foodstyle){ ?>
                 <option value="<?= $foodstyle->getId() ?>"><?= $foodstyle->getName() ?></option>
@@ -27,8 +27,8 @@
             </select>
         </fieldset>
         <fieldset>
-            <label for="">Catégorie</label>
-            <select name="dishCategory">
+            <label for="dishCategory">Catégorie</label>
+            <select name="dishCategory" id="dishCategory">
                 <option value="">--Choisir une catégorie--</option>
                 <?php foreach($data["categories"] as $category){ ?>
                 <option value="<?= $category->getId() ?>"><?= $category->getName() ?></option>

@@ -4,7 +4,7 @@ function eventsCreation(requestUrlStart){
 
     for (let calendarEvent of calendarEvents){
         calendarEvent.addEventListener("click", function(){
-            let newEvent = calendarEvent.getAttribute("date");
+            let newEvent = calendarEvent.getAttribute("data-date");
 
             let formData = new FormData();
             formData.append('newEvent', newEvent);

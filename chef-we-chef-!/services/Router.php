@@ -58,7 +58,6 @@ class Router {
 
 
                 // Chief pages
-
                 case 'mon-compte':
                     $this->chiefControl->displayMonCompte($_SESSION["chiefId"]);
                     break;
@@ -230,7 +229,7 @@ class Router {
                     break;
 
                 default:
-                    $this->chiefControl->visitorHome();
+                    $this->chiefControl->error404();
                     break;
             }
         }

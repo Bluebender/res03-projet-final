@@ -5,13 +5,14 @@
         <?php foreach ($data as $dish){ ?>
         <li>
             <article>
+                <h3 class='hidden'>Article d'un chef</h3>
                 <header>
                     <figure>
-                        <img src="<?= $dish["dish"]->getPictureUrl(); ?>" alt="Photo du plat">
+                        <img src="<?= $dish["dish"]->getPictureUrl(); ?>" alt="Photo du plat"/>
                     </figure>
                 </header>
                 <section>
-                    <h3><?= $dish["dish"]->getName() ?></h3>
+                    <h4><?= $dish["dish"]->getName() ?></h4>
                     <p><?= $dish["dish"]->getDescription() ?></p>
                     <p>Prix/personne : <?= $dish["dish"]->getPrice(); ?> Euros</p>
                     <p>Ceci est un(e) : <?= $dish["category"]->getName(); ?></p>
@@ -19,7 +20,7 @@
                 </section>
                 <footer>
                     <figure>
-                        <img src="<?= $dish["chief"]->getProfilPictureUrl(); ?>" alt="Photo du chef"></img>
+                        <img src="<?= $dish["chief"]->getProfilPictureUrl(); ?>" alt="Photo du chef"/>
                         <figcaption><a href="chef&id=<?= $dish["chief"]->getId() ?>">Chef <?= $dish["chief"]->getChiefName(); ?></a></figcaption>
                     </figure>
 
