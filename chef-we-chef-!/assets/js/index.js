@@ -5,6 +5,7 @@ import { registerForm } from './registerForm.js';
 import { asideMenu } from './asideMenu.js';
 import { loginForm } from './loginForm.js';
 import { createDishForm } from './createDishForm.js';
+import { contactChiefForm } from './contactChiefForm.js';
 
 
 
@@ -53,6 +54,12 @@ window.addEventListener("DOMContentLoaded", function(){
         console.log("route6");
         createDishForm();
     }
+    
+    if (window.location.toString().includes("/contactChief")) {
+        console.log("route7");
+        contactChiefForm();
+    }
+    
     
 
 });

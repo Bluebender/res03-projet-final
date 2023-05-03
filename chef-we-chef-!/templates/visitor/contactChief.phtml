@@ -1,23 +1,23 @@
 <!--<?php var_dump($data); ?>-->
 <main id="contactChief">
     <h2>Contacter le chef <?= $data["name"]; ?></h2>
-    <form action="/res03-projet-final/chef-we-chef-!/contactChief?id=<?= $data['id']; ?>&date=<?= $data['date']; ?>" method="post" readOnly>
+    <form action="/res03-projet-final/chef-we-chef-!/contactChief?id=<?= $data['id']; ?>&date=<?= $data['date']; ?>" id="contactChiefForm" method="post" readOnly>
         <fieldset>
             <label for="title">Titre</label>
-            <input type="text" name="title" id="title" value="Demande d'information pour une préstation le <?= $data["newDate"]; ?>"/>
+            <input type="text" name="title" id="title" value="Demande d'information pour une prestation le <?= $data["newDate"]; ?>"/>
             <small id="titleError">Merci de rentrer un titre valide</small>
         </fieldset>
 
         <fieldset>
             <label for="email">Votre Email</label>
             <input type="text" name="email" id="email"/>
-            <small id="titleError">Merci de rentrer un email valide</small>
+            <small id="emailError">Merci de rentrer un email valide</small>
         </fieldset>
 
         <fieldset>
             <label for="message">Votre message</label>
             <textarea name="message" id="message"></textarea>
-            <small id="contentError">Merci de rentrer votre message</small>
+            <small id="messageError">Merci de rentrer votre message</small>
         </fieldset>
         <button type="submit">Envoyer</button>
     </form>

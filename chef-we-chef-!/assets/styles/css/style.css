@@ -1394,13 +1394,12 @@ table {
 }
 #contactChief > form {
   display: grid;
-  grid-template-rows: 3 1fr;
   padding: 5vh 5vw;
 }
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 1025px) {
   #contactChief > form > fieldset {
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 2fr;
   }
   #contactChief > form > fieldset > label {
     text-align: right;
@@ -1408,7 +1407,7 @@ table {
     font-size: 1.2rem;
   }
   #contactChief > form > fieldset > input, #contactChief > form > fieldset textarea, #contactChief > form > fieldset select {
-    width: 700px;
+    width: 600px;
     margin: 1vh 1vw;
     border: none;
     border-radius: 10px;
@@ -1426,7 +1425,7 @@ table {
     color: darkred;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 1025px) {
   #contactChief > form > fieldset {
     display: flex;
     flex-direction: column;

@@ -149,7 +149,7 @@ class ChiefController extends AbstractController {
         }
         else{
             $title = $_POST['title'];
-            $message = $_POST['message'];
+            $message = "Email de l'expéditeur: ".$_POST['email']."\r\n"."Message: ".$_POST['message'];
             mail($chiefEmail, $title, $message);
             
             $data['name'] = $chiefName;

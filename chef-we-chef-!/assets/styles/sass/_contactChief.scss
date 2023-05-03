@@ -9,19 +9,19 @@
     }
     > form{
         display: grid;
-        grid-template-rows: (3 1fr);
+        // grid-template-rows: (3 1fr);
         padding: 5vh 5vw;
         > fieldset{
-            @media only screen and (min-width: 769px) {
+            @media only screen and (min-width: 1025px) {
                 display: grid;
-                grid-template-columns: 1fr 4fr;
+                grid-template-columns: 1fr 2fr;
                 > label{
                     text-align: right;
                     margin: 1vh 1vw 0 0;
                     font-size: 1.2rem;
                 }
                 > input, textarea, select{
-                    width: 700px;
+                    width: 600px;
                     margin: 1vh 1vw;
                     border: none;
                     border-radius: 10px;
@@ -39,7 +39,7 @@
                     color: darkred;
                 }
             }
-            @media only screen and (max-width: 769px) {
+            @media only screen and (max-width: 1025px) {
                 display: flex;
                 flex-direction: column;
                 > label{
