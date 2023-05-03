@@ -255,8 +255,8 @@ table {
   background-position: center;
   padding: 40vh 5vw;
 }
-#visitorHome > section:nth-of-type(1) h1 {
-  font-size: 5rem;
+#visitorHome > section:nth-of-type(1) h2 {
+  font-size: 6rem;
   color: gold;
 }
 #visitorHome > section:nth-of-type(2) {
@@ -724,30 +724,58 @@ table {
   grid-template-rows: 15 1fr;
   padding: 5vh 5vw;
 }
-#register > form > fieldset {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-row: 2fr 1fr;
+@media only screen and (min-width: 769px) {
+  #register > form > fieldset {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  #register > form > fieldset > label {
+    text-align: right;
+    margin: 1vh 1vw 0 0;
+    font-size: 1.2rem;
+  }
+  #register > form > fieldset > input, #register > form > fieldset textarea, #register > form > fieldset select {
+    width: 300px;
+    margin: 1vh 1vw;
+    border: none;
+    border-radius: 10px;
+    background-color: gold;
+    font-size: 1.2rem;
+    padding: 0 15px;
+  }
+  #register > form > fieldset > small {
+    display: none;
+    grid-column: 2/3;
+    margin: 0 0 2vh 2vw;
+    color: darkred;
+  }
 }
-#register > form > fieldset > label {
-  text-align: right;
-  margin: 1vh 1vw 0 0;
-  font-size: 1.2rem;
-}
-#register > form > fieldset > input, #register > form > fieldset textarea, #register > form > fieldset select {
-  width: 300px;
-  margin: 1vh 1vw;
-  border: none;
-  border-radius: 10px;
-  background-color: gold;
-  font-size: 1.2rem;
-  padding: 0 15px;
-}
-#register > form > fieldset > small {
-  display: none;
-  grid-column: 2/3;
-  margin: 0 0 2vh 2vw;
-  color: darkred;
+@media only screen and (max-width: 769px) {
+  #register > form > fieldset {
+    display: flex;
+    flex-direction: column;
+  }
+  #register > form > fieldset > label {
+    text-align: left;
+    margin: 1vh 2vw 0 2vw;
+    font-size: 1.2rem;
+  }
+  #register > form > fieldset > input, #register > form > fieldset textarea, #register > form > fieldset select {
+    align-self: center;
+    width: 100%;
+    margin: 1vh 1vw;
+    border: none;
+    border-radius: 10px;
+    background-color: gold;
+    font-size: 1.2rem;
+    padding: 0 15px;
+  }
+  #register > form > fieldset > small {
+    display: none;
+    grid-column: 2/3;
+    margin: 0 0 2vh 2vw;
+    color: darkred;
+  }
 }
 #register > form > button {
   width: 200px;
@@ -775,30 +803,58 @@ table {
   grid-template-rows: 15 1fr;
   padding: 5vh 5vw;
 }
-#loginForm > form > fieldset {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-row: 2fr 1fr;
+@media only screen and (min-width: 769px) {
+  #loginForm > form > fieldset {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  #loginForm > form > fieldset > label {
+    text-align: right;
+    margin: 1vh 1vw 0 0;
+    font-size: 1.2rem;
+  }
+  #loginForm > form > fieldset > input, #loginForm > form > fieldset textarea, #loginForm > form > fieldset select {
+    width: 300px;
+    margin: 1vh 1vw;
+    border: none;
+    border-radius: 10px;
+    background-color: gold;
+    font-size: 1.2rem;
+    padding: 0 15px;
+  }
+  #loginForm > form > fieldset > small {
+    display: none;
+    grid-column: 2/3;
+    margin: 0 0 2vh 2vw;
+    color: darkred;
+  }
 }
-#loginForm > form > fieldset > label {
-  text-align: right;
-  margin: 1vh 1vw;
-  font-size: 1.2rem;
-}
-#loginForm > form > fieldset > input, #loginForm > form > fieldset textarea, #loginForm > form > fieldset select {
-  width: 300px;
-  margin: 1vh 1vw;
-  border: none;
-  border-radius: 10px;
-  background-color: gold;
-  font-size: 1.2rem;
-  padding: 0 15px;
-}
-#loginForm > form > fieldset > small {
-  display: none;
-  grid-column: 2/3;
-  margin: 0 0 2vh 2vw;
-  color: darkred;
+@media only screen and (max-width: 769px) {
+  #loginForm > form > fieldset {
+    display: flex;
+    flex-direction: column;
+  }
+  #loginForm > form > fieldset > label {
+    text-align: left;
+    margin: 1vh 2vw 0 2vw;
+    font-size: 1.2rem;
+  }
+  #loginForm > form > fieldset > input, #loginForm > form > fieldset textarea, #loginForm > form > fieldset select {
+    align-self: center;
+    width: 100%;
+    margin: 1vh 1vw;
+    border: none;
+    border-radius: 10px;
+    background-color: gold;
+    font-size: 1.2rem;
+    padding: 0 15px;
+  }
+  #loginForm > form > fieldset > small {
+    display: none;
+    grid-column: 2/3;
+    margin: 0 0 2vh 2vw;
+    color: darkred;
+  }
 }
 #loginForm > form > button {
   width: 200px;
@@ -1326,12 +1382,127 @@ table {
   margin-bottom: 10px;
 }
 
+#contactChief {
+  background-color: lightgrey;
+  padding: 5vh 5vw;
+}
+#contactChief > h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 5vh;
+}
+#contactChief > form {
+  display: grid;
+  grid-template-rows: 3 1fr;
+  padding: 5vh 5vw;
+}
+@media only screen and (min-width: 769px) {
+  #contactChief > form > fieldset {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+  }
+  #contactChief > form > fieldset > label {
+    text-align: right;
+    margin: 1vh 1vw 0 0;
+    font-size: 1.2rem;
+  }
+  #contactChief > form > fieldset > input, #contactChief > form > fieldset textarea, #contactChief > form > fieldset select {
+    width: 700px;
+    margin: 1vh 1vw;
+    border: none;
+    border-radius: 10px;
+    background-color: gold;
+    font-size: 1.2rem;
+    padding: 0 15px;
+  }
+  #contactChief > form > fieldset > textarea {
+    height: 20vh;
+  }
+  #contactChief > form > fieldset > small {
+    display: none;
+    grid-column: 2/3;
+    margin: 0 0 2vh 2vw;
+    color: darkred;
+  }
+}
+@media only screen and (max-width: 769px) {
+  #contactChief > form > fieldset {
+    display: flex;
+    flex-direction: column;
+  }
+  #contactChief > form > fieldset > label {
+    text-align: left;
+    margin: 1vh 2vw 0 2vw;
+    font-size: 1.2rem;
+  }
+  #contactChief > form > fieldset > input, #contactChief > form > fieldset textarea, #contactChief > form > fieldset select {
+    align-self: center;
+    width: 100%;
+    margin: 1vh 1vw;
+    border: none;
+    border-radius: 10px;
+    background-color: gold;
+    font-size: 1.2rem;
+    padding: 0 15px;
+  }
+  #contactChief > form > fieldset input {
+    text-overflow: ellipsis;
+  }
+  #contactChief > form > fieldset > textarea {
+    height: 20vh;
+  }
+  #contactChief > form > fieldset > small {
+    display: none;
+    grid-column: 2/3;
+    margin: 0 0 2vh 2vw;
+    color: darkred;
+  }
+}
+#contactChief > form > button {
+  width: 200px;
+  margin-top: 5vh;
+  padding: 5px 15px;
+  font-size: 1.2rem;
+  border: none;
+  background-color: gold;
+  border-radius: 10px;
+  justify-self: center;
+}
+
+#contactValidation {
+  background-color: gold;
+  height: 70vh;
+  padding: 5vh 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#contactValidation > h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 5vh;
+}
+
 .hidden {
   display: none;
 }
 
 .adminImage {
   height: 100px;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+h1, h2 {
+  font-family: "Dancing Script", cursive;
+}
+
+.adminTitles {
+  font-family: unset;
 }
 
 /*# sourceMappingURL=style.css.map */

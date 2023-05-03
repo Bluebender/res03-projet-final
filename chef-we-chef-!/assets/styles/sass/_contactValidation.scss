@@ -1,0 +1,14 @@
+#contactValidation{
+    background-color: $yellow;
+    height: 70vh;
+    padding: 5vh 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > h2{
+        font-size: 3rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 5vh;
+    }
+}

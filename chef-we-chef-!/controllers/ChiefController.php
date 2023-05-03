@@ -119,6 +119,46 @@ class ChiefController extends AbstractController {
 
         $this->render("chef/events", $data);
     }
+    
+    public function contactChief($get){
+
+        // Affichage les infos du chef à contacter
+        $chief = $this->chiefManag->getChiefById($get['id']);
+        $chiefEmail = $chief->getEmail();
+        $chiefName = $chief->getChiefName();
+        $chiefId = $chief->getId();
+        
+        
+        // Affichage de la date au format final
+        $date=$get['date'];
+        $dateElements=explode("-", $date);
+        $month=["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+        $slot=["12:00", "19:00"];
+        $newDate=$dateElements[2]." ".$month[$dateElements[1]-1]." ".$dateElements[0]." à ".$slot[$dateElements[3]-1];
+
+        if(!isset($_POST['title'])){
+
+            $data['email']=$chiefEmail;
+            $data['name']=$chiefName;
+            $data['id']=$chiefId;
+            $data['date']=$date;
+            $data['newDate']=$newDate;
+            
+            $this->render("visitor/contactChief", $data);
+            
+        }
+        else{
+            $title = $_POST['title'];
+            $message = $_POST['message'];
+            mail($chiefEmail, $title, $message);
+            
+            $data['name'] = $chiefName;
+            
+            $this->render("visitor/contactValidation", $data);
+
+        }
+
+    }
 
     // ADMIN
     public function adminAllChiefs(){

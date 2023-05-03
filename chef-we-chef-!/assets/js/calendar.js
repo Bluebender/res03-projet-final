@@ -49,7 +49,18 @@ function chiefCalendar(requestUrlStart){
                     }
                 }
             }
-        }            
+        }
+        let events = document.querySelectorAll('.available');
+        let date;
+        for(let i = 0; i<events.length; i++){
+            events[i].addEventListener('click', function(){
+                date=events[i].getAttribute('data-date');
+                console.log(date);
+                console.log(chiefId);
+                location.href = requestUrlStart+'/contactChief?id='+chiefId+'&date='+date;
+            });
+    }
+
     });
 }
 

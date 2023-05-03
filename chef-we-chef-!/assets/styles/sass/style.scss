@@ -15,10 +15,23 @@
 @import "_calendarByWeek";
 @import "_aside";
 @import "_error404";
+@import "_contactChief";
+@import "_contactValidation";
+
 
 .hidden{
     display: none;
 }
 .adminImage{
     height: 100px;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+h1, h2{
+    font-family: 'Dancing Script', cursive;
+}
+.adminTitles{
+    font-family: unset;
 }

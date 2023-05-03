@@ -56,6 +56,9 @@ class Router {
                     $this->defaultControl->logout();
                     break;
 
+                case 'contactChief':
+                    $this->chiefControl->contactChief($_GET);
+                    break;
 
                 // Chief pages
                 case 'mon-compte':

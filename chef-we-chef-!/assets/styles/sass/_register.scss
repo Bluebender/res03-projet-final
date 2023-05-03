@@ -12,28 +12,54 @@
         grid-template-rows: (15 1fr);
         padding: 5vh 5vw;
         > fieldset{
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            grid-template-row: 2fr 1fr;
-            > label{
-                text-align: right;
-                margin: 1vh 1vw 0 0;
-                font-size: 1.2rem;
+            @media only screen and (min-width: 769px) {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                > label{
+                    text-align: right;
+                    margin: 1vh 1vw 0 0;
+                    font-size: 1.2rem;
+                }
+                > input, textarea, select{
+                    width: 300px;
+                    margin: 1vh 1vw;
+                    border: none;
+                    border-radius: 10px;
+                    background-color: $yellow;
+                    font-size: 1.2rem;
+                    padding: 0 15px;
+                }
+                > small{
+                    display: none;
+                    grid-column: 2 / 3;
+                    margin: 0 0 2vh 2vw;
+                    color: darkred;
+                }
             }
-            > input, textarea, select{
-                width: 300px;
-                margin: 1vh 1vw;
-                border: none;
-                border-radius: 10px;
-                background-color: $yellow;
-                font-size: 1.2rem;
-                padding: 0 15px;
-            }
-            > small{
-                display: none;
-                grid-column: 2 / 3;
-                margin: 0 0 2vh 2vw;
-                color: darkred;
+            @media only screen and (max-width: 769px) {
+                display: flex;
+                flex-direction: column;
+                > label{
+                    text-align: left;
+                    margin: 1vh 2vw 0 2vw;
+                    font-size: 1.2rem;
+                }
+                > input, textarea, select{
+                    align-self: center;
+                    width: 100%;
+                    margin: 1vh 1vw;
+                    border: none;
+                    border-radius: 10px;
+                    background-color: $yellow;
+                    font-size: 1.2rem;
+                    padding: 0 15px;
+                }
+                > small{
+                    display: none;
+                    grid-column: 2 / 3;
+                    margin: 0 0 2vh 2vw;
+                    color: darkred;
+                }
             }
         }
         > button{
