@@ -212,6 +212,9 @@ table {
 #footer > section:nth-of-type(1) > section:nth-of-type(2) > p {
   text-align: justify;
 }
+#footer > section:nth-of-type(1) > section:nth-of-type(1) {
+  margin-bottom: 2vh;
+}
 #footer > section:nth-of-type(1) > section:nth-of-type(1) > h3 {
   font-size: 1.2 rem;
   font-weight: bold;
@@ -1141,29 +1144,58 @@ table {
   grid-template-row: 2fr 1fr;
   padding: 5vh 5vw;
 }
-#createDishForm > form > fieldset {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+@media only screen and (min-width: 769px) {
+  #createDishForm > form > fieldset {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  #createDishForm > form > fieldset > label {
+    text-align: right;
+    margin: 1vh 1vw 0 0;
+    font-size: 1.2rem;
+  }
+  #createDishForm > form > fieldset > input, #createDishForm > form > fieldset textarea, #createDishForm > form > fieldset select {
+    width: 300px;
+    margin: 1vh 1vw;
+    border: none;
+    border-radius: 10px;
+    background-color: gold;
+    font-size: 1.2rem;
+    padding: 0 15px;
+  }
+  #createDishForm > form > fieldset > small {
+    display: none;
+    grid-column: 2/3;
+    margin: 0 0 2vh 2vw;
+    color: darkred;
+  }
 }
-#createDishForm > form > fieldset > label {
-  text-align: right;
-  margin: 1vh 1vw;
-  font-size: 1.2rem;
-}
-#createDishForm > form > fieldset > input, #createDishForm > form > fieldset textarea, #createDishForm > form > fieldset select {
-  width: 300px;
-  margin: 1vh 1vw;
-  border: none;
-  border-radius: 10px;
-  background-color: gold;
-  font-size: 1.2rem;
-  padding: 0 15px;
-}
-#createDishForm > form > fieldset > small {
-  display: none;
-  grid-column: 2/3;
-  margin: 0 0 2vh 2vw;
-  color: darkred;
+@media only screen and (max-width: 769px) {
+  #createDishForm > form > fieldset {
+    display: flex;
+    flex-direction: column;
+  }
+  #createDishForm > form > fieldset > label {
+    text-align: left;
+    margin: 1vh 2vw 0 2vw;
+    font-size: 1.2rem;
+  }
+  #createDishForm > form > fieldset > input, #createDishForm > form > fieldset textarea, #createDishForm > form > fieldset select {
+    align-self: center;
+    width: 100%;
+    margin: 1vh 1vw;
+    border: none;
+    border-radius: 10px;
+    background-color: gold;
+    font-size: 1.2rem;
+    padding: 0 15px;
+  }
+  #createDishForm > form > fieldset > small {
+    display: none;
+    grid-column: 2/3;
+    margin: 0 0 2vh 2vw;
+    color: darkred;
+  }
 }
 #createDishForm > form > button {
   width: 200px;
