@@ -25,6 +25,7 @@
                     margin: auto;
                 }
                 > img{
+                    box-shadow: 10px 10px 15px rgba(70,70,70,0.12);
                     width: 100%;
                     border-radius: 100%;
                     aspect-ratio: 1 / 1;
@@ -51,6 +52,7 @@
                     justify-content: space-around;
                     margin-top: 10vh;
                     > p{
+                        box-shadow: 10px 10px 15px rgba(70,70,70,0.12);
                         font-size: 1.6rem;
                         font-weight: bold;
                         background-color: $yellow;
@@ -88,6 +90,7 @@
             margin-bottom: 5vh;
         }
         > section{
+            box-shadow: 10px 10px 15px rgba(70,70,70,0.12);
             background-color: $white;
             @media only screen and (min-width: 1025px) {
                 width: 50vw;
@@ -165,6 +168,7 @@
                     > figure{
                         width: 100%;
                         > img{
+                            box-shadow: 10px 10px 15px rgba(70,70,70,0.12);
                             width: 100%;
                             aspect-ratio: 3 / 2;
                         }

@@ -234,6 +234,12 @@ table {
   border: none;
   border-radius: 5px;
 }
+#footer > section:nth-of-type(1) > section:nth-of-type(1) > form > fieldset > small {
+  display: none;
+  grid-column: 2/3;
+  margin: 0 0 2vh 0;
+  color: darkred;
+}
 #footer > section:nth-of-type(1) > section:nth-of-type(1) > form > button {
   border: none;
   background-color: gold;
@@ -274,7 +280,7 @@ table {
   margin-bottom: 2vh;
 }
 #visitorHome > section:nth-of-type(3) {
-  background-color: lightgrey;
+  background-color: #e3e3e3;
   padding: 5vh 5vw;
 }
 #visitorHome > section:nth-of-type(3) > h2 {
@@ -295,6 +301,7 @@ table {
   margin: 20px;
 }
 #visitorHome > section:nth-of-type(3) > ul > li > article {
+  box-shadow: 10px 10px 15px rgba(70, 70, 70, 0.12);
   height: 100%;
   background-color: whitesmoke;
   border-radius: 10px;
@@ -365,7 +372,7 @@ table {
 }
 
 #visitorChiefs {
-  background-color: lightgrey;
+  background-color: #e3e3e3;
   padding: 5vh 5vw;
 }
 #visitorChiefs > h2 {
@@ -386,6 +393,7 @@ table {
   margin: 20px;
 }
 #visitorChiefs > ul > li > article {
+  box-shadow: 10px 10px 15px rgba(70, 70, 70, 0.12);
   height: 100%;
   background-color: whitesmoke;
   border-radius: 10px;
@@ -442,7 +450,7 @@ table {
 }
 
 #visitorDishes {
-  background-color: lightgrey;
+  background-color: #e3e3e3;
   padding: 5vh 5vw;
 }
 #visitorDishes > h2 {
@@ -463,6 +471,7 @@ table {
   margin: 20px;
 }
 #visitorDishes > ul > li > article {
+  box-shadow: 10px 10px 15px rgba(70, 70, 70, 0.12);
   height: 100%;
   background-color: whitesmoke;
 }
@@ -512,6 +521,7 @@ table {
   align-items: center;
 }
 #visitorDishes > ul > li > article > footer > figure > img {
+  box-shadow: 10px 10px 15px rgba(70, 70, 70, 0.12);
   border-radius: 100%;
   width: 20%;
 }
@@ -534,7 +544,7 @@ table {
 }
 
 #visitorChef > section:nth-of-type(1) {
-  background-color: lightgrey;
+  background-color: #e3e3e3;
   padding: 5vh 5vw;
   display: grid;
 }
@@ -666,7 +676,7 @@ table {
   font-weight: bold;
 }
 #visitorChef > section:nth-of-type(3) {
-  background-color: lightgrey;
+  background-color: #e3e3e3;
   padding: 5vh 5vw;
 }
 #visitorChef > section:nth-of-type(3) > h2 {
@@ -710,7 +720,7 @@ table {
 }
 
 #register {
-  background-color: lightgrey;
+  background-color: #e3e3e3;
   padding: 5vh 5vw;
 }
 #register > h2 {
@@ -789,7 +799,7 @@ table {
 }
 
 #loginForm {
-  background-color: lightgrey;
+  background-color: #e3e3e3;
   padding: 5vh 5vw;
 }
 #loginForm > h2 {
@@ -868,7 +878,7 @@ table {
 }
 
 #profil > section:nth-of-type(1) {
-  background-color: lightgrey;
+  background-color: #e3e3e3;
   padding: 5vh 5vw;
   display: flex;
   flex-direction: column;
@@ -902,6 +912,7 @@ table {
   }
 }
 #profil > section:nth-of-type(1) > section > figure > img {
+  box-shadow: 10px 10px 15px rgba(70, 70, 70, 0.12);
   width: 100%;
   border-radius: 100%;
   aspect-ratio: 1/1;
@@ -929,6 +940,7 @@ table {
   margin-top: 10vh;
 }
 #profil > section:nth-of-type(1) > section > section > section > p {
+  box-shadow: 10px 10px 15px rgba(70, 70, 70, 0.12);
   font-size: 1.6rem;
   font-weight: bold;
   background-color: gold;
@@ -963,6 +975,7 @@ table {
   margin-bottom: 5vh;
 }
 #profil > section:nth-of-type(2) > section {
+  box-shadow: 10px 10px 15px rgba(70, 70, 70, 0.12);
   background-color: whitesmoke;
   margin: auto;
   display: flex;
@@ -1023,7 +1036,7 @@ table {
   font-weight: bold;
 }
 #profil > section:nth-of-type(3) {
-  background-color: lightgrey;
+  background-color: #e3e3e3;
   padding: 5vh 5vw;
 }
 #profil > section:nth-of-type(3) > h2 {
@@ -1052,6 +1065,7 @@ table {
   width: 100%;
 }
 #profil > section:nth-of-type(3) > section > ul > li > figure > img {
+  box-shadow: 10px 10px 15px rgba(70, 70, 70, 0.12);
   width: 100%;
   aspect-ratio: 3/2;
 }
@@ -1112,7 +1126,7 @@ table {
 }
 
 #createDishForm {
-  background-color: lightgrey;
+  background-color: #e3e3e3;
   padding: 5vh 5vw;
 }
 #createDishForm > h2 {
@@ -1163,7 +1177,7 @@ table {
 }
 
 #events > section {
-  background-color: lightgrey;
+  background-color: #e3e3e3;
   padding: 5vh 5vw;
 }
 #events > section > h2 {
@@ -1174,6 +1188,7 @@ table {
 }
 
 .calendarByMonth {
+  box-shadow: 10px 10px 15px rgba(70, 70, 70, 0.12);
   background-color: whitesmoke;
   border-radius: 5px;
   padding: 10px;
@@ -1219,7 +1234,7 @@ table {
   border: 1px solid black;
 }
 .calendarByMonth > table > tbody > tr > td.today {
-  background-color: skyblue;
+  background-color: lightgrey;
 }
 .calendarByMonth > table > tbody > tr > td > p {
   padding: 5px;
@@ -1234,6 +1249,7 @@ table {
   padding: 10px;
 }
 .calendarByMonth > table > tbody > tr > td > section > p {
+  cursor: pointer;
   aspect-ratio: 1/1;
   display: flex;
   justify-content: center;
@@ -1241,16 +1257,19 @@ table {
   border-radius: 100%;
   padding: 10px;
   border: 1px solid grey;
-  box-shadow: 5px 5px 5px lightgrey;
+  box-shadow: 10px 10px 15px rgba(70, 70, 70, 0.12);
 }
 .calendarByMonth > table > tbody > tr > td > section > p.booked {
+  border: lightsalmon;
   background-color: lightsalmon;
 }
 .calendarByMonth > table > tbody > tr > td > section > p.available {
+  border: lightgreen;
   background-color: lightgreen;
 }
 
 .calendarByWeek {
+  box-shadow: 10px 10px 15px rgba(70, 70, 70, 0.12);
   background-color: whitesmoke;
   border-radius: 5px;
   padding: 10px;
@@ -1289,9 +1308,11 @@ table {
   margin: 0 10px;
 }
 .calendarByWeek > section:nth-of-type(2) {
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px rgba(70, 70, 70, 0.12);
+  background-color: #e3e3e3;
   margin: auto;
   padding: 20px;
-  border: 1px solid black;
 }
 @media only screen and (min-width: 769px) {
   .calendarByWeek > section:nth-of-type(2) {
@@ -1304,11 +1325,13 @@ table {
   }
 }
 .calendarByWeek > section:nth-of-type(2) > section {
-  border: 1px solid black;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px rgba(70, 70, 70, 0.12);
   text-align: center;
   padding: 5px;
   font-weight: bold;
-  margin: 1vh 0;
+  margin: 4vh 0;
 }
 .calendarByWeek > section:nth-of-type(2) > section > section {
   display: flex;
@@ -1316,18 +1339,23 @@ table {
   margin: 1vh 1vw;
 }
 .calendarByWeek > section:nth-of-type(2) > section > section > p {
+  cursor: pointer;
   width: 30vw;
   border: 1px solid black;
   padding: 1vh 1vw;
   margin: 0 1vw;
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px rgba(70, 70, 70, 0.12);
 }
 .calendarByWeek > section:nth-of-type(2) > section > section > p.today {
-  background-color: skyblue;
+  background-color: #e3e3e3;
 }
 .calendarByWeek > section:nth-of-type(2) > section > section > p.booked {
+  border: lightsalmon;
   background-color: lightsalmon;
 }
 .calendarByWeek > section:nth-of-type(2) > section > section > p.available {
+  border: lightgreen;
   background-color: lightgreen;
 }
 
@@ -1335,11 +1363,15 @@ table {
   position: absolute;
   top: 10vh;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(255, 215, 0, 0.8);
   padding: 2vh 2vw;
+  border-radius: 0 0 0 10px;
 }
 #visitor_aside > ul {
-  margin-bottom: 3vh;
+  margin-bottom: 4vh;
+}
+#visitor_aside > ul > li {
+  margin: 1vh 0;
 }
 #visitor_aside > ul > li > figure {
   height: 100%;
@@ -1383,7 +1415,7 @@ table {
 }
 
 #contactChief {
-  background-color: lightgrey;
+  background-color: #e3e3e3;
   padding: 5vh 5vw;
 }
 #contactChief > h2 {

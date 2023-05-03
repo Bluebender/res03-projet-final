@@ -160,6 +160,16 @@ class ChiefController extends AbstractController {
 
     }
 
+    public function contactUs($post){
+        
+        $email = "admin@admin.fr";
+        $title = $_POST['contactSubject'];
+        $message = "Email de l'expéditeur: ".$_POST['contactEmail']."\r\n"."Message: ".$_POST['contactDescription'];
+        mail($email, $title, $message);
+        
+        $this->render("visitor/contactValidation2", []);
+    }
+
     // ADMIN
     public function adminAllChiefs(){
         $data = $this->chiefsData();

@@ -1,4 +1,5 @@
 .calendarByMonth{
+        box-shadow: 10px 10px 15px rgba(70,70,70,0.12);
         @media only screen and (min-width: 1025px) {
         display: block;
         }
@@ -43,7 +44,7 @@
                 > td{
                     border: 1px solid black;
                     &.today{
-                        background-color: $blue;
+                        background-color: lightgrey;
                     }
                     > p{
                     padding: 5px;
@@ -57,6 +58,7 @@
                         justify-content: space-around;
                         padding: 10px;
                         > p{
+                            cursor: pointer;
                             aspect-ratio: 1/1;
                             display: flex;
                             justify-content: center;
@@ -64,11 +66,13 @@
                             border-radius: 100%;
                             padding: 10px;
                             border: 1px solid grey;
-                            box-shadow: 5px 5px 5px $grey;
+                            box-shadow: 10px 10px 15px rgba(70,70,70,0.12);
                             &.booked{
+                                border: $red;
                                 background-color: $red;
                             }
                             &.available{
+                                border: $green;
                                 background-color: $green;
                             }
                         }

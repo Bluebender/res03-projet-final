@@ -2,11 +2,13 @@
     position: absolute;
     top: 10vh;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba($yellow, 0.8);
     padding: 2vh 2vw;
+    border-radius: 0 0 0 10px;
     > ul{
-        margin-bottom: 3vh;
+        margin-bottom: 4vh;
         > li{
+            margin: 1vh 0;
             > figure{
                 height: 100%;
                 display: flex;

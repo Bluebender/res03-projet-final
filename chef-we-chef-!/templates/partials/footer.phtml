@@ -3,18 +3,21 @@
         <h2 class="hidden">Pied de page</h2>
         <section>
             <h3>Nous contacter</h3>
-            <form action="/res03-projet-final/chef-we-chef-!/contactUs" method="post">
+            <form action="/res03-projet-final/chef-we-chef-!/contactUs" id="contactUsForm" method="post">
                 <fieldset>
                     <label for="contactEmail">Votre email</label>
                     <input type="email" name="contactEmail" id="contactEmail"/>
+                    <small id="contactEmailError">Merci de rentrer un titre valide</small>
                 </fieldset>
                 <fieldset>
                     <label for="contactSubject">Sujet</label>
                     <input type="text" name="contactSubject" id="contactSubject"/>
+                    <small id="contactSubjectError">Merci de rentrer un titre valide</small>
                 </fieldset>
                 <fieldset>
                     <label for="contactDescription">Description</label>
                     <textarea name="contactDescription" id="contactDescription"></textarea>
+                    <small id="contactDescriptionError">Merci de rentrer un titre valide</small>
                 </fieldset>
                 <button type="submit">Envoyer</button>
             </form>

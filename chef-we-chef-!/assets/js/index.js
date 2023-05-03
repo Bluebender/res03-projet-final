@@ -6,12 +6,14 @@ import { asideMenu } from './asideMenu.js';
 import { loginForm } from './loginForm.js';
 import { createDishForm } from './createDishForm.js';
 import { contactChiefForm } from './contactChiefForm.js';
+import { contactUsForm } from './contactUsForm.js';
 
 
 
 window.addEventListener("DOMContentLoaded", function(){  
 
     asideMenu();
+    contactUsForm();
 
     // URL start verification. If URL start by https, FETCH url start with https. If not FETCH url start with http 
     let url = window.location.href;

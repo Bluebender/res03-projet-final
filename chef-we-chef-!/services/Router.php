@@ -60,6 +60,10 @@ class Router {
                     $this->chiefControl->contactChief($_GET);
                     break;
 
+                case 'contactUs':
+                    $this->chiefControl->contactUs($_POST);
+                    break;
+
                 // Chief pages
                 case 'mon-compte':
                     $this->chiefControl->displayMonCompte($_SESSION["chiefId"]);

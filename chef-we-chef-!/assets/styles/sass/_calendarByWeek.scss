@@ -1,4 +1,5 @@
 .calendarByWeek{
+        box-shadow: 10px 10px 15px rgba(70,70,70,0.12);
         @media only screen and (min-width: 1025px) {
         display: none;
         }
@@ -34,6 +35,9 @@
         
     }
     > section:nth-of-type(2){
+        border-radius: 10px;
+        box-shadow: 10px 10px 15px rgba(70,70,70,0.12);
+        background-color: $grey;
         @media only screen and (min-width: 769px) {
             width: 60%;
         }
@@ -42,29 +46,35 @@
         }
         margin: auto;
         padding: 20px;
-        border: 1px solid $black;
         > section{
-            border: 1px solid $black;
+            background-color: $white;
+            border-radius: 10px;
+            box-shadow: 10px 10px 15px rgba(70,70,70,0.12);
             text-align: center;
             padding: 5px;
             font-weight: bold;
-            margin: 1vh 0;
+            margin: 4vh 0;
             > section{
                 display: flex;
                 justify-content: center;
                 margin: 1vh 1vw;
                 > p{
+                    cursor: pointer;
                     width: 30vw;
                     border: 1px solid $black;
                     padding: 1vh 1vw;
                     margin: 0 1vw;
+                    border-radius: 10px;
+                    box-shadow: 10px 10px 15px rgba(70,70,70,0.12);
                     &.today{
-                        background-color: $blue;
+                        background-color: $grey;
                     }
                     &.booked{
+                        border: $red;
                         background-color: $red;
                     }
                     &.available{
+                        border: $green;
                         background-color: $green;
                     }
                 }
