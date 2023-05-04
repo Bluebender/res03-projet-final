@@ -13,8 +13,7 @@ function loginForm(){
 
     loginForm.addEventListener('submit', (event)=>{
 
-        // let emailRegEx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        let emailRegEx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*$/;
+        let emailRegEx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if(!emailRegEx.test(loginEmail.value)){
             loginEmailError.style.display = 'block';
             event.preventDefault();
@@ -23,8 +22,7 @@ function loginForm(){
             loginEmailError.style.display = 'none';
         }
 
-        // let passwordRegEx = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
-        let passwordRegEx = /^([a-z])+$/;
+        let passwordRegEx = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
         if(!passwordRegEx.test(loginPassword.value)){
             loginPasswordError.style.display = 'block';
             event.preventDefault();
