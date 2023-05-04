@@ -27,8 +27,7 @@ class DefaultController extends AbstractController {
             && (isset($post["phone"]) && !empty($post["phone"]))
             && (isset($_FILES) && !empty($_FILES["image"]["name"]))
             && (isset($post["description"]) && !empty($post["description"]))
-            && (isset($post["firstFoodStyle"]) && !empty($post["firstFoodStyle"]))
-            && (isset($post["secondFoodStyle"]) && !empty($post["secondFoodStyle"]))){
+            && (isset($post["foodStyle"]) && !empty($post["foodStyle"]))){
             
                 // vérification que l'adresse email est disponible
                 $chiefs = $this->chiefManag->getAllChefs();
@@ -51,7 +50,7 @@ class DefaultController extends AbstractController {
                         $media = $uploader->upload($_FILES, "image");
                         $profilePictureUrl = $media->getUrl();
     
-                        $newChief = new Chief (null, $post["firstName"], $post["lastName"], $post["chiefName"], $post["email"], $hashPwd, $post["phone"], $profilePictureUrl, $post["description"], $post["firstFoodStyle"], $post["secondFoodStyle"]);
+                        $newChief = new Chief (null, $post["firstName"], $post["lastName"], $post["chiefName"], $post["email"], $hashPwd, $post["phone"], $profilePictureUrl, $post["description"], $post["foodStyle"]);
                         $this->chiefManag->createChief($newChief);
     
                         $chiefToConnect=$this->chiefManag->getChiefByEmail($post['email']);
