@@ -72,6 +72,19 @@ class ChiefManager extends AbstractManager {
 
     public function deleteChief(int $id) : void
     {
+        $query= $this->db->prepare("DELETE FROM dishes WHERE chief_id=:value");
+        $parameters = [
+        'value' => $id
+        ];
+        $query->execute($parameters);
+
+        $query= $this->db->prepare("DELETE FROM events WHERE chief_id=:value");
+        $parameters = [
+        'value' => $id
+        ];
+        $query->execute($parameters);
+
+
         $query= $this->db->prepare("DELETE FROM chiefs WHERE id=:value");
         $parameters = [
         'value' => $id
