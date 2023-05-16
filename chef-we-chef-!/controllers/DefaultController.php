@@ -56,7 +56,6 @@ class DefaultController extends AbstractController {
                         $hashPwd = password_hash($firstPassword, PASSWORD_DEFAULT);
                         
                         // Chargement de la photo de profile
-                        var_dump($_FILES);
                         $uploader = new Uploader();
                         $media = $uploader->upload($_FILES, "image");
                         $profilePictureUrl = $media->getUrl();
@@ -65,7 +64,7 @@ class DefaultController extends AbstractController {
                         $newChief = new Chief (null, $firstName, $lastName, $chiefName, $email, $hashPwd, $phone, $profilePictureUrl, $description, $foodStyle);
                         $this->chiefManag->createChief($newChief);
     
-                        $chiefToConnect=$this->chiefManag->getChiefByEmail($post['email']);
+                        $chiefToConnect=$this->chiefManag->getChiefByEmail($email);
     
                         $_SESSION["connected"] = true;
                         $_SESSION["chiefId"] = $chiefToConnect->getId();
