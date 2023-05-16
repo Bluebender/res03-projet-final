@@ -1,24 +1,25 @@
 <main id="register">
     <h2>Formulaire de création de compte</h2>
+    <p><?= $data['errorMessage'] ?></p>
     <form id='registerForm' action="/res03-projet-final/chef-we-chef-!/inscription" method="post" enctype="multipart/form-data">
         <fieldset>
             <label for="firstName">Prénom</label>
-            <input type="text" id="firstName" name="firstName"/>
+            <input type="text" id="firstName" name="firstName" value="<?php if(isset($_POST['firstName'])){echo $_POST['firstName'];} ?>"/>
             <small id="firstNameError">Merci de rentrer un prénom valide</small>
         </fieldset>
         <fieldset>
             <label for="lastName">Nom</label>
-            <input type="text" id="lastName" name="lastName"/>
+            <input type="text" id="lastName" name="lastName" value="<?php if(isset($_POST['lastName'])){echo $_POST['lastName'];} ?>"/>
             <small id="lastNameError">Merci de rentrer un nom valide</small>
         </fieldset>
         <fieldset>
             <label for="chiefName">Pseudo de chef</label>
-            <input type="text" id="chiefName" name="chiefName"/>
+            <input type="text" id="chiefName" name="chiefName" value="<?php if(isset($_POST['chiefName'])){echo $_POST['chiefName'];} ?>"/>
             <small id="chiefNameError">Merci de rentrer un pseudo valide</small>
         </fieldset>
         <fieldset>
             <label for="email">Email</label>
-            <input type="text" id="email" name="email"/>
+            <input type="text" id="email" name="email" value="<?php if(isset($_POST['email'])){echo $_POST['email'];} ?>"/>
             <small id="emailError">Merci de rentrer un email valide</small>
         </fieldset>
         <fieldset>
@@ -33,7 +34,7 @@
         </fieldset>
         <fieldset>
             <label for="phone">Phone</label>
-            <input type="text" id="phone" name="phone" maxlength="20"/>
+            <input type="text" id="phone" name="phone" value="<?php if(isset($_POST['phone'])){echo $_POST['phone'];} ?>"/>
             <small id="phoneError">Merci de rentrer un numéro de téléphone valide</small>
         </fieldset>
         <fieldset>
@@ -43,14 +44,14 @@
         </fieldset>
         <fieldset>
             <label for="description">Description (250 charactères max)</label>
-            <textarea id="description" name="description"></textarea>
+            <textarea id="description" name="description"><?php if(isset($_POST['description'])){echo $_POST['description'];} ?></textarea>
             <small id="descriptionError">Merci de rentrer une description valide</small>
         </fieldset>
         <fieldset>
             <label for="foodStyle">Style de cuisine</label>
             <select id="foodStyle" name="foodStyle">
                 <option value="">--Choisir un style de cuisine--</option>
-                <?php foreach($data as $foodstyle){ ?>
+                <?php foreach($data['foodstyles'] as $foodstyle){ ?>
                 <option value="<?= $foodstyle->getId() ?>"><?= $foodstyle->getName() ?></option>
                 <?php } ?>
             </select>

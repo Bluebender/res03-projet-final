@@ -13,9 +13,15 @@ class DefaultController extends AbstractController {
     }
 
     public function register($post){
+
+        $foodstyles = $this->foodStyleManag->getAllFoodStyles();
+        $errorMessage = "";
+        $data ["foodstyles"] = $foodstyles;
+        $data ["errorMessage"] = $errorMessage;
+        
+
         if (empty($post)){
-            $foodstyles = $this->foodStyleManag->getAllFoodStyles();
-            $this->render("visitor/register-form", $foodstyles);
+            $this->render("visitor/register-form", $data);
         }
         else {
             if ((isset($post["firstName"]) && !empty($post["firstName"]))
@@ -49,7 +55,10 @@ class DefaultController extends AbstractController {
                     }
                 }
                 if ($emailFree===false){
-                    echo"adresse email non disponible";
+                    $errorMessage = "adresse email non disponible";
+                    $data ["errorMessage"] = $errorMessage;
+                    
+                    $this->render("visitor/register-form", $data);
                 }
                 else{
                     if($firstPassword === $secondPassword){
@@ -76,47 +85,77 @@ class DefaultController extends AbstractController {
                         header('Location: mon-compte');
                     }
                     else{
-                        echo "Les mots de passe sont différents !";
+                        $errorMessage = "Les mots de passe sont différents !";
+                        $data ["errorMessage"] = $errorMessage;
+                        
+                        $this->render("visitor/register-form", $data);
                     }
                 }
             }
             else if(isset($post['firstName']) && empty($post['firstName'])){
-                echo "Veuillez saisir votre prénom";
+                $errorMessage = "Veuillez saisir votre prénom";
+                $data ["errorMessage"] = $errorMessage;
+                
+                $this->render("visitor/register-form", $data);
             }
             else if(isset($post['lastName']) && empty($post['lastName'])){
-                echo "Veuillez saisir votre nom";
+                $errorMessage = "Veuillez saisir votre nom";
+                $data ["errorMessage"] = $errorMessage;
+                
+                $this->render("visitor/register-form", $data);
             }
             else if(isset($post['chiefName']) && empty($post['chiefName'])){
-                echo "Veuillez saisir votre nom de chef";
+                $errorMessage = "Veuillez saisir votre nom de chef";
+                $data ["errorMessage"] = $errorMessage;
+                
+                $this->render("visitor/register-form", $data);
             }
             else if(isset($post['email']) && empty($post['email'])){
-                echo "Veuillez saisir votre email";
+                $errorMessage = "Veuillez saisir votre email";
+                $data ["errorMessage"] = $errorMessage;
+                
+                $this->render("visitor/register-form", $data);
             }
             else if(isset($post['firstPassword']) && empty($post['firstPassword'])){
-                echo "Veuillez saisir votre mot de passe";
+                $errorMessage = "Veuillez saisir votre mot de passe";
+                $data ["errorMessage"] = $errorMessage;
+                
+                $this->render("visitor/register-form", $data);
             }
             else if(isset($post['secondPassword']) && empty($post['secondPassword'])){
-                echo "Veuillez confirmer votre mot de passe";
+                $errorMessage = "Veuillez confirmer votre mot de passe";
+                $data ["errorMessage"] = $errorMessage;
+                
+                $this->render("visitor/register-form", $data);
             }
             else if(isset($post['phone']) && empty($post['phone'])){
-                echo "Veuillez saisir votre numéro de téléphone";
+                $errorMessage = "Veuillez saisir votre numéro de téléphone";
+                $data ["errorMessage"] = $errorMessage;
+                
+                $this->render("visitor/register-form", $data);
             }
             else if(isset($_FILES) && empty($_FILES["image"]["name"])){
-                echo "Veuillez charger votre photo de profil";
+                $errorMessage = "Veuillez charger votre photo de profil";
+                $data ["errorMessage"] = $errorMessage;
+                
+                $this->render("visitor/register-form", $data);
             }
             else if(isset($post['description']) && empty($post['description'])){
-                echo "Veuillez saisir votre déscription";
+                $errorMessage = "Veuillez saisir votre déscription";
+                $data ["errorMessage"] = $errorMessage;
+                
+                $this->render("visitor/register-form", $data);
             }
             else if(isset($post['firstFoodStyle']) && empty($post['firstFoodStyle'])){
-                echo "Veuillez choisir un premier style de cuisine";
-            }
-            else if(isset($post['secondFoodStyle']) && empty($post['secondFoodStyle'])){
-                echo "Veuillez choisir un second style de cuisine";
+                $errorMessage = "Veuillez choisir un premier style de cuisine";
+                $data ["errorMessage"] = $errorMessage;
+                
+                $this->render("visitor/register-form", $data);
             }
         }
     }
 
-    public function login($post){   
+    public function login($post){
         if (empty($post)){
             $this->render("visitor/login-form", [""]);
         }
