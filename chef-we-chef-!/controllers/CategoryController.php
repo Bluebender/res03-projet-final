@@ -29,7 +29,11 @@ class CategoryController extends AbstractController {
         else {
             if ((isset($post["categoryName"]) && !empty($post["categoryName"]))){
 
-                $newcategory = new Category (null, $post["categoryName"]);
+                // Sanitisation des données du formulaire
+                $categoryName = $this->sanitize($post["categoryName"]);
+
+                // Création de la catégorie
+                $newcategory = new Category (null, $categoryName);
                 $this->categoryManag->createCategory($newcategory);
 
                 header('Location: /res03-projet-final/chef-we-chef-!/admin/categories');
@@ -51,7 +55,11 @@ class CategoryController extends AbstractController {
         else {
             if ((isset($post["categoryName"]) && !empty($post["categoryName"]))){
 
-                $category = new Category ($id, $post["categoryName"]);
+                // Sanitisation des données du formulaire
+                $categoryName = $this->sanitize($post["categoryName"]);
+
+                // Modification de la catégorie
+                $category = new Category ($id, $categoryName);
                 $this->categoryManag->updateCategory($category);
 
                 header('Location: /res03-projet-final/chef-we-chef-!/admin/categories');

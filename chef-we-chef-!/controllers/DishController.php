@@ -93,12 +93,19 @@ class DishController extends AbstractController {
             && (isset($post["dishFoodStyle"]) && !empty($post["dishFoodStyle"]))
             && (isset($post["dishCategory"]) && !empty($post["dishCategory"]))){
 
+                // Sanitisation des données du formulaire
+                $dishName = $this->sanitize($post["dishName"]);
+                $description = $this->sanitize($post["description"]);
+                $dishPrice = $this->sanitize($post["dishPrice"]);
+                $dishFoodStyle = $this->sanitize($post["dishFoodStyle"]);
+                $dishCategory = $this->sanitize($post["dishCategory"]);
+
                 // Chargement de la photo du plat
                 $uploader = new Uploader();
                 $media = $uploader->upload($_FILES, "image");
                 $dishPictureUrl = $media->getUrl();
 
-                $newDish = new Dish (null, $post["dishName"], $dishPictureUrl, $post["description"], $post["dishPrice"], $_SESSION["chiefId"], $post["dishFoodStyle"], $post["dishCategory"]);
+                $newDish = new Dish (null, $dishName, $dishPictureUrl, $description, $dishPrice, $_SESSION["chiefId"], $dishFoodStyle, $dishCategory);
                 $this->dishManag->createDish($newDish);
 
                 header('Location: /res03-projet-final/chef-we-chef-!/mon-compte');

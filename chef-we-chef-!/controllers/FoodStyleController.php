@@ -30,7 +30,12 @@ class FoodStyleController extends AbstractController {
             if ((isset($post["foodStyleName"]) && !empty($post["foodStyleName"]))
             && (isset($post["foodStyleDescription"]) && !empty($post["foodStyleDescription"]))){
 
-                $newFoodStyle = new FoodStyle (null, $post["foodStyleName"], $post["foodStyleDescription"]);
+                // Sanitisation des données du formulaire
+                $foodStyleName = $this->sanitize($post["foodStyleName"]);
+                $foodStyleDescription = $this->sanitize($post["foodStyleDescription"]);
+
+                // Création du style de cuisine
+                $newFoodStyle = new FoodStyle (null, $foodStyleName, $foodStyleDescription);
                 $this->foodStyleManag->createFoodStyle($newFoodStyle);
 
                 header('Location: /res03-projet-final/chef-we-chef-!/admin/styles-de-cuisine');
@@ -56,7 +61,12 @@ class FoodStyleController extends AbstractController {
             if ((isset($post["foodStyleName"]) && !empty($post["foodStyleName"]))
             && (isset($post["foodStyleDescription"]) && !empty($post["foodStyleDescription"]))){
 
-                $FoodStyle = new FoodStyle ($id, $post["foodStyleName"], $post["foodStyleDescription"]);
+                // Sanitisation des données du formulaire
+                $foodStyleName = $this->sanitize($post["foodStyleName"]);
+                $foodStyleDescription = $this->sanitize($post["foodStyleDescription"]);
+
+                // Modification du style de cuisine
+                $FoodStyle = new FoodStyle ($id, $foodStyleName, $foodStyleDescription);
                 $this->foodStyleManag->updateFoodStyle($FoodStyle);
 
                 header('Location: /res03-projet-final/chef-we-chef-!/admin/styles-de-cuisine');

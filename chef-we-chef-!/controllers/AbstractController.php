@@ -8,8 +8,15 @@ abstract class AbstractController
         $data = $values;
         require "templates/layout.phtml";
     }  
+    
     protected function jsRender(array $values)
     {  
         echo json_encode($values);
-    }  
+    }
+    
+    protected function sanitize(string $value) : string
+    {  
+        return htmlspecialchars($value);
+    }
+    
 }

@@ -29,11 +29,22 @@ class DefaultController extends AbstractController {
             && (isset($post["description"]) && !empty($post["description"]))
             && (isset($post["foodStyle"]) && !empty($post["foodStyle"]))){
             
+                // Sanitisation des données du formulaire
+                $firstName      = $this->sanitize($post["firstName"]);
+                $lastName       = $this->sanitize($post["lastName"]);
+                $chiefName      = $this->sanitize($post["chiefName"]);
+                $email          = $this->sanitize($post["email"]);
+                $firstPassword  = $this->sanitize($post["firstPassword"]);
+                $secondPassword = $this->sanitize($post["secondPassword"]);
+                $phone          = $this->sanitize($post["phone"]);
+                $description    = $this->sanitize($post["description"]);
+                $foodStyle      = $this->sanitize($post["foodStyle"]);
+
                 // vérification que l'adresse email est disponible
                 $chiefs = $this->chiefManag->getAllChefs();
                 $emailFree = true;
                 foreach ($chiefs as $chief){
-                    if($chief->getEmail()===$post["email"]){
+                    if($chief->getEmail()===$email){
                         $emailFree = false;
                     }
                 }
@@ -41,8 +52,8 @@ class DefaultController extends AbstractController {
                     echo"adresse email non disponible";
                 }
                 else{
-                    if($post["firstPassword"] === $post["secondPassword"]){
-                        $hashPwd = password_hash($post["firstPassword"], PASSWORD_DEFAULT);
+                    if($firstPassword === $secondPassword){
+                        $hashPwd = password_hash($firstPassword, PASSWORD_DEFAULT);
                         
                         // Chargement de la photo de profile
                         var_dump($_FILES);
@@ -50,7 +61,8 @@ class DefaultController extends AbstractController {
                         $media = $uploader->upload($_FILES, "image");
                         $profilePictureUrl = $media->getUrl();
     
-                        $newChief = new Chief (null, $post["firstName"], $post["lastName"], $post["chiefName"], $post["email"], $hashPwd, $post["phone"], $profilePictureUrl, $post["description"], $post["foodStyle"]);
+                        // Création du chef
+                        $newChief = new Chief (null, $firstName, $lastName, $chiefName, $email, $hashPwd, $phone, $profilePictureUrl, $description, $foodStyle);
                         $this->chiefManag->createChief($newChief);
     
                         $chiefToConnect=$this->chiefManag->getChiefByEmail($post['email']);
@@ -113,10 +125,13 @@ class DefaultController extends AbstractController {
             if ((isset($post["loginEmail"]) && !empty($post["loginEmail"]))
             && (isset($post["loginPassword"]) && !empty($post["loginPassword"]))){
 
+                // Sanitisation des données du formulaire
+                $loginEmail     = $this->sanitize($post["loginEmail"]);
+                $loginPassword  = $this->sanitize($post["loginPassword"]);
 
-                if($post["loginEmail"]==="admin@admin.fr"){
+                if($loginEmail==="admin@admin.fr"){
                     $admin = $this->adminManag->getAdmin();
-                    if(password_verify($post["loginPassword"], $admin->getPassword())){
+                    if(password_verify($loginPassword, $admin->getPassword())){
                         $_SESSION["connected"] = true;
                         $_SESSION["role"] = "admin";
                         
@@ -130,7 +145,7 @@ class DefaultController extends AbstractController {
                     $allChiefs = $this->chiefManag->getAllChefs();
                     $ChiefFind = false;
                     foreach($allChiefs as $chief){
-                        if ($post["loginEmail"] === $chief->getEmail())
+                        if ($loginEmail === $chief->getEmail())
                         $ChiefFind=true;
                     } 
                     
@@ -139,8 +154,8 @@ class DefaultController extends AbstractController {
                         echo "adresse email inconnue";
                     }
                     else{
-                        $chiefToConnect = $this->chiefManag->getChiefByEmail($post["loginEmail"]);
-                        if(password_verify($post["loginPassword"], $chiefToConnect->getPassword())){
+                        $chiefToConnect = $this->chiefManag->getChiefByEmail($loginEmail);
+                        if(password_verify($loginPassword, $chiefToConnect->getPassword())){
                             $_SESSION["connected"] = true;
                             $_SESSION["chiefId"] = $chiefToConnect->getId();
                             $_SESSION["chiefEmail"] = $chiefToConnect->getEmail();
