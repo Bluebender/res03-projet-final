@@ -148,9 +148,12 @@ class ChiefController extends AbstractController {
             
         }
         else{
-            $title = $_POST['title'];
-            $message = "Email de l'expéditeur: ".$_POST['email']."\r\n"."Message: ".$_POST['message'];
-            mail($chiefEmail, $title, $message);
+            $title   = $this->sanitize($_POST['title']);
+            $email   = $this->sanitize($_POST['email']);
+            $message = $this->sanitize($_POST['message']);
+            
+            $messageToSend = "Email de l'expéditeur: ".$email."\r\n"."Message: ".$message;
+            mail($chiefEmail, $title, $messageToSend);
             
             $data['name'] = $chiefName;
             
@@ -162,10 +165,13 @@ class ChiefController extends AbstractController {
 
     public function contactUs($post){
         
-        $email = "admin@admin.fr";
-        $title = $_POST['contactSubject'];
-        $message = "Email de l'expéditeur: ".$_POST['contactEmail']."\r\n"."Message: ".$_POST['contactDescription'];
-        mail($email, $title, $message);
+        $adminEmail         = "admin@admin.fr";
+        $title              = $this->sanitize($_POST['contactSubject']);
+        $contactEmail       = $this->sanitize($_POST['contactEmail']);
+        $contactDescription = $this->sanitize($_POST['contactDescription']);
+        
+        $message = "Email de l'expéditeur: ".$contactEmail."\r\n"."Message: ".$contactDescription;
+        mail($adminEmail, $title, $message);
         
         $this->render("visitor/contactValidation2", []);
     }

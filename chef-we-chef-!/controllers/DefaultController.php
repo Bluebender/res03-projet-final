@@ -156,8 +156,12 @@ class DefaultController extends AbstractController {
     }
 
     public function login($post){
+
+        $errorMessage = "";
+        $data ["errorMessage"] = $errorMessage;
+
         if (empty($post)){
-            $this->render("visitor/login-form", [""]);
+            $this->render("visitor/login-form", $data);
         }
         else {
             if ((isset($post["loginEmail"]) && !empty($post["loginEmail"]))
@@ -176,7 +180,10 @@ class DefaultController extends AbstractController {
                         header('Location: admin');
                     }
                     else{
-                        echo "Mauvais mot de passe";
+                        $errorMessage = "Problème d'autentification, merci de vérifier votre email et votre mot de passe";
+                        $data ["errorMessage"] = $errorMessage;
+
+                        $this->render("visitor/login-form", $data);
                     }
                 }
                 else{
@@ -189,7 +196,10 @@ class DefaultController extends AbstractController {
                     
     
                     if ($ChiefFind===false){
-                        echo "adresse email inconnue";
+                        $errorMessage = "Problème d'autentification, merci de vérifier votre email et votre mot de passe";
+                        $data ["errorMessage"] = $errorMessage;
+
+                        $this->render("visitor/login-form", $data);
                     }
                     else{
                         $chiefToConnect = $this->chiefManag->getChiefByEmail($loginEmail);
@@ -204,16 +214,25 @@ class DefaultController extends AbstractController {
                             header('Location: mon-compte');
                         }
                         else{
-                            echo "Mauvais mot de passe";
+                            $errorMessage = "Problème d'autentification, merci de vérifier votre email et votre mot de passe";
+                            $data ["errorMessage"] = $errorMessage;
+    
+                            $this->render("visitor/login-form", $data);
                         }
                     }
                 }
             }
             else if(isset($post['loginEmail']) && empty($post['loginEmail'])){
-                echo "Veuillez saisir votre email";
+                $errorMessage = "Problème d'autentification, merci de vérifier votre email et votre mot de passe";
+                $data ["errorMessage"] = $errorMessage;
+
+                $this->render("visitor/login-form", $data);
             }
             else if(isset($post['loginPassword']) && empty($post['loginPassword'])){
-                echo "Veuillez saisir votre mot de passe";
+                $errorMessage = "Problème d'autentification, merci de vérifier votre email et votre mot de passe";
+                $data ["errorMessage"] = $errorMessage;
+
+                $this->render("visitor/login-form", $data);
             }
         }        
     }

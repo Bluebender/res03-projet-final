@@ -817,6 +817,12 @@ table {
   text-align: center;
   margin-bottom: 5vh;
 }
+#loginForm > p {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: red;
+  text-align: center;
+}
 #loginForm > form {
   display: grid;
   grid-template-rows: 15 1fr;
@@ -1144,6 +1150,12 @@ table {
   text-align: center;
   margin-bottom: 5vh;
 }
+#createDishForm > p {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: red;
+  text-align: center;
+}
 #createDishForm > form {
   display: grid;
   grid-template-rows: 15 1fr;
@@ -1418,7 +1430,7 @@ table {
   align-items: center;
 }
 #visitor_aside > ul > li > figure > img {
-  height: 60%;
+  height: 160px;
   border-radius: 100%;
 }
 #visitor_aside > ul > li > a {

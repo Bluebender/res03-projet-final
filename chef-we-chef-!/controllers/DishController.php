@@ -77,12 +77,15 @@ class DishController extends AbstractController {
     }
 
     public function createDish($post){
+        $foodstyles = $this->foodStyleManag->getAllFoodStyles();
+        $categories = $this->categoryManag->getAllCategories();
+        $errorMessage = "";
+
+        $data ["foodStyles"]=$foodstyles;
+        $data ["categories"]=$categories;
+        $data ["errorMessage"] = $errorMessage;
+
         if (empty($post)){
-            $foodstyles = $this->foodStyleManag->getAllFoodStyles();
-            $categories = $this->categoryManag->getAllCategories();
-            $data ["foodStyles"]=$foodstyles;
-            $data ["categories"]=$categories;
-            
             $this->render("chef/create-dish-form", $data);
         }
         else {
@@ -112,22 +115,40 @@ class DishController extends AbstractController {
             }
 
             else if(isset($post['dishName']) && empty($post['dishName'])){
-                echo "Veuillez saisir le nom du plat";
+                $errorMessage = "Veuillez saisir le nom du plat";
+                $data ["errorMessage"] = $errorMessage;
+                
+                $this->render("chef/create-dish-form", $data);
             }
             else if(isset($_FILES) && empty($_FILES["image"]["name"])){
-                echo "Veuillez charger la photo de votre plat";
+                $errorMessage = "Veuillez charger la photo de votre plat";
+                $data ["errorMessage"] = $errorMessage;
+                
+                $this->render("chef/create-dish-form", $data);
             }
             else if(isset($post['description']) && empty($post['description'])){
-                echo "Veuillez saisir une déscriptio pour votre plat";
+                $errorMessage = "Veuillez saisir une description pour votre plat";
+                $data ["errorMessage"] = $errorMessage;
+                
+                $this->render("chef/create-dish-form", $data);
             }
             else if(isset($post['dishPrice']) && empty($post['dishPrice'])){
-                echo "Veuillez saisir un prix";
+                $errorMessage = "Veuillez saisir un prix";
+                $data ["errorMessage"] = $errorMessage;
+                
+                $this->render("chef/create-dish-form", $data);
             }
             else if(isset($post['dishFoodStyle']) && empty($post['dishFoodStyle'])){
-                echo "Veuillez saisir un style de cuisine";
+                $errorMessage = "Veuillez saisir un style de cuisine";
+                $data ["errorMessage"] = $errorMessage;
+                
+                $this->render("chef/create-dish-form", $data);
             }
             else if(isset($post['dishCategory']) && empty($post['dishCategory'])){
-                echo "Veuillez saisir une catégorie";
+                $errorMessage = "Veuillez saisir une catégorie";
+                $data ["errorMessage"] = $errorMessage;
+                
+                $this->render("chef/create-dish-form", $data);
             }
         }
     }

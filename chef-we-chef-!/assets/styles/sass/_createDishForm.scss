@@ -7,6 +7,12 @@
         text-align: center;
         margin-bottom: 5vh;
     }
+    > p{
+        font-size: 1.6rem;
+        font-weight: bold;
+        color: red;
+        text-align: center;
+    }
     > form{
         display: grid;
         grid-template-rows: (15 1fr);

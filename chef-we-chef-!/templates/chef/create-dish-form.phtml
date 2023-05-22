@@ -1,9 +1,11 @@
 <main id="createDishForm">
     <h2>Formulaire de création d'un plat</h2>
+    <p><?= $data['errorMessage'] ?></p>
+
     <form action="/res03-projet-final/chef-we-chef-!/mon-compte/plat/creer" id="createDish" method="post" enctype="multipart/form-data">
         <fieldset>
             <label for="dishName">Nom du plat</label>
-            <input type="text" name="dishName" id="dishName"/>
+            <input type="text" name="dishName" id="dishName" value="<?php if(isset($_POST['dishName'])){echo $_POST['dishName'];} ?>"/>
             <small id="dishNameError">Merci de saisir un nom de plat valide</small>
         </fieldset>
         <fieldset>
@@ -13,12 +15,12 @@
         </fieldset>
         <fieldset>
             <label for="description">Description (250 charactères max)</label>
-            <textarea name="description" id="description"></textarea>
+            <textarea name="description" id="description"><?php if(isset($_POST['description'])){echo $_POST['description'];} ?></textarea>
             <small id="descriptionError">Merci de saisir une description valide</small>
         </fieldset>
         <fieldset>
             <label for="dishPrice">Prix par personne</label>
-            <input type="text" name="dishPrice" id="dishPrice"/>
+            <input type="text" name="dishPrice" id="dishPrice" value="<?php if(isset($_POST['dishPrice'])){echo $_POST['dishPrice'];} ?>"/>
             <small id="dishPriceError">Merci de saisir un prix valide</small>
         </fieldset>
         <fieldset>

@@ -11,7 +11,7 @@ class AdminManager extends AbstractManager {
 
         $loadedAdminObject = new Admin ($loadedAdmin["id"], $loadedAdmin["email"], $loadedAdmin["password"]);
         
-        var_dump($loadedAdminObject);
+        // var_dump($loadedAdminObject);
         return $loadedAdminObject;
     }
 }
