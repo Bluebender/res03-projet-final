@@ -1,14 +1,14 @@
 import { myCalendar } from './calendar.js';
 import { chiefCalendar } from './calendar.js';
 import { eventsCreation } from './eventsCreation.js';
-// import { registerForm } from './registerForm.js';
 import { asideMenu } from './asideMenu.js';
 import { loginForm } from './loginForm.js';
-// import { createDishForm } from './createDishForm.js';
 import { contactChiefForm } from './contactChiefForm.js';
 import { contactUsForm } from './contactUsForm.js';
 
+// import { createDishForm } from './createDishForm.js';
 import { createDishFormTest } from './createDishFormTest.js';
+// import { registerForm } from './registerForm.js';
 import { registerFormTest } from './registerFormTest.js';
 
 
